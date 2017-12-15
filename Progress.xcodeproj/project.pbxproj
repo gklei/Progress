@@ -7,21 +7,85 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		690F0206AFA63A108CECBDF8 /* Pods_Progress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5ABD58FBD65DDAD1BE07772 /* Pods_Progress.framework */; };
 		CE145A501FE3812200286BE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE145A4F1FE3812200286BE1 /* AppDelegate.swift */; };
-		CE145A521FE3812200286BE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE145A511FE3812200286BE1 /* ViewController.swift */; };
-		CE145A551FE3812200286BE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE145A531FE3812200286BE1 /* Main.storyboard */; };
 		CE145A571FE3812200286BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE145A561FE3812200286BE1 /* Assets.xcassets */; };
 		CE145A5A1FE3812200286BE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE145A581FE3812200286BE1 /* LaunchScreen.storyboard */; };
+		CE145A621FE387BE00286BE1 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE145A611FE387BE00286BE1 /* AppRouter.swift */; };
+		CEBFDF431FE38AAE00DC8AA8 /* Gotham-XLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF371FE38AAE00DC8AA8 /* Gotham-XLight.otf */; };
+		CEBFDF441FE38AAE00DC8AA8 /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF381FE38AAE00DC8AA8 /* Gotham-Black.otf */; };
+		CEBFDF451FE38AAE00DC8AA8 /* Gotham-XLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF391FE38AAE00DC8AA8 /* Gotham-XLightItalic.otf */; };
+		CEBFDF461FE38AAE00DC8AA8 /* Gotham-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF3A1FE38AAE00DC8AA8 /* Gotham-Medium.otf */; };
+		CEBFDF471FE38AAE00DC8AA8 /* Gotham-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF3B1FE38AAE00DC8AA8 /* Gotham-Book.otf */; };
+		CEBFDF481FE38AAE00DC8AA8 /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF3C1FE38AAE00DC8AA8 /* Gotham-Bold.otf */; };
+		CEBFDF491FE38AAE00DC8AA8 /* Gotham-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF3D1FE38AAE00DC8AA8 /* Gotham-LightItalic.otf */; };
+		CEBFDF4A1FE38AAE00DC8AA8 /* Gotham-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF3E1FE38AAE00DC8AA8 /* Gotham-Light.otf */; };
+		CEBFDF4B1FE38AAE00DC8AA8 /* Gotham-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF3F1FE38AAE00DC8AA8 /* Gotham-BoldItalic.otf */; };
+		CEBFDF4C1FE38AAE00DC8AA8 /* Gotham-BookItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF401FE38AAE00DC8AA8 /* Gotham-BookItalic.otf */; };
+		CEBFDF4D1FE38AAE00DC8AA8 /* Gotham-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF411FE38AAE00DC8AA8 /* Gotham-BlackItalic.otf */; };
+		CEBFDF4E1FE38AAE00DC8AA8 /* Gotham-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF421FE38AAE00DC8AA8 /* Gotham-MediumItalic.otf */; };
+		CEBFDF5B1FE38B7800DC8AA8 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF501FE38B7800DC8AA8 /* UIViewController+Extensions.swift */; };
+		CEBFDF5C1FE38B7800DC8AA8 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF511FE38B7800DC8AA8 /* UIButton+Extensions.swift */; };
+		CEBFDF5D1FE38B7800DC8AA8 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF521FE38B7800DC8AA8 /* UIView+Extensions.swift */; };
+		CEBFDF5E1FE38B7800DC8AA8 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF531FE38B7800DC8AA8 /* String+Extensions.swift */; };
+		CEBFDF5F1FE38B7800DC8AA8 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF541FE38B7800DC8AA8 /* UIFont+Extensions.swift */; };
+		CEBFDF601FE38B7800DC8AA8 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF551FE38B7800DC8AA8 /* UIColor+Extensions.swift */; };
+		CEBFDF611FE38B7800DC8AA8 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF561FE38B7800DC8AA8 /* UIImage+Extensions.swift */; };
+		CEBFDF621FE38B7800DC8AA8 /* UITabBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF571FE38B7800DC8AA8 /* UITabBar+Extensions.swift */; };
+		CEBFDF631FE38B7800DC8AA8 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF581FE38B7800DC8AA8 /* UINavigationController+Extensions.swift */; };
+		CEBFDF641FE38B7800DC8AA8 /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF591FE38B7800DC8AA8 /* UIBarButtonItem+Extensions.swift */; };
+		CEBFDF651FE38B7800DC8AA8 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF5A1FE38B7800DC8AA8 /* UILabel+Extensions.swift */; };
+		CEBFDF681FE38E8700DC8AA8 /* MainConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF671FE38E8700DC8AA8 /* MainConductor.swift */; };
+		CEBFDF6B1FE38F7E00DC8AA8 /* StreakViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF6A1FE38F7E00DC8AA8 /* StreakViewController.swift */; };
+		CEBFDF6D1FE3904A00DC8AA8 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF6C1FE3904A00DC8AA8 /* StatsViewController.swift */; };
+		CEBFDF6F1FE3906700DC8AA8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF6E1FE3906700DC8AA8 /* ProfileViewController.swift */; };
+		CEBFDF711FE399AF00DC8AA8 /* StreakConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF701FE399AF00DC8AA8 /* StreakConductor.swift */; };
+		CEBFDF731FE399CE00DC8AA8 /* StatsConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF721FE399CE00DC8AA8 /* StatsConductor.swift */; };
+		CEBFDF751FE399E300DC8AA8 /* ProfileConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF741FE399E300DC8AA8 /* ProfileConductor.swift */; };
+		CEBFDF7A1FE39A4000DC8AA8 /* ElementConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF791FE39A4000DC8AA8 /* ElementConfigs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A0D4B8E88BBDE7E8D59135D /* Pods-Progress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Progress.release.xcconfig"; path = "Pods/Target Support Files/Pods-Progress/Pods-Progress.release.xcconfig"; sourceTree = "<group>"; };
+		290FEA6B8E05165FB1B01086 /* Pods-Progress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Progress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Progress/Pods-Progress.debug.xcconfig"; sourceTree = "<group>"; };
 		CE145A4C1FE3812200286BE1 /* Progress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Progress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE145A4F1FE3812200286BE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE145A511FE3812200286BE1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CE145A541FE3812200286BE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE145A561FE3812200286BE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE145A591FE3812200286BE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE145A5B1FE3812200286BE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE145A611FE387BE00286BE1 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		CEBFDF371FE38AAE00DC8AA8 /* Gotham-XLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLight.otf"; sourceTree = "<group>"; };
+		CEBFDF381FE38AAE00DC8AA8 /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
+		CEBFDF391FE38AAE00DC8AA8 /* Gotham-XLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLightItalic.otf"; sourceTree = "<group>"; };
+		CEBFDF3A1FE38AAE00DC8AA8 /* Gotham-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Medium.otf"; sourceTree = "<group>"; };
+		CEBFDF3B1FE38AAE00DC8AA8 /* Gotham-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Book.otf"; sourceTree = "<group>"; };
+		CEBFDF3C1FE38AAE00DC8AA8 /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Bold.otf"; sourceTree = "<group>"; };
+		CEBFDF3D1FE38AAE00DC8AA8 /* Gotham-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-LightItalic.otf"; sourceTree = "<group>"; };
+		CEBFDF3E1FE38AAE00DC8AA8 /* Gotham-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Light.otf"; sourceTree = "<group>"; };
+		CEBFDF3F1FE38AAE00DC8AA8 /* Gotham-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BoldItalic.otf"; sourceTree = "<group>"; };
+		CEBFDF401FE38AAE00DC8AA8 /* Gotham-BookItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BookItalic.otf"; sourceTree = "<group>"; };
+		CEBFDF411FE38AAE00DC8AA8 /* Gotham-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BlackItalic.otf"; sourceTree = "<group>"; };
+		CEBFDF421FE38AAE00DC8AA8 /* Gotham-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-MediumItalic.otf"; sourceTree = "<group>"; };
+		CEBFDF501FE38B7800DC8AA8 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		CEBFDF511FE38B7800DC8AA8 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		CEBFDF521FE38B7800DC8AA8 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		CEBFDF531FE38B7800DC8AA8 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		CEBFDF541FE38B7800DC8AA8 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		CEBFDF551FE38B7800DC8AA8 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		CEBFDF561FE38B7800DC8AA8 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		CEBFDF571FE38B7800DC8AA8 /* UITabBar+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBar+Extensions.swift"; sourceTree = "<group>"; };
+		CEBFDF581FE38B7800DC8AA8 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		CEBFDF591FE38B7800DC8AA8 /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
+		CEBFDF5A1FE38B7800DC8AA8 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		CEBFDF671FE38E8700DC8AA8 /* MainConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainConductor.swift; path = Progress/Conductors/MainConductor.swift; sourceTree = SOURCE_ROOT; };
+		CEBFDF6A1FE38F7E00DC8AA8 /* StreakViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreakViewController.swift; path = "Progress/View Controllers/StreakViewController.swift"; sourceTree = SOURCE_ROOT; };
+		CEBFDF6C1FE3904A00DC8AA8 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatsViewController.swift; path = "Progress/View Controllers/StatsViewController.swift"; sourceTree = SOURCE_ROOT; };
+		CEBFDF6E1FE3906700DC8AA8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = "Progress/View Controllers/ProfileViewController.swift"; sourceTree = SOURCE_ROOT; };
+		CEBFDF701FE399AF00DC8AA8 /* StreakConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StreakConductor.swift; path = Progress/Conductors/StreakConductor.swift; sourceTree = SOURCE_ROOT; };
+		CEBFDF721FE399CE00DC8AA8 /* StatsConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatsConductor.swift; path = Progress/Conductors/StatsConductor.swift; sourceTree = SOURCE_ROOT; };
+		CEBFDF741FE399E300DC8AA8 /* ProfileConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileConductor.swift; path = Progress/Conductors/ProfileConductor.swift; sourceTree = SOURCE_ROOT; };
+		CEBFDF791FE39A4000DC8AA8 /* ElementConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ElementConfigs.swift; path = "Progress/Element Configs/ElementConfigs.swift"; sourceTree = SOURCE_ROOT; };
+		E5ABD58FBD65DDAD1BE07772 /* Pods_Progress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Progress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +93,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				690F0206AFA63A108CECBDF8 /* Pods_Progress.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EA09E5486CA06A23EDB6F8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5ABD58FBD65DDAD1BE07772 /* Pods_Progress.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CE145A431FE3812200286BE1 = {
 			isa = PBXGroup;
 			children = (
+				CEBFDF761FE39A0E00DC8AA8 /* Element Configs */,
+				CEBFDF661FE38E6A00DC8AA8 /* Conductors */,
+				CEBFDF691FE38F6000DC8AA8 /* View Controllers */,
+				CEBFDF4F1FE38B7800DC8AA8 /* Extensions */,
+				CEBFDF361FE38AAE00DC8AA8 /* Resources */,
 				CE145A4E1FE3812200286BE1 /* Progress */,
 				CE145A4D1FE3812200286BE1 /* Products */,
+				EB7AA54EC3DB057A478A53D5 /* Pods */,
+				0EA09E5486CA06A23EDB6F8A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +135,90 @@
 			isa = PBXGroup;
 			children = (
 				CE145A4F1FE3812200286BE1 /* AppDelegate.swift */,
-				CE145A511FE3812200286BE1 /* ViewController.swift */,
-				CE145A531FE3812200286BE1 /* Main.storyboard */,
 				CE145A561FE3812200286BE1 /* Assets.xcassets */,
 				CE145A581FE3812200286BE1 /* LaunchScreen.storyboard */,
 				CE145A5B1FE3812200286BE1 /* Info.plist */,
+				CE145A611FE387BE00286BE1 /* AppRouter.swift */,
 			);
 			path = Progress;
+			sourceTree = "<group>";
+		};
+		CEBFDF361FE38AAE00DC8AA8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CEBFDF371FE38AAE00DC8AA8 /* Gotham-XLight.otf */,
+				CEBFDF381FE38AAE00DC8AA8 /* Gotham-Black.otf */,
+				CEBFDF391FE38AAE00DC8AA8 /* Gotham-XLightItalic.otf */,
+				CEBFDF3A1FE38AAE00DC8AA8 /* Gotham-Medium.otf */,
+				CEBFDF3B1FE38AAE00DC8AA8 /* Gotham-Book.otf */,
+				CEBFDF3C1FE38AAE00DC8AA8 /* Gotham-Bold.otf */,
+				CEBFDF3D1FE38AAE00DC8AA8 /* Gotham-LightItalic.otf */,
+				CEBFDF3E1FE38AAE00DC8AA8 /* Gotham-Light.otf */,
+				CEBFDF3F1FE38AAE00DC8AA8 /* Gotham-BoldItalic.otf */,
+				CEBFDF401FE38AAE00DC8AA8 /* Gotham-BookItalic.otf */,
+				CEBFDF411FE38AAE00DC8AA8 /* Gotham-BlackItalic.otf */,
+				CEBFDF421FE38AAE00DC8AA8 /* Gotham-MediumItalic.otf */,
+			);
+			name = Resources;
+			path = Progress/Resources;
+			sourceTree = "<group>";
+		};
+		CEBFDF4F1FE38B7800DC8AA8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CEBFDF501FE38B7800DC8AA8 /* UIViewController+Extensions.swift */,
+				CEBFDF511FE38B7800DC8AA8 /* UIButton+Extensions.swift */,
+				CEBFDF521FE38B7800DC8AA8 /* UIView+Extensions.swift */,
+				CEBFDF531FE38B7800DC8AA8 /* String+Extensions.swift */,
+				CEBFDF541FE38B7800DC8AA8 /* UIFont+Extensions.swift */,
+				CEBFDF551FE38B7800DC8AA8 /* UIColor+Extensions.swift */,
+				CEBFDF561FE38B7800DC8AA8 /* UIImage+Extensions.swift */,
+				CEBFDF571FE38B7800DC8AA8 /* UITabBar+Extensions.swift */,
+				CEBFDF581FE38B7800DC8AA8 /* UINavigationController+Extensions.swift */,
+				CEBFDF591FE38B7800DC8AA8 /* UIBarButtonItem+Extensions.swift */,
+				CEBFDF5A1FE38B7800DC8AA8 /* UILabel+Extensions.swift */,
+			);
+			name = Extensions;
+			path = Progress/Extensions;
+			sourceTree = "<group>";
+		};
+		CEBFDF661FE38E6A00DC8AA8 /* Conductors */ = {
+			isa = PBXGroup;
+			children = (
+				CEBFDF671FE38E8700DC8AA8 /* MainConductor.swift */,
+				CEBFDF701FE399AF00DC8AA8 /* StreakConductor.swift */,
+				CEBFDF721FE399CE00DC8AA8 /* StatsConductor.swift */,
+				CEBFDF741FE399E300DC8AA8 /* ProfileConductor.swift */,
+			);
+			path = Conductors;
+			sourceTree = "<group>";
+		};
+		CEBFDF691FE38F6000DC8AA8 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CEBFDF6A1FE38F7E00DC8AA8 /* StreakViewController.swift */,
+				CEBFDF6C1FE3904A00DC8AA8 /* StatsViewController.swift */,
+				CEBFDF6E1FE3906700DC8AA8 /* ProfileViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		CEBFDF761FE39A0E00DC8AA8 /* Element Configs */ = {
+			isa = PBXGroup;
+			children = (
+				CEBFDF791FE39A4000DC8AA8 /* ElementConfigs.swift */,
+			);
+			name = "Element Configs";
+			path = "Progress/Element Configs";
+			sourceTree = "<group>";
+		};
+		EB7AA54EC3DB057A478A53D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				290FEA6B8E05165FB1B01086 /* Pods-Progress.debug.xcconfig */,
+				0A0D4B8E88BBDE7E8D59135D /* Pods-Progress.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +228,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE145A5E1FE3812200286BE1 /* Build configuration list for PBXNativeTarget "Progress" */;
 			buildPhases = (
+				6995F75D54ED8B3F4CAAB3F4 /* [CP] Check Pods Manifest.lock */,
 				CE145A481FE3812200286BE1 /* Sources */,
 				CE145A491FE3812200286BE1 /* Frameworks */,
 				CE145A4A1FE3812200286BE1 /* Resources */,
+				344CC430C4B817E3593C664F /* [CP] Embed Pods Frameworks */,
+				EECEEAD0F02E78F85B385815 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,35 +283,115 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBFDF461FE38AAE00DC8AA8 /* Gotham-Medium.otf in Resources */,
+				CEBFDF431FE38AAE00DC8AA8 /* Gotham-XLight.otf in Resources */,
+				CEBFDF4D1FE38AAE00DC8AA8 /* Gotham-BlackItalic.otf in Resources */,
+				CEBFDF491FE38AAE00DC8AA8 /* Gotham-LightItalic.otf in Resources */,
+				CEBFDF441FE38AAE00DC8AA8 /* Gotham-Black.otf in Resources */,
+				CEBFDF4A1FE38AAE00DC8AA8 /* Gotham-Light.otf in Resources */,
+				CEBFDF4B1FE38AAE00DC8AA8 /* Gotham-BoldItalic.otf in Resources */,
+				CEBFDF4C1FE38AAE00DC8AA8 /* Gotham-BookItalic.otf in Resources */,
+				CEBFDF451FE38AAE00DC8AA8 /* Gotham-XLightItalic.otf in Resources */,
+				CEBFDF481FE38AAE00DC8AA8 /* Gotham-Bold.otf in Resources */,
+				CEBFDF4E1FE38AAE00DC8AA8 /* Gotham-MediumItalic.otf in Resources */,
 				CE145A5A1FE3812200286BE1 /* LaunchScreen.storyboard in Resources */,
+				CEBFDF471FE38AAE00DC8AA8 /* Gotham-Book.otf in Resources */,
 				CE145A571FE3812200286BE1 /* Assets.xcassets in Resources */,
-				CE145A551FE3812200286BE1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		344CC430C4B817E3593C664F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Progress/Pods-Progress-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bindable/Bindable.framework",
+				"${BUILT_PRODUCTS_DIR}/Conduction/Conduction.framework",
+				"${BUILT_PRODUCTS_DIR}/Elemental/Elemental.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bindable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Conduction.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Elemental.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Progress/Pods-Progress-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6995F75D54ED8B3F4CAAB3F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Progress-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EECEEAD0F02E78F85B385815 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Progress/Pods-Progress-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CE145A481FE3812200286BE1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE145A521FE3812200286BE1 /* ViewController.swift in Sources */,
+				CEBFDF5D1FE38B7800DC8AA8 /* UIView+Extensions.swift in Sources */,
+				CEBFDF621FE38B7800DC8AA8 /* UITabBar+Extensions.swift in Sources */,
+				CEBFDF6D1FE3904A00DC8AA8 /* StatsViewController.swift in Sources */,
+				CEBFDF5E1FE38B7800DC8AA8 /* String+Extensions.swift in Sources */,
+				CEBFDF5F1FE38B7800DC8AA8 /* UIFont+Extensions.swift in Sources */,
+				CEBFDF5B1FE38B7800DC8AA8 /* UIViewController+Extensions.swift in Sources */,
+				CEBFDF651FE38B7800DC8AA8 /* UILabel+Extensions.swift in Sources */,
+				CEBFDF751FE399E300DC8AA8 /* ProfileConductor.swift in Sources */,
+				CEBFDF711FE399AF00DC8AA8 /* StreakConductor.swift in Sources */,
+				CEBFDF6F1FE3906700DC8AA8 /* ProfileViewController.swift in Sources */,
 				CE145A501FE3812200286BE1 /* AppDelegate.swift in Sources */,
+				CEBFDF641FE38B7800DC8AA8 /* UIBarButtonItem+Extensions.swift in Sources */,
+				CEBFDF7A1FE39A4000DC8AA8 /* ElementConfigs.swift in Sources */,
+				CEBFDF631FE38B7800DC8AA8 /* UINavigationController+Extensions.swift in Sources */,
+				CEBFDF5C1FE38B7800DC8AA8 /* UIButton+Extensions.swift in Sources */,
+				CEBFDF611FE38B7800DC8AA8 /* UIImage+Extensions.swift in Sources */,
+				CEBFDF601FE38B7800DC8AA8 /* UIColor+Extensions.swift in Sources */,
+				CE145A621FE387BE00286BE1 /* AppRouter.swift in Sources */,
+				CEBFDF6B1FE38F7E00DC8AA8 /* StreakViewController.swift in Sources */,
+				CEBFDF731FE399CE00DC8AA8 /* StatsConductor.swift in Sources */,
+				CEBFDF681FE38E8700DC8AA8 /* MainConductor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CE145A531FE3812200286BE1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE145A541FE3812200286BE1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CE145A581FE3812200286BE1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -272,6 +512,7 @@
 		};
 		CE145A5F1FE3812200286BE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 290FEA6B8E05165FB1B01086 /* Pods-Progress.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -280,13 +521,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.incipia.Progress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		CE145A601FE3812200286BE1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A0D4B8E88BBDE7E8D59135D /* Pods-Progress.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -295,7 +537,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.incipia.Progress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
