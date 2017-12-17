@@ -26,7 +26,8 @@ enum NavigationBarStyle {
 //         let gradientLayer = CAGradientLayer()
 //         let updatedFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 84)
 //         gradientLayer.frame = updatedFrame
-//         gradientLayer.colors = [UIColor(.spearmint).cgColor, UIColor(.mint).cgColor]
+//         gradientLayer.colors = [UIColor(.lipstick, alpha: 0.25).cgColor,
+//                                 UIColor(.pink, alpha: 0.25).cgColor]
 //         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
 //         gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
 //
@@ -41,7 +42,8 @@ enum NavigationBarStyle {
    var titleColor: UIColor {
       switch self {
       case .dark: return .white
-      case .light: return UIColor(white: 0, alpha: 0.7)
+      case .light: return UIColor(.outerSpace)
+//         return UIColor(white: 1, alpha: 1)
       }
    }
    

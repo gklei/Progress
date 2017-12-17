@@ -12,6 +12,7 @@ class ProfileViewController: ElementalViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       view.backgroundColor = .white
+      collectionView.contentInsetAdjustmentBehavior = .always
    }
    
    override func generateElements() -> [Elemental]? {

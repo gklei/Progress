@@ -190,7 +190,8 @@
 				CEBFDF721FE399CE00DC8AA8 /* StatsConductor.swift */,
 				CEBFDF741FE399E300DC8AA8 /* ProfileConductor.swift */,
 			);
-			path = Conductors;
+			name = Conductors;
+			path = Progress/Conductors;
 			sourceTree = "<group>";
 		};
 		CEBFDF691FE38F6000DC8AA8 /* View Controllers */ = {
@@ -200,7 +201,8 @@
 				CEBFDF6C1FE3904A00DC8AA8 /* StatsViewController.swift */,
 				CEBFDF6E1FE3906700DC8AA8 /* ProfileViewController.swift */,
 			);
-			path = "View Controllers";
+			name = "View Controllers";
+			path = "Progress/View Controllers";
 			sourceTree = "<group>";
 		};
 		CEBFDF761FE39A0E00DC8AA8 /* Element Configs */ = {
@@ -518,8 +520,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 49BYD5B64K;
 				INFOPLIST_FILE = Progress/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.incipia.Progress;
+				PRODUCT_BUNDLE_IDENTIFIER = co.incipia.progress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -534,8 +537,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 49BYD5B64K;
 				INFOPLIST_FILE = Progress/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = co.incipia.Progress;
+				PRODUCT_BUNDLE_IDENTIFIER = co.incipia.progress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
