@@ -10,7 +10,7 @@ import UIKit
 
 class StreakViewController: UIViewController {
    fileprivate let _calendarGrid = CalendarGridViewController()
-   var daysBack: TimeInterval = 30 {
+   var daysBack: TimeInterval = 90 {
       didSet {
          _calendarGrid.reload()
       }
