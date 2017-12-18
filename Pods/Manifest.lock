@@ -1,4 +1,5 @@
 PODS:
+  - ALGReversedFlowLayout (0.1.0)
   - Bindable (0.1.0)
   - Conduction (0.0.1):
     - Bindable
@@ -6,6 +7,7 @@ PODS:
     - Bindable
 
 DEPENDENCIES:
+  - ALGReversedFlowLayout
   - Bindable (from `Pods/Bindable`)
   - Conduction (from `Pods/Conduction`)
   - Elemental (from `Pods/Elemental`)
@@ -19,10 +21,11 @@ EXTERNAL SOURCES:
     :path: Pods/Elemental
 
 SPEC CHECKSUMS:
+  ALGReversedFlowLayout: edb883d4f573beeb64e9c8e79f1acd1de8f9f477
   Bindable: 5b66126db4938727036b1cc15be77c15b738487c
   Conduction: c5ea9edbcf91d0597ad180bcd1816a00b0edf21e
   Elemental: d933cb88a1b79fbeda98f8e316523d4cb245b7f4
 
-PODFILE CHECKSUM: b65bbf837f98ffa50c44a73aed04ed1153bd0558
+PODFILE CHECKSUM: 4163e7e225124af6b095e2bfc5d63b7d759b5cd9
 
 COCOAPODS: 1.3.1

@@ -6,6 +6,7 @@ target 'Progress' do
   use_frameworks!
 
   # Pods for Influence
+  pod "ALGReversedFlowLayout"
 
   # Development Pods
   pod 'Conduction', :path => 'Pods/Conduction'

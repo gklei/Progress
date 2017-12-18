@@ -102,11 +102,13 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/ALGReversedFlowLayout/ALGReversedFlowLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Bindable/Bindable.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Conduction/Conduction.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Elemental/Elemental.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/ALGReversedFlowLayout/ALGReversedFlowLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Bindable/Bindable.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Conduction/Conduction.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Elemental/Elemental.framework"

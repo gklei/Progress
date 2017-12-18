@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		690F0206AFA63A108CECBDF8 /* Pods_Progress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5ABD58FBD65DDAD1BE07772 /* Pods_Progress.framework */; };
+		CE09067F1FE75B9B00A388C2 /* CalendarGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09067E1FE75B9B00A388C2 /* CalendarGridViewController.swift */; };
 		CE145A501FE3812200286BE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE145A4F1FE3812200286BE1 /* AppDelegate.swift */; };
 		CE145A571FE3812200286BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE145A561FE3812200286BE1 /* Assets.xcassets */; };
 		CE145A5A1FE3812200286BE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE145A581FE3812200286BE1 /* LaunchScreen.storyboard */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		0A0D4B8E88BBDE7E8D59135D /* Pods-Progress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Progress.release.xcconfig"; path = "Pods/Target Support Files/Pods-Progress/Pods-Progress.release.xcconfig"; sourceTree = "<group>"; };
 		290FEA6B8E05165FB1B01086 /* Pods-Progress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Progress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Progress/Pods-Progress.debug.xcconfig"; sourceTree = "<group>"; };
+		CE09067E1FE75B9B00A388C2 /* CalendarGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridViewController.swift; sourceTree = "<group>"; };
 		CE145A4C1FE3812200286BE1 /* Progress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Progress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE145A4F1FE3812200286BE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE145A561FE3812200286BE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				CEBFDF6A1FE38F7E00DC8AA8 /* StreakViewController.swift */,
 				CEBFDF6C1FE3904A00DC8AA8 /* StatsViewController.swift */,
 				CEBFDF6E1FE3906700DC8AA8 /* ProfileViewController.swift */,
+				CE09067E1FE75B9B00A388C2 /* CalendarGridViewController.swift */,
 			);
 			name = "View Controllers";
 			path = "Progress/View Controllers";
@@ -312,12 +315,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Progress/Pods-Progress-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ALGReversedFlowLayout/ALGReversedFlowLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/Bindable/Bindable.framework",
 				"${BUILT_PRODUCTS_DIR}/Conduction/Conduction.framework",
 				"${BUILT_PRODUCTS_DIR}/Elemental/Elemental.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ALGReversedFlowLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bindable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Conduction.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Elemental.framework",
@@ -381,6 +386,7 @@
 				CEBFDF641FE38B7800DC8AA8 /* UIBarButtonItem+Extensions.swift in Sources */,
 				CEBFDF7A1FE39A4000DC8AA8 /* ElementConfigs.swift in Sources */,
 				CEBFDF631FE38B7800DC8AA8 /* UINavigationController+Extensions.swift in Sources */,
+				CE09067F1FE75B9B00A388C2 /* CalendarGridViewController.swift in Sources */,
 				CEBFDF5C1FE38B7800DC8AA8 /* UIButton+Extensions.swift in Sources */,
 				CEBFDF611FE38B7800DC8AA8 /* UIImage+Extensions.swift in Sources */,
 				CEBFDF601FE38B7800DC8AA8 /* UIColor+Extensions.swift in Sources */,
