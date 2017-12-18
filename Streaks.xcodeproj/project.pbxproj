@@ -50,7 +50,7 @@
 		0A0D4B8E88BBDE7E8D59135D /* Pods-Progress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Progress.release.xcconfig"; path = "Pods/Target Support Files/Pods-Progress/Pods-Progress.release.xcconfig"; sourceTree = "<group>"; };
 		290FEA6B8E05165FB1B01086 /* Pods-Progress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Progress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Progress/Pods-Progress.debug.xcconfig"; sourceTree = "<group>"; };
 		CE09067E1FE75B9B00A388C2 /* CalendarGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridViewController.swift; sourceTree = "<group>"; };
-		CE145A4C1FE3812200286BE1 /* Progress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Progress.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE145A4C1FE3812200286BE1 /* Streaks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streaks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE145A4F1FE3812200286BE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE145A561FE3812200286BE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE145A591FE3812200286BE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 		CE145A4D1FE3812200286BE1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE145A4C1FE3812200286BE1 /* Progress.app */,
+				CE145A4C1FE3812200286BE1 /* Streaks.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,9 +229,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE145A4B1FE3812200286BE1 /* Progress */ = {
+		CE145A4B1FE3812200286BE1 /* Streaks */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE145A5E1FE3812200286BE1 /* Build configuration list for PBXNativeTarget "Progress" */;
+			buildConfigurationList = CE145A5E1FE3812200286BE1 /* Build configuration list for PBXNativeTarget "Streaks" */;
 			buildPhases = (
 				6995F75D54ED8B3F4CAAB3F4 /* [CP] Check Pods Manifest.lock */,
 				CE145A481FE3812200286BE1 /* Sources */,
@@ -244,9 +244,9 @@
 			);
 			dependencies = (
 			);
-			name = Progress;
+			name = Streaks;
 			productName = Progress;
-			productReference = CE145A4C1FE3812200286BE1 /* Progress.app */;
+			productReference = CE145A4C1FE3812200286BE1 /* Streaks.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -265,7 +265,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CE145A471FE3812200286BE1 /* Build configuration list for PBXProject "Progress" */;
+			buildConfigurationList = CE145A471FE3812200286BE1 /* Build configuration list for PBXProject "Streaks" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -278,7 +278,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE145A4B1FE3812200286BE1 /* Progress */,
+				CE145A4B1FE3812200286BE1 /* Streaks */,
 			);
 		};
 /* End PBXProject section */
@@ -555,7 +555,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CE145A471FE3812200286BE1 /* Build configuration list for PBXProject "Progress" */ = {
+		CE145A471FE3812200286BE1 /* Build configuration list for PBXProject "Streaks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE145A5C1FE3812200286BE1 /* Debug */,
@@ -564,7 +564,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE145A5E1FE3812200286BE1 /* Build configuration list for PBXNativeTarget "Progress" */ = {
+		CE145A5E1FE3812200286BE1 /* Build configuration list for PBXNativeTarget "Streaks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE145A5F1FE3812200286BE1 /* Debug */,

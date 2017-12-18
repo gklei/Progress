@@ -50,7 +50,7 @@ enum NavigationBarStyle {
    var titleWeight: FontWeight {
       switch self {
       case .dark: return .medium
-      case .light: return .bold
+      case .light: return .medium
       }
    }
    
@@ -124,7 +124,10 @@ extension UINavigationBar {
       shadowImage = style.shadowImage
       barStyle = style.barStyle
       setBackgroundImage(style.backgroundImage, for: .default)
-      titleTextAttributes = [NSFontAttributeName : UIFont(14, style.titleWeight),
-                             NSForegroundColorAttributeName : style.titleColor]
+      titleTextAttributes = [
+         NSFontAttributeName : UIFont(14, style.titleWeight),
+         NSForegroundColorAttributeName : style.titleColor,
+         NSKernAttributeName : 4.0
+      ]
    }
 }

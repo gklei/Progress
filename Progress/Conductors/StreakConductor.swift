@@ -11,7 +11,7 @@ import Conduction
 class StreakConductor: TabConductor {
    fileprivate lazy var _streakVC: StreakViewController = {
       let vc = StreakViewController()
-      vc.title = "PROGRESS"
+      vc.title = "Streaks"
       vc.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "grid"), selectedImage: #imageLiteral(resourceName: "grid"))
       vc.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -10, right: 0)
       return vc

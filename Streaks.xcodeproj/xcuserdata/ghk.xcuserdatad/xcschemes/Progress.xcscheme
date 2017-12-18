@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE145A4B1FE3812200286BE1"
-               BuildableName = "Progress.app"
-               BlueprintName = "Progress"
-               ReferencedContainer = "container:Progress.xcodeproj">
+               BuildableName = "Streaks.app"
+               BlueprintName = "Streaks"
+               ReferencedContainer = "container:Streaks.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE145A4B1FE3812200286BE1"
-            BuildableName = "Progress.app"
-            BlueprintName = "Progress"
-            ReferencedContainer = "container:Progress.xcodeproj">
+            BuildableName = "Streaks.app"
+            BlueprintName = "Streaks"
+            ReferencedContainer = "container:Streaks.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -58,9 +58,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE145A4B1FE3812200286BE1"
-            BuildableName = "Progress.app"
-            BlueprintName = "Progress"
-            ReferencedContainer = "container:Progress.xcodeproj">
+            BuildableName = "Streaks.app"
+            BlueprintName = "Streaks"
+            ReferencedContainer = "container:Streaks.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE145A4B1FE3812200286BE1"
-            BuildableName = "Progress.app"
-            BlueprintName = "Progress"
-            ReferencedContainer = "container:Progress.xcodeproj">
+            BuildableName = "Streaks.app"
+            BlueprintName = "Streaks"
+            ReferencedContainer = "container:Streaks.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -111,7 +111,7 @@ extension CalendarGridViewController: UICollectionViewDataSource {
    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
       let date = _date(for: indexPath)
       let cell = CalendarGridCell.dequeueCell(with: collectionView, at: indexPath, date: date)
-      cell.backgroundColor = UIColor(white: 0, alpha: 0.1)
+      cell.backgroundColor = UIColor(hex: "EBEBEB")
       return cell
    }
    
