@@ -29,7 +29,7 @@ class CalendarGridCell: UICollectionViewCell {
    
    static func dequeueCell(with collectionView: UICollectionView, at indexPath: IndexPath, date: Date) -> CalendarGridCell {
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID, for: indexPath) as! CalendarGridCell
-      cell.configure(with: date)
+      //cell.configure(with: date)
       return cell
    }
    
@@ -72,6 +72,7 @@ class CalendarGridViewController : UIViewController {
       _cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
       _cv.dataSource = self
       _cv.delegate = self
+      _cv.showsVerticalScrollIndicator = false
       CalendarGridCell.register(collectionView: _cv)
       
       _cv.translatesAutoresizingMaskIntoConstraints = false
