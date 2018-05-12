@@ -9,7 +9,9 @@
 import UIKit
 
 class StreakViewController: UIViewController {
-   fileprivate let _calendarGrid = CalendarGridViewController()
+   fileprivate var _calendarGrid: CalendarGridViewController!
+   var viewModel = ViewModel()
+   
    var daysBack: TimeInterval = 90 {
       didSet {
          _calendarGrid.reload()
@@ -18,9 +20,10 @@ class StreakViewController: UIViewController {
    
    override func loadView() {
       let view = UIView()
-      
-      _calendarGrid.dataSource = self
+      _calendarGrid = CalendarGridViewController(dataSource: self)
+      _calendarGrid.viewModel.delegate = self
       addChildViewController(_calendarGrid)
+      
       _calendarGrid.view.translatesAutoresizingMaskIntoConstraints = false
       view.addSubview(_calendarGrid.view)
       NSLayoutConstraint.activate([
@@ -39,16 +42,39 @@ class StreakViewController: UIViewController {
    }
 }
 
+protocol StreakViewControllerDelegate: class {
+   func dateSelected(_ date: Date, in: StreakViewController.ViewModel, at: IndexPath)
+}
+
+extension StreakViewController {
+   class ViewModel {
+      weak var delegate: StreakViewControllerDelegate?
+      func dateSelected(_ date: Date, at indexPath: IndexPath) {
+         delegate?.dateSelected(date, in: self, at: indexPath)
+      }
+   }
+}
+
 extension StreakViewController: CalendarGridViewControllerDataSource {
-   var calendar: Calendar { return .gregorian }
+   var calendar: Calendar {
+      return .gregorian
+   }
+   
    var startDate: Date {
       let timeIntervalSinceNow: TimeInterval = 60 * 60 * 24 * daysBack
       let daysAgo = calendar.startOfDay(for: Date(timeIntervalSinceNow: -timeIntervalSinceNow))
       let date =  calendar.startOfDay(for: daysAgo.startOfWeek!)
       return date
    }
+   
    var endDate: Date {
       return calendar.startOfDay(for: Date())
+   }
+}
+
+extension StreakViewController: CalendarGridViewModelDelegate {
+   func dateSelected(_ date: Date, in viewModel: CalendarGridViewController.ViewModel, at indexPath: IndexPath) {
+      self.viewModel.dateSelected(date, at: indexPath)
    }
 }
 

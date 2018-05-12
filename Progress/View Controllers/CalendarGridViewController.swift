@@ -15,55 +15,19 @@ protocol CalendarGridViewControllerDataSource: class {
    var endDate: Date { get }
 }
 
-class CalendarGridCell: UICollectionViewCell {
-   static var reuseID = "CalendarGridCell"
-   static var df: DateFormatter {
-      let df = DateFormatter()
-      df.dateFormat = "MM/dd"
-      return df
-   }
-   
-   static func register(collectionView cv: UICollectionView) {
-      cv.register(self, forCellWithReuseIdentifier: reuseID)
-   }
-   
-   static func dequeueCell(with collectionView: UICollectionView, at indexPath: IndexPath, date: Date) -> CalendarGridCell {
-      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID, for: indexPath) as! CalendarGridCell
-      //cell.configure(with: date)
-      return cell
-   }
-   
-   fileprivate lazy var _label: UILabel = {
-      let label = UILabel()
-      label.font = UIFont(12, .medium)
-      label.textColor = UIColor(.pink)
-      return label
-   }()
-   
-   override init(frame: CGRect) {
-      super.init(frame: frame)
-      
-      _label.translatesAutoresizingMaskIntoConstraints = false
-      contentView.addSubview(_label)
-      NSLayoutConstraint.activate([
-         _label.centerXAnchor.constraint(equalTo: centerXAnchor),
-         _label.centerYAnchor.constraint(equalTo: centerYAnchor)
-      ])
-   }
-   
-   required init?(coder aDecoder: NSCoder) { fatalError() }
-   
-   func configure(with date: Date) {
-      let components = Calendar.current.dateComponents([.month, .day], from: date)
-      _label.text = "\(components.month!)/\(components.day!)"
-   }
-}
-
 class CalendarGridViewController : UIViewController {
+   var viewModel = ViewModel()
    weak var dataSource: CalendarGridViewControllerDataSource?
    
+   fileprivate var _headerVC: CalendarWeekdayHeaderViewController!
    fileprivate var _cv: UICollectionView!
-   fileprivate let _spacingFraction: CGFloat = 0.032
+   fileprivate let _spacingFraction: CGFloat = 0.015
+   
+   required init?(coder aDecoder: NSCoder) { fatalError() }
+   init(dataSource: CalendarGridViewControllerDataSource) {
+      self.dataSource = dataSource
+      super.init(nibName: nil, bundle: nil)
+   }
    
    override func loadView() {
       let view = UIView()
@@ -73,11 +37,22 @@ class CalendarGridViewController : UIViewController {
       _cv.dataSource = self
       _cv.delegate = self
       _cv.showsVerticalScrollIndicator = false
+      _cv.backgroundColor = .clear
       CalendarGridCell.register(collectionView: _cv)
       
       _cv.translatesAutoresizingMaskIntoConstraints = false
+//      _headerVC = CalendarWeekdayHeaderViewController(calendar: dataSource!.calendar)
+//      _headerVC.view.translatesAutoresizingMaskIntoConstraints = false
+      
+//      addChildViewController(_headerVC)
+//      view.addSubview(_headerVC.view)
       view.addSubview(_cv)
+      
       NSLayoutConstraint.activate([
+//         _headerVC.view.topAnchor.constraint(equalTo: view.topAnchor),
+//         _headerVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//         _headerVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//         _headerVC.view.heightAnchor.constraint(equalToConstant: 20),
          _cv.leadingAnchor.constraint(equalTo: view.leadingAnchor),
          _cv.topAnchor.constraint(equalTo: view.topAnchor),
          _cv.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -85,11 +60,6 @@ class CalendarGridViewController : UIViewController {
       ])
       
       self.view = view
-   }
-   
-   override func viewDidLoad() {
-      super.viewDidLoad()
-      _cv.backgroundColor = .clear
    }
    
    func reload() {
@@ -134,8 +104,10 @@ extension CalendarGridViewController: UICollectionViewDelegate {
       df.locale = Locale.current
       df.timeZone = NSTimeZone.system
       let date = _date(for: indexPath)
-      print(date)
-      print(df.string(from: date))
+      viewModel.dateSelected(date, at: indexPath)
+   }
+   
+   func scrollViewDidScroll(_ scrollView: UIScrollView) {
    }
 }
 
@@ -162,5 +134,19 @@ extension CalendarGridViewController: UICollectionViewDelegateFlowLayout {
    
    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
       return collectionView.bounds.width * _spacingFraction
+   }
+}
+
+protocol CalendarGridViewModelDelegate: class {
+   func dateSelected(_ date: Date, in: CalendarGridViewController.ViewModel, at indexPath: IndexPath)
+}
+
+extension CalendarGridViewController {
+   class ViewModel {
+      weak var delegate: CalendarGridViewModelDelegate?
+      
+      @objc func dateSelected(_ date: Date, at indexPath: IndexPath) {
+         delegate?.dateSelected(date, in: self, at: indexPath)
+      }
    }
 }

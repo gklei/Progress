@@ -20,6 +20,6 @@ class ProfileViewController: ElementalViewController {
          .verticalSpace(26),
          .text(configuration: TextConfiguration(size: 32, weight: .light),
                content: "Profile."),
-         ])
+      ])
    }
 }

@@ -9,20 +9,20 @@
 import UIKit
 
 enum NavigationBarStyle {
-   case dark, light
+   case dark, light, white
    
    var barStyle: UIBarStyle {
       switch self {
       case .dark: return .black
       case .light: return .default
+      case .white: return .default
       }
    }
    
    var backgroundImage: UIImage {
       switch self {
       case .dark: return UIImage.with(color: .outerSpace)!
-      case .light:
-         return UIImage.with(color: .white)!
+      case .light: return UIImage.with(color: .white)!
 //         let gradientLayer = CAGradientLayer()
 //         let updatedFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 84)
 //         gradientLayer.frame = updatedFrame
@@ -36,6 +36,7 @@ enum NavigationBarStyle {
 //         let image = UIGraphicsGetImageFromCurrentImageContext()!
 //         UIGraphicsEndImageContext()
 //         return image
+      case .white: return UIImage.with(color: .white)!
       }
    }
    
@@ -43,6 +44,7 @@ enum NavigationBarStyle {
       switch self {
       case .dark: return .white
       case .light: return UIColor(.outerSpace)
+      case .white: return UIColor(.outerSpace)
 //         return UIColor(white: 1, alpha: 1)
       }
    }
@@ -51,6 +53,7 @@ enum NavigationBarStyle {
       switch self {
       case .dark: return .medium
       case .light: return .medium
+      case .white: return .medium
       }
    }
    
@@ -71,6 +74,7 @@ enum NavigationBarStyle {
          let image = UIGraphicsGetImageFromCurrentImageContext()!
          UIGraphicsEndImageContext()
          return image
+      case .white: return UIImage.with(color: .white)
       }
    }
 }
@@ -89,6 +93,7 @@ fileprivate class NavigationBar: UINavigationBar {
       switch style {
       case .dark: return DarkNavigationBar.self
       case .light: return LightNavigationBar.self
+      case .white: return WhiteNavigationBar.self
       }
    }
 }
@@ -106,6 +111,16 @@ fileprivate class DarkNavigationBar: NavigationBar {
 fileprivate class LightNavigationBar: NavigationBar {
    init(frame: CGRect) {
       super.init(style: .light, frame: frame)
+   }
+   
+   required init?(coder aDecoder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+   }
+}
+
+fileprivate class WhiteNavigationBar: NavigationBar {
+   init(frame: CGRect) {
+      super.init(style: .white, frame: frame)
    }
    
    required init?(coder aDecoder: NSCoder) {

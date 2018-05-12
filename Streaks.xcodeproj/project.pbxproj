@@ -13,6 +13,9 @@
 		CE145A571FE3812200286BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE145A561FE3812200286BE1 /* Assets.xcassets */; };
 		CE145A5A1FE3812200286BE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE145A581FE3812200286BE1 /* LaunchScreen.storyboard */; };
 		CE145A621FE387BE00286BE1 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE145A611FE387BE00286BE1 /* AppRouter.swift */; };
+		CE8CA0ED1FF197810040C3AF /* CalendarGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CA0EC1FF197810040C3AF /* CalendarGridCell.swift */; };
+		CE8CA0EF1FF1979C0040C3AF /* CalendarGridFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CA0EE1FF1979C0040C3AF /* CalendarGridFooter.swift */; };
+		CE8CA0F11FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CA0F01FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift */; };
 		CEBFDF431FE38AAE00DC8AA8 /* Gotham-XLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF371FE38AAE00DC8AA8 /* Gotham-XLight.otf */; };
 		CEBFDF441FE38AAE00DC8AA8 /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF381FE38AAE00DC8AA8 /* Gotham-Black.otf */; };
 		CEBFDF451FE38AAE00DC8AA8 /* Gotham-XLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF391FE38AAE00DC8AA8 /* Gotham-XLightItalic.otf */; };
@@ -56,6 +59,9 @@
 		CE145A591FE3812200286BE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE145A5B1FE3812200286BE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE145A611FE387BE00286BE1 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		CE8CA0EC1FF197810040C3AF /* CalendarGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridCell.swift; sourceTree = "<group>"; };
+		CE8CA0EE1FF1979C0040C3AF /* CalendarGridFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridFooter.swift; sourceTree = "<group>"; };
+		CE8CA0F01FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekdayHeaderViewController.swift; sourceTree = "<group>"; };
 		CEBFDF371FE38AAE00DC8AA8 /* Gotham-XLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLight.otf"; sourceTree = "<group>"; };
 		CEBFDF381FE38AAE00DC8AA8 /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
 		CEBFDF391FE38AAE00DC8AA8 /* Gotham-XLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLightItalic.otf"; sourceTree = "<group>"; };
@@ -113,6 +119,7 @@
 		CE145A431FE3812200286BE1 = {
 			isa = PBXGroup;
 			children = (
+				CE8CA0EB1FF197530040C3AF /* Cells */,
 				CEBFDF761FE39A0E00DC8AA8 /* Element Configs */,
 				CEBFDF661FE38E6A00DC8AA8 /* Conductors */,
 				CEBFDF691FE38F6000DC8AA8 /* View Controllers */,
@@ -143,6 +150,16 @@
 				CE145A611FE387BE00286BE1 /* AppRouter.swift */,
 			);
 			path = Progress;
+			sourceTree = "<group>";
+		};
+		CE8CA0EB1FF197530040C3AF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE8CA0EC1FF197810040C3AF /* CalendarGridCell.swift */,
+				CE8CA0EE1FF1979C0040C3AF /* CalendarGridFooter.swift */,
+			);
+			name = Cells;
+			path = Progress/Cells;
 			sourceTree = "<group>";
 		};
 		CEBFDF361FE38AAE00DC8AA8 /* Resources */ = {
@@ -203,6 +220,7 @@
 				CEBFDF6C1FE3904A00DC8AA8 /* StatsViewController.swift */,
 				CEBFDF6E1FE3906700DC8AA8 /* ProfileViewController.swift */,
 				CE09067E1FE75B9B00A388C2 /* CalendarGridViewController.swift */,
+				CE8CA0F01FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift */,
 			);
 			name = "View Controllers";
 			path = "Progress/View Controllers";
@@ -374,6 +392,7 @@
 			files = (
 				CEBFDF5D1FE38B7800DC8AA8 /* UIView+Extensions.swift in Sources */,
 				CEBFDF621FE38B7800DC8AA8 /* UITabBar+Extensions.swift in Sources */,
+				CE8CA0EF1FF1979C0040C3AF /* CalendarGridFooter.swift in Sources */,
 				CEBFDF6D1FE3904A00DC8AA8 /* StatsViewController.swift in Sources */,
 				CEBFDF5E1FE38B7800DC8AA8 /* String+Extensions.swift in Sources */,
 				CEBFDF5F1FE38B7800DC8AA8 /* UIFont+Extensions.swift in Sources */,
@@ -385,6 +404,7 @@
 				CE145A501FE3812200286BE1 /* AppDelegate.swift in Sources */,
 				CEBFDF641FE38B7800DC8AA8 /* UIBarButtonItem+Extensions.swift in Sources */,
 				CEBFDF7A1FE39A4000DC8AA8 /* ElementConfigs.swift in Sources */,
+				CE8CA0ED1FF197810040C3AF /* CalendarGridCell.swift in Sources */,
 				CEBFDF631FE38B7800DC8AA8 /* UINavigationController+Extensions.swift in Sources */,
 				CE09067F1FE75B9B00A388C2 /* CalendarGridViewController.swift in Sources */,
 				CEBFDF5C1FE38B7800DC8AA8 /* UIButton+Extensions.swift in Sources */,
@@ -394,6 +414,7 @@
 				CEBFDF6B1FE38F7E00DC8AA8 /* StreakViewController.swift in Sources */,
 				CEBFDF731FE399CE00DC8AA8 /* StatsConductor.swift in Sources */,
 				CEBFDF681FE38E8700DC8AA8 /* MainConductor.swift in Sources */,
+				CE8CA0F11FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

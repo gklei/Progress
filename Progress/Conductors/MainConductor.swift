@@ -23,7 +23,10 @@ class MainConductor: Conductor {
    // MARK: - Init
    override init() {
       super.init()
-      _childConductors.forEach { $0.show(in: self._tabController, with: UINavigationController(style: .light)) }
+      _streakConductor.show(in: _tabController, with: UINavigationController(style: .light))
+      _statsConductor.show(in: _tabController, with: UINavigationController(style: .light))
+      _profileConductor.show(in: _tabController, with: UINavigationController(style: .light))
+      
       _tabController.tabBar.configureWithProgressUIDefaults()
    }
    
