@@ -67,8 +67,8 @@ class ActivityDetailsConductor: Conductor {
       let vc = UIViewController()
       vc.title = "Details"
       vc.view.backgroundColor = .magenta
-      vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "",
-                                                            icon: #imageLiteral(resourceName: "left_arrow"),
+      vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "     ",
+                                                            icon: #imageLiteral(resourceName: "arrow_left"),
                                                             tintColor: UIColor(.outerSpace),
                                                             target: self,
                                                             selector: #selector(Conductor.dismiss))
