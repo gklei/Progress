@@ -29,8 +29,9 @@ class ActivityDetailsViewController: ElementalViewController {
    override func generateElements() -> [Elemental]? {
       return Element.form([
          .verticalSpace(26),
-         .text(configuration: TextConfiguration(size: 32, weight: .light),
-               content: viewModel.details ?? "No details"),
+         .textViewInput(configuration: ActivityDetailsInputConfiguration(),
+                        content: TextInputElementContent(name: "", placeholder: "No details."),
+                        bindings: []),
       ])
    }
 }
