@@ -31,7 +31,7 @@ class StreakConductor: TabConductor {
    let dataLayer: StreaksDataLayer
    var activity: [Activity] { return dataLayer.fetchedData }
    
-   let detailsConductor = ActivityDetailsConductor()
+   fileprivate(set) var detailsConductor: ActivityDetailsConductor?
    var feedbackGenerator: UIImpactFeedbackGenerator?
    fileprivate var _isShowingDetails = false
    
@@ -51,15 +51,19 @@ extension StreakConductor: StreakViewControllerDelegate {
       feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
       feedbackGenerator?.prepare()
       feedbackGenerator?.impactOccurred()
+      
       dataLayer.toggleActivity(at: date)
       _streakVC.reload()
    }
    
    func dateLongPressed(_ date: Date, in: StreakViewController.ViewModel, at: IndexPath) {
-      guard detailsConductor.context == nil else { return }
+      guard detailsConductor?.context == nil else { return }
       feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
       feedbackGenerator?.prepare()
       feedbackGenerator?.impactOccurred()
+    
+      let activity = dataLayer.activity(at: date)
+      detailsConductor = ActivityDetailsConductor(activity: activity, date: date)
       show(conductor: detailsConductor)
    }
 }
@@ -71,10 +75,15 @@ extension StreakConductor: StreakViewControllerDataSource {
 }
 
 class ActivityDetailsConductor: Conductor {
-   fileprivate lazy var _detailsVC: UIViewController = {
-      let vc = UIViewController()
-      vc.title = "Details"
-      vc.view.backgroundColor = .magenta
+   static var df: DateFormatter {
+      let df = DateFormatter()
+      df.dateFormat = "E, MMM d"
+      return df
+   }
+   
+   fileprivate lazy var _detailsVC: ActivityDetailsViewController = {
+      let vc = ActivityDetailsViewController(model: self.activity)
+      vc.title = ActivityDetailsConductor.df.string(from: self.date)
       vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "",
                                                             icon: #imageLiteral(resourceName: "arrow_left"),
                                                             tintColor: UIColor(.outerSpace),
@@ -84,4 +93,13 @@ class ActivityDetailsConductor: Conductor {
    }()
    
    override var rootViewController: UIViewController? { return _detailsVC }
+   
+   let activity: Activity?
+   let date: Date
+   
+   init(activity: Activity?, date: Date) {
+      self.activity = activity
+      self.date = date
+      super.init()
+   }
 }

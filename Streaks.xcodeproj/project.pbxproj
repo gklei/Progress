@@ -15,6 +15,7 @@
 		CE145A621FE387BE00286BE1 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE145A611FE387BE00286BE1 /* AppRouter.swift */; };
 		CE23B06020AE95070071C5DC /* Streaks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE23B05E20AE95070071C5DC /* Streaks.xcdatamodeld */; };
 		CE23B06220AE95910071C5DC /* StreaksDataLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23B06120AE95910071C5DC /* StreaksDataLayer.swift */; };
+		CE23B06420AEB33C0071C5DC /* ActivityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23B06320AEB33C0071C5DC /* ActivityDetailsViewController.swift */; };
 		CE8CA0ED1FF197810040C3AF /* CalendarGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CA0EC1FF197810040C3AF /* CalendarGridCell.swift */; };
 		CE8CA0EF1FF1979C0040C3AF /* CalendarGridFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CA0EE1FF1979C0040C3AF /* CalendarGridFooter.swift */; };
 		CE8CA0F11FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CA0F01FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift */; };
@@ -63,6 +64,7 @@
 		CE145A611FE387BE00286BE1 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		CE23B05F20AE95070071C5DC /* Streaks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Streaks.xcdatamodel; sourceTree = "<group>"; };
 		CE23B06120AE95910071C5DC /* StreaksDataLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreaksDataLayer.swift; sourceTree = "<group>"; };
+		CE23B06320AEB33C0071C5DC /* ActivityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewController.swift; sourceTree = "<group>"; };
 		CE8CA0EC1FF197810040C3AF /* CalendarGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridCell.swift; sourceTree = "<group>"; };
 		CE8CA0EE1FF1979C0040C3AF /* CalendarGridFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridFooter.swift; sourceTree = "<group>"; };
 		CE8CA0F01FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekdayHeaderViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				CEBFDF6E1FE3906700DC8AA8 /* ProfileViewController.swift */,
 				CE09067E1FE75B9B00A388C2 /* CalendarGridViewController.swift */,
 				CE8CA0F01FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift */,
+				CE23B06320AEB33C0071C5DC /* ActivityDetailsViewController.swift */,
 			);
 			name = "View Controllers";
 			path = "Progress/View Controllers";
@@ -408,6 +411,7 @@
 				CEBFDF621FE38B7800DC8AA8 /* UITabBar+Extensions.swift in Sources */,
 				CE8CA0EF1FF1979C0040C3AF /* CalendarGridFooter.swift in Sources */,
 				CEBFDF6D1FE3904A00DC8AA8 /* StatsViewController.swift in Sources */,
+				CE23B06420AEB33C0071C5DC /* ActivityDetailsViewController.swift in Sources */,
 				CEBFDF5E1FE38B7800DC8AA8 /* String+Extensions.swift in Sources */,
 				CE23B06020AE95070071C5DC /* Streaks.xcdatamodeld in Sources */,
 				CEBFDF5F1FE38B7800DC8AA8 /* UIFont+Extensions.swift in Sources */,
