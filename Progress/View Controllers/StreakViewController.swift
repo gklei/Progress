@@ -53,6 +53,7 @@ class StreakViewController: UIViewController {
 
 protocol StreakViewControllerDelegate: class {
    func dateSelected(_ date: Date, in: StreakViewController.ViewModel, at: IndexPath)
+   func dateLongPressed(_ date: Date, in: StreakViewController.ViewModel, at: IndexPath)
 }
 
 extension StreakViewController {
@@ -60,6 +61,10 @@ extension StreakViewController {
       weak var delegate: StreakViewControllerDelegate?
       func dateSelected(_ date: Date, at indexPath: IndexPath) {
          delegate?.dateSelected(date, in: self, at: indexPath)
+      }
+      
+      func dateLongPressed(_ date: Date, at indexPath: IndexPath) {
+         delegate?.dateLongPressed(date, in: self, at: indexPath)
       }
    }
 }
@@ -88,6 +93,10 @@ extension StreakViewController: CalendarGridViewControllerDataSource {
 extension StreakViewController: CalendarGridViewModelDelegate {
    func dateSelected(_ date: Date, in viewModel: CalendarGridViewController.ViewModel, at indexPath: IndexPath) {
       self.viewModel.dateSelected(date, at: indexPath)
+   }
+   
+   func dateLongPressed(_ date: Date, in: CalendarGridViewController.ViewModel, at indexPath: IndexPath) {
+      self.viewModel.dateLongPressed(date, at: indexPath)
    }
 }
 

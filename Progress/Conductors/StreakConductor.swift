@@ -27,6 +27,8 @@ class StreakConductor: TabConductor {
    var activity: [Activity] { return dataLayer.fetchedData }
    
    let detailsConductor = ActivityDetailsConductor()
+   var feedbackGenerator: UIImpactFeedbackGenerator?
+   fileprivate var _isShowingDetails = false
    
    override var rootViewController: UIViewController? { return _streakVC }
    
@@ -38,8 +40,19 @@ class StreakConductor: TabConductor {
 
 extension StreakConductor: StreakViewControllerDelegate {
    func dateSelected(_ date: Date, in: StreakViewController.ViewModel, at indexPath: IndexPath) {
+      feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+      feedbackGenerator?.prepare()
+      feedbackGenerator?.impactOccurred()
       dataLayer.toggleActivity(at: date)
       _streakVC.reload()
+   }
+   
+   func dateLongPressed(_ date: Date, in: StreakViewController.ViewModel, at: IndexPath) {
+      guard detailsConductor.context == nil else { return }
+      feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+      feedbackGenerator?.prepare()
+      feedbackGenerator?.impactOccurred()
+      show(conductor: detailsConductor)
    }
 }
 

@@ -15,7 +15,7 @@ enum ProgressColor: String {
       switch self {
       case .mint: return "3EF4BC"
       case .spearmint: return "38FFD3"
-      case .lime: return "18FF5D"
+      case .lime: return "CCF723"
       case .lipstick: return "FB1563"
       case .darkGray: return "515151"
       case .lightGray: return "727272"

@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol CalendarGridCellDelegate: class {
+   func cellDoubleTapped(cell: CalendarGridCell)
+   func cellLongPressed(cell: CalendarGridCell)
+}
+
 class CalendarGridCell: UICollectionViewCell {
    static var reuseID = "CalendarGridCell"
    static var df: DateFormatter {
@@ -33,6 +38,11 @@ class CalendarGridCell: UICollectionViewCell {
       return label
    }()
    
+   var _doubleTapRecognizer: UITapGestureRecognizer!
+   var _longPressRecognizer: UILongPressGestureRecognizer!
+   
+   weak var delegate: CalendarGridCellDelegate?
+   
    override init(frame: CGRect) {
       super.init(frame: frame)
       
@@ -42,6 +52,26 @@ class CalendarGridCell: UICollectionViewCell {
          _label.centerXAnchor.constraint(equalTo: centerXAnchor),
          _label.centerYAnchor.constraint(equalTo: centerYAnchor)
       ])
+      
+      _doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(CalendarGridCell._doubleTapped))
+      _doubleTapRecognizer.numberOfTapsRequired = 2
+      
+      _longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(CalendarGridCell._longPressed))
+      contentView.addGestureRecognizer(_doubleTapRecognizer)
+      contentView.addGestureRecognizer(_longPressRecognizer)
+   }
+   
+   override func prepareForReuse() {
+      removeGestureRecognizer(_doubleTapRecognizer)
+      removeGestureRecognizer(_longPressRecognizer)
+   }
+   
+   @objc private func _doubleTapped() {
+      delegate?.cellDoubleTapped(cell: self)
+   }
+   
+   @objc private func _longPressed() {
+      delegate?.cellLongPressed(cell: self)
    }
    
    required init?(coder aDecoder: NSCoder) { fatalError() }
@@ -50,12 +80,12 @@ class CalendarGridCell: UICollectionViewCell {
       let components = Calendar.current.dateComponents([.month, .day], from: date)
       _label.text = "\(components.month!)/\(components.day!)"
       _label.isHidden = true
-      contentView.backgroundColor = activity == nil ? UIColor(hex: "EBEBEB") : .green
+      contentView.backgroundColor = activity == nil ? UIColor(hex: "EBEBEB") : UIColor(.lime)
       
       if components.day == 1 {
-         contentView.layer.borderColor = UIColor(.outerSpace).cgColor
-         contentView.layer.borderWidth = 2
-         contentView.layer.cornerRadius = 4
+         contentView.layer.borderColor = UIColor(.outerSpace, alpha: 0.15).cgColor
+         contentView.layer.borderWidth = 3
+         contentView.layer.cornerRadius = 6
       } else {
          contentView.layer.borderWidth = 0
          contentView.layer.cornerRadius = 0

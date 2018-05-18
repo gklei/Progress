@@ -52,7 +52,6 @@ class StreaksDataLayer {
       let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Activity")
       request.returnsObjectsAsFaults = false
       fetchedData = try! context.fetch(request) as! [Activity]
-      print(fetchedData)
    }
    
    // MARK: - Core Data Saving support
@@ -87,7 +86,7 @@ class StreaksDataLayer {
          newActivity.setValue(date.timeIntervalSince1970, forKey: "epoch")
          newActivity.setValue("Hello", forKey: "descriptionText")
          try! context.save()
-         _updateFetchedData()
       }
+      _updateFetchedData()
    }
 }

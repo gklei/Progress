@@ -40,6 +40,7 @@ class CalendarGridViewController : UIViewController {
       _cv.delegate = self
       _cv.showsVerticalScrollIndicator = false
       _cv.backgroundColor = .clear
+      _cv.delaysContentTouches = false
       CalendarGridCell.register(collectionView: _cv)
       
       _cv.translatesAutoresizingMaskIntoConstraints = false
@@ -76,6 +77,7 @@ extension CalendarGridViewController: UICollectionViewDataSource {
       let date = _date(for: indexPath)
       let activity = dataSource?.activity(at: date)
       let cell = CalendarGridCell.dequeueCell(with: collectionView, at: indexPath, date: date, activity: activity)
+      cell.delegate = self
       return cell
    }
    
@@ -83,22 +85,23 @@ extension CalendarGridViewController: UICollectionViewDataSource {
       guard let ds = dataSource else { fatalError() }
       var components = DateComponents()
       components.day = indexPath.row
-      
       return ds.calendar.date(byAdding: components, to: ds.startDate)!
    }
 }
 
-extension CalendarGridViewController: UICollectionViewDelegate {
-   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-      let df = DateFormatter()
-      df.calendar = dataSource!.calendar
-      df.dateFormat = "E, d MMM yyyy HH:mm:ss Z"
-      df.locale = Locale.current
-      df.timeZone = NSTimeZone.system
-      let date = _date(for: indexPath)
-      viewModel.dateSelected(date, at: indexPath)
+extension CalendarGridViewController: CalendarGridCellDelegate {
+   func cellDoubleTapped(cell: CalendarGridCell) {
+      guard let indexPath = _cv.indexPath(for: cell) else { return }
+      viewModel.dateSelected(_date(for: indexPath), at: indexPath)
    }
    
+   func cellLongPressed(cell: CalendarGridCell) {
+      guard let indexPath = _cv.indexPath(for: cell) else { return }
+      viewModel.dateLongPressed(_date(for: indexPath), at: indexPath)
+   }
+}
+
+extension CalendarGridViewController: UICollectionViewDelegate {
    func scrollViewDidScroll(_ scrollView: UIScrollView) {
    }
 }
@@ -131,14 +134,19 @@ extension CalendarGridViewController: UICollectionViewDelegateFlowLayout {
 
 protocol CalendarGridViewModelDelegate: class {
    func dateSelected(_ date: Date, in: CalendarGridViewController.ViewModel, at indexPath: IndexPath)
+   func dateLongPressed(_ date: Date, in: CalendarGridViewController.ViewModel, at indexPath: IndexPath)
 }
 
 extension CalendarGridViewController {
    class ViewModel {
       weak var delegate: CalendarGridViewModelDelegate?
       
-      @objc func dateSelected(_ date: Date, at indexPath: IndexPath) {
+      func dateSelected(_ date: Date, at indexPath: IndexPath) {
          delegate?.dateSelected(date, in: self, at: indexPath)
+      }
+      
+      func dateLongPressed(_ date: Date, at indexPath: IndexPath) {
+         delegate?.dateLongPressed(date, in: self, at: indexPath)
       }
    }
 }
