@@ -19,7 +19,7 @@ class ProfileViewController: ElementalViewController {
       return Element.form([
          .verticalSpace(26),
          .text(configuration: TextConfiguration(size: 32, weight: .light),
-               content: "Profile."),
+               content: "Settings."),
       ])
    }
 }

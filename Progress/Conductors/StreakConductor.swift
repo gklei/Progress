@@ -14,6 +14,11 @@ class StreakConductor: TabConductor {
       vc.title = "Streaks"
       vc.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "grid"), selectedImage: #imageLiteral(resourceName: "grid"))
       vc.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -10, right: 0)
+      vc.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",
+                                                             icon: #imageLiteral(resourceName: "three_dots"),
+                                                             tintColor: UIColor(.outerSpace),
+                                                             target: self,
+                                                             selector: #selector(StreakConductor._menuSelected))
       vc.dataSource = self
       
       let vm = StreakViewController.ViewModel()
@@ -35,6 +40,9 @@ class StreakConductor: TabConductor {
    init(dataLayer: StreaksDataLayer) {
       self.dataLayer = dataLayer
       super.init()
+   }
+   
+   @objc private func _menuSelected() {
    }
 }
 
@@ -67,7 +75,7 @@ class ActivityDetailsConductor: Conductor {
       let vc = UIViewController()
       vc.title = "Details"
       vc.view.backgroundColor = .magenta
-      vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "     ",
+      vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "",
                                                             icon: #imageLiteral(resourceName: "arrow_left"),
                                                             tintColor: UIColor(.outerSpace),
                                                             target: self,
