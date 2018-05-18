@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol StreakViewControllerDataSource: class {
+   func activity(at date: Date) -> Activity?
+}
+
 class StreakViewController: UIViewController {
    fileprivate var _calendarGrid: CalendarGridViewController!
+   weak var dataSource: StreakViewControllerDataSource?
    var viewModel = ViewModel()
    
    var daysBack: TimeInterval = 90 {
@@ -40,6 +45,10 @@ class StreakViewController: UIViewController {
       super.viewDidLoad()
       view.backgroundColor = .white
    }
+   
+   func reload() {
+      _calendarGrid.reload()
+   }
 }
 
 protocol StreakViewControllerDelegate: class {
@@ -69,6 +78,10 @@ extension StreakViewController: CalendarGridViewControllerDataSource {
    
    var endDate: Date {
       return calendar.startOfDay(for: Date())
+   }
+   
+   func activity(at date: Date) -> Activity? {
+      return dataSource?.activity(at: date)
    }
 }
 

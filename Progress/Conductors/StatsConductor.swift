@@ -17,5 +17,11 @@ class StatsConductor: TabConductor {
       return vc
    }()
    
+   let dataLayer: StreaksDataLayer
    override var rootViewController: UIViewController? { return _statsVC }
+   
+   init(dataLayer: StreaksDataLayer) {
+      self.dataLayer = dataLayer
+      super.init()
+   }
 }

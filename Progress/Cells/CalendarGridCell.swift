@@ -20,9 +20,9 @@ class CalendarGridCell: UICollectionViewCell {
       cv.register(self, forCellWithReuseIdentifier: reuseID)
    }
    
-   static func dequeueCell(with collectionView: UICollectionView, at indexPath: IndexPath, date: Date) -> CalendarGridCell {
+   static func dequeueCell(with collectionView: UICollectionView, at indexPath: IndexPath, date: Date, activity: Activity?) -> CalendarGridCell {
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID, for: indexPath) as! CalendarGridCell
-      cell.configure(with: date)
+      cell.configure(with: date, activity: activity)
       return cell
    }
    
@@ -46,10 +46,11 @@ class CalendarGridCell: UICollectionViewCell {
    
    required init?(coder aDecoder: NSCoder) { fatalError() }
    
-   func configure(with date: Date) {
+   func configure(with date: Date, activity: Activity?) {
       let components = Calendar.current.dateComponents([.month, .day], from: date)
       _label.text = "\(components.month!)/\(components.day!)"
       _label.isHidden = true
+      contentView.backgroundColor = activity == nil ? UIColor(hex: "EBEBEB") : .green
       
       if components.day == 1 {
          contentView.layer.borderColor = UIColor(.outerSpace).cgColor

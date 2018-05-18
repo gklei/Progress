@@ -13,6 +13,8 @@ protocol CalendarGridViewControllerDataSource: class {
    var calendar: Calendar { get }
    var startDate: Date { get }
    var endDate: Date { get }
+   
+   func activity(at date: Date) -> Activity?
 }
 
 class CalendarGridViewController : UIViewController {
@@ -41,18 +43,9 @@ class CalendarGridViewController : UIViewController {
       CalendarGridCell.register(collectionView: _cv)
       
       _cv.translatesAutoresizingMaskIntoConstraints = false
-//      _headerVC = CalendarWeekdayHeaderViewController(calendar: dataSource!.calendar)
-//      _headerVC.view.translatesAutoresizingMaskIntoConstraints = false
-      
-//      addChildViewController(_headerVC)
-//      view.addSubview(_headerVC.view)
       view.addSubview(_cv)
       
       NSLayoutConstraint.activate([
-//         _headerVC.view.topAnchor.constraint(equalTo: view.topAnchor),
-//         _headerVC.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//         _headerVC.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//         _headerVC.view.heightAnchor.constraint(equalToConstant: 20),
          _cv.leadingAnchor.constraint(equalTo: view.leadingAnchor),
          _cv.topAnchor.constraint(equalTo: view.topAnchor),
          _cv.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -81,14 +74,13 @@ extension CalendarGridViewController: UICollectionViewDataSource {
    
    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
       let date = _date(for: indexPath)
-      let cell = CalendarGridCell.dequeueCell(with: collectionView, at: indexPath, date: date)
-      cell.backgroundColor = UIColor(hex: "EBEBEB")
+      let activity = dataSource?.activity(at: date)
+      let cell = CalendarGridCell.dequeueCell(with: collectionView, at: indexPath, date: date, activity: activity)
       return cell
    }
    
    fileprivate func _date(for indexPath: IndexPath) -> Date {
       guard let ds = dataSource else { fatalError() }
-      
       var components = DateComponents()
       components.day = indexPath.row
       

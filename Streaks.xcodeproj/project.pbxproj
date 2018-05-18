@@ -13,6 +13,8 @@
 		CE145A571FE3812200286BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE145A561FE3812200286BE1 /* Assets.xcassets */; };
 		CE145A5A1FE3812200286BE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE145A581FE3812200286BE1 /* LaunchScreen.storyboard */; };
 		CE145A621FE387BE00286BE1 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE145A611FE387BE00286BE1 /* AppRouter.swift */; };
+		CE23B06020AE95070071C5DC /* Streaks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE23B05E20AE95070071C5DC /* Streaks.xcdatamodeld */; };
+		CE23B06220AE95910071C5DC /* StreaksDataLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23B06120AE95910071C5DC /* StreaksDataLayer.swift */; };
 		CE8CA0ED1FF197810040C3AF /* CalendarGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CA0EC1FF197810040C3AF /* CalendarGridCell.swift */; };
 		CE8CA0EF1FF1979C0040C3AF /* CalendarGridFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CA0EE1FF1979C0040C3AF /* CalendarGridFooter.swift */; };
 		CE8CA0F11FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CA0F01FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift */; };
@@ -59,6 +61,8 @@
 		CE145A591FE3812200286BE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE145A5B1FE3812200286BE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE145A611FE387BE00286BE1 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		CE23B05F20AE95070071C5DC /* Streaks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Streaks.xcdatamodel; sourceTree = "<group>"; };
+		CE23B06120AE95910071C5DC /* StreaksDataLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreaksDataLayer.swift; sourceTree = "<group>"; };
 		CE8CA0EC1FF197810040C3AF /* CalendarGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridCell.swift; sourceTree = "<group>"; };
 		CE8CA0EE1FF1979C0040C3AF /* CalendarGridFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridFooter.swift; sourceTree = "<group>"; };
 		CE8CA0F01FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekdayHeaderViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 		CE145A431FE3812200286BE1 = {
 			isa = PBXGroup;
 			children = (
+				CE23B05D20AE94DD0071C5DC /* Core Data */,
 				CE8CA0EB1FF197530040C3AF /* Cells */,
 				CEBFDF761FE39A0E00DC8AA8 /* Element Configs */,
 				CEBFDF661FE38E6A00DC8AA8 /* Conductors */,
@@ -150,6 +155,15 @@
 				CE145A611FE387BE00286BE1 /* AppRouter.swift */,
 			);
 			path = Progress;
+			sourceTree = "<group>";
+		};
+		CE23B05D20AE94DD0071C5DC /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				CE23B05E20AE95070071C5DC /* Streaks.xcdatamodeld */,
+				CE23B06120AE95910071C5DC /* StreaksDataLayer.swift */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 		CE8CA0EB1FF197530040C3AF /* Cells */ = {
@@ -395,6 +409,7 @@
 				CE8CA0EF1FF1979C0040C3AF /* CalendarGridFooter.swift in Sources */,
 				CEBFDF6D1FE3904A00DC8AA8 /* StatsViewController.swift in Sources */,
 				CEBFDF5E1FE38B7800DC8AA8 /* String+Extensions.swift in Sources */,
+				CE23B06020AE95070071C5DC /* Streaks.xcdatamodeld in Sources */,
 				CEBFDF5F1FE38B7800DC8AA8 /* UIFont+Extensions.swift in Sources */,
 				CEBFDF5B1FE38B7800DC8AA8 /* UIViewController+Extensions.swift in Sources */,
 				CEBFDF651FE38B7800DC8AA8 /* UILabel+Extensions.swift in Sources */,
@@ -415,6 +430,7 @@
 				CEBFDF731FE399CE00DC8AA8 /* StatsConductor.swift in Sources */,
 				CEBFDF681FE38E8700DC8AA8 /* MainConductor.swift in Sources */,
 				CE8CA0F11FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift in Sources */,
+				CE23B06220AE95910071C5DC /* StreaksDataLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,6 +611,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CE23B05E20AE95070071C5DC /* Streaks.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CE23B05F20AE95070071C5DC /* Streaks.xcdatamodel */,
+			);
+			currentVersion = CE23B05F20AE95070071C5DC /* Streaks.xcdatamodel */;
+			path = Streaks.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CE145A441FE3812200286BE1 /* Project object */;
 }
