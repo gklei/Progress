@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D18123803D3EF70B9B69BCB2D24BEBCF"
-               BuildableName = "Pods_Progress.framework"
-               BlueprintName = "Pods-Progress"
+               BlueprintIdentifier = "E9B00CAF30C0EFB61DD30EC961D15476"
+               BuildableName = "Pods_Streaks.framework"
+               BlueprintName = "Pods-Streaks"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,7 +26,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -37,7 +36,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -47,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D18123803D3EF70B9B69BCB2D24BEBCF"
-            BuildableName = "Pods_Progress.framework"
-            BlueprintName = "Pods-Progress"
+            BlueprintIdentifier = "E9B00CAF30C0EFB61DD30EC961D15476"
+            BuildableName = "Pods_Streaks.framework"
+            BlueprintName = "Pods-Streaks"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

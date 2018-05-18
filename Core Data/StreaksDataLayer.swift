@@ -78,7 +78,6 @@ class StreaksDataLayer {
          context.delete(activity)
          try! context.save()
       } else {
-         print("No activity at: \(date.timeIntervalSince1970)")
          let entity = NSEntityDescription.entity(forEntityName: "Activity", in: context)
          let newActivity = NSManagedObject(entity: entity!, insertInto: context)
          

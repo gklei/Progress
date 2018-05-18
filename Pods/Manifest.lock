@@ -5,12 +5,14 @@ PODS:
     - Bindable
   - Elemental (0.1.0):
     - Bindable
+  - IQKeyboardManager (5.0.8)
 
 DEPENDENCIES:
   - ALGReversedFlowLayout
   - Bindable (from `Pods/Bindable`)
   - Conduction (from `Pods/Conduction`)
   - Elemental (from `Pods/Elemental`)
+  - IQKeyboardManager
 
 EXTERNAL SOURCES:
   Bindable:
@@ -25,7 +27,8 @@ SPEC CHECKSUMS:
   Bindable: 5b66126db4938727036b1cc15be77c15b738487c
   Conduction: c5ea9edbcf91d0597ad180bcd1816a00b0edf21e
   Elemental: d933cb88a1b79fbeda98f8e316523d4cb245b7f4
+  IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
 
-PODFILE CHECKSUM: 4163e7e225124af6b095e2bfc5d63b7d759b5cd9
+PODFILE CHECKSUM: 2f66668a30bd6e7917801bcba17734b8df428f18
 
 COCOAPODS: 1.3.1

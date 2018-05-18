@@ -17,7 +17,7 @@ class CalendarGridCell: UICollectionViewCell {
    static var reuseID = "CalendarGridCell"
    static var df: DateFormatter {
       let df = DateFormatter()
-      df.dateFormat = "MM/dd"
+      df.dateFormat = "MMM"
       return df
    }
    
@@ -33,8 +33,8 @@ class CalendarGridCell: UICollectionViewCell {
    
    fileprivate lazy var _label: UILabel = {
       let label = UILabel()
-      label.font = UIFont(12, .medium)
-      label.textColor = UIColor(.pink)
+      label.font = UIFont(14, .light)
+      label.textColor = UIColor(.outerSpace, alpha: 0.6)
       return label
    }()
    
@@ -78,17 +78,18 @@ class CalendarGridCell: UICollectionViewCell {
    
    func configure(with date: Date, activity: Activity?) {
       let components = Calendar.current.dateComponents([.month, .day], from: date)
-      _label.text = "\(components.month!)/\(components.day!)"
-      _label.isHidden = true
+      _label.text = CalendarGridCell.df.string(from: date).uppercased()
       contentView.backgroundColor = activity == nil ? UIColor(hex: "EBEBEB") : UIColor(.lime)
       
       if components.day == 1 {
          contentView.layer.borderColor = UIColor(.outerSpace, alpha: 0.15).cgColor
-         contentView.layer.borderWidth = 3
+         contentView.layer.borderWidth = 2
          contentView.layer.cornerRadius = 6
+         _label.isHidden = false
       } else {
          contentView.layer.borderWidth = 0
          contentView.layer.cornerRadius = 0
+         _label.isHidden = true
       }
    }
 }
