@@ -20,11 +20,6 @@ class StreakConductor: Conductor {
                                                             tintColor: UIColor(.outerSpace),
                                                             target: self,
                                                             selector: #selector(Conductor.dismiss))
-//      vc.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",
-//                                                             icon: #imageLiteral(resourceName: "three_dots"),
-//                                                             tintColor: UIColor(.outerSpace),
-//                                                             target: self,
-//                                                             selector: #selector(StreakConductor._menuSelected))
       vc.dataSource = self
       let vm = StreakViewController.ViewModel()
       vm.delegate = self
@@ -39,7 +34,7 @@ class StreakConductor: Conductor {
    var feedbackGenerator: UIImpactFeedbackGenerator?
    weak var delegate: StreakConductorDelegate?
    
-   fileprivate(set) var detailsConductor: ActivityDetailsConductor?
+   fileprivate(set) var detailsConductor: MarkerConductor?
    fileprivate var _isShowingDetails = false
    
    override var rootViewController: UIViewController? { return _streakVC }
@@ -123,7 +118,7 @@ extension StreakConductor: StreakViewControllerDelegate {
       feedbackGenerator?.impactOccurred()
     
       let activity = streak.activity(for: date)
-      detailsConductor = ActivityDetailsConductor(dataLayer: dataLayer, streak: streak, activity: activity, date: date)
+      detailsConductor = MarkerConductor(dataLayer: dataLayer, streak: streak, activity: activity, date: date)
       detailsConductor?.willDismissBlock = {
          self._streakVC.reload()
       }

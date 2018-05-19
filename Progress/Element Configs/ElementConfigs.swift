@@ -48,7 +48,7 @@ class TextInputConfiguration: TextInputElementConfiguration {
    }
 }
 
-class ActivityDetailsInputConfiguration: TextInputConfiguration {
+class MarkerInputConfiguration: TextInputConfiguration {
    init() {
       super.init(autocapitalizationType: .sentences)
       sizeConstraint.height = .constant(400)

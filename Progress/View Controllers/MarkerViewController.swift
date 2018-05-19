@@ -1,5 +1,5 @@
 //
-//  ActivityDetailsViewController.swift
+//  MarkerViewController.swift
 //  Streaks
 //
 //  Created by Gregory Klein on 5/18/18.
@@ -11,9 +11,9 @@ import Elemental
 import Bindable
 import Conduction
 
-class ActivityDetailsViewController: ElementalViewController {
+class MarkerViewController: ElementalViewController {
    struct State: ConductionState {}
-   class ViewModel: ConductionModel<ActivityDetailsConductor.Key, IncEmptyKey, State> {}
+   class ViewModel: ConductionModel<MarkerConductor.Key, IncEmptyKey, State> {}
    var viewModel: ViewModel? {
       didSet {
          setNeedsReload()
@@ -29,7 +29,7 @@ class ActivityDetailsViewController: ElementalViewController {
       guard let viewModel = viewModel else { return nil }
       return Element.form([
          .verticalSpace(26),
-         .textViewInput(configuration: ActivityDetailsInputConfiguration(),
+         .textViewInput(configuration: MarkerInputConfiguration(),
                         content: TextInputElementContent(name: "", placeholder: "What did you do?"),
                         bindings: [viewModel.viewData.targetBinding(key: BindableElementKey.text, targetKey: .activityDetails)]),
       ])

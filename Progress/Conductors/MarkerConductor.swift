@@ -1,5 +1,5 @@
 //
-//  ActivityDetailsConductor.swift
+//  MarkerConductor.swift
 //  Streaks
 //
 //  Created by Gregory Klein on 5/18/18.
@@ -10,7 +10,7 @@ import UIKit
 import Bindable
 import Conduction
 
-class ActivityDetailsConductor: Conductor, Bindable {
+class MarkerConductor: Conductor, Bindable {
    enum Key: String, IncKVKeyType {
       case activityDetails
    }
@@ -18,13 +18,13 @@ class ActivityDetailsConductor: Conductor, Bindable {
    var keysBeingSet: [Key] = []
    var activityDetails: String = ""
    
-   func setOwn(value: inout Any?, for key: ActivityDetailsConductor.Key) throws {
+   func setOwn(value: inout Any?, for key: MarkerConductor.Key) throws {
       switch key {
       case .activityDetails: activityDetails = value as? String ?? ""
       }
    }
    
-   func value(for key: ActivityDetailsConductor.Key) -> Any? {
+   func value(for key: MarkerConductor.Key) -> Any? {
       switch key {
       case .activityDetails: return activityDetails
       }
@@ -36,15 +36,15 @@ class ActivityDetailsConductor: Conductor, Bindable {
       return df
    }
    
-   fileprivate lazy var _detailsVC: ActivityDetailsViewController = {
-      let vc = ActivityDetailsViewController()
-      vc.title = ActivityDetailsConductor.df.string(from: self.date)
+   fileprivate lazy var _detailsVC: MarkerViewController = {
+      let vc = MarkerViewController()
+      vc.title = MarkerConductor.df.string(from: self.date)
       vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "",
                                                             icon: #imageLiteral(resourceName: "arrow_left"),
                                                             tintColor: UIColor(.outerSpace),
                                                             target: self,
                                                             selector: #selector(Conductor.dismiss))
-      vc.viewModel = ActivityDetailsViewController.ViewModel(model: self)
+      vc.viewModel = MarkerViewController.ViewModel(model: self)
       return vc
    }()
    
