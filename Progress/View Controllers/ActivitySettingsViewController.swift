@@ -6,7 +6,9 @@
 //  Copyright © 2017 Gregory Klein. All rights reserved.
 //
 
+import Bindable
 import Elemental
+import Conduction
 
 class ActivitySettingsViewController: ElementalViewController {
    fileprivate lazy var _colorGridVC: ColorGridViewController = {
@@ -14,6 +16,12 @@ class ActivitySettingsViewController: ElementalViewController {
       vc.dataSource = self
       return vc
    }()
+   
+   var viewModel: ViewModel? {
+      didSet {
+         setNeedsReload()
+      }
+   }
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -37,6 +45,11 @@ class ActivitySettingsViewController: ElementalViewController {
    }
 }
 
+extension ActivitySettingsViewController {
+   struct State: ConductionState {}
+   class ViewModel: ConductionModel<ActivitySettingsConductor.Key, IncEmptyKey, State> {}
+}
+
 extension ActivitySettingsViewController: ColorGridViewControllerDataSource {
    var colors: [StreaksColor] {
       return [
@@ -45,7 +58,7 @@ extension ActivitySettingsViewController: ColorGridViewControllerDataSource {
       ]
    }
    
-   var activity: Activity? {
-      return nil
+   var markerColor: StreaksColor {
+      return .markerGreen
    }
 }

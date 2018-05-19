@@ -83,6 +83,8 @@
 		CEC8AD5820AF9593002B7947 /* ActivityListConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC8AD5720AF9593002B7947 /* ActivityListConductor.swift */; };
 		CEDA59B320B0DA9E00D3EFE7 /* ColorGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA59B220B0DA9E00D3EFE7 /* ColorGridViewController.swift */; };
 		CEDA59B520B0DACA00D3EFE7 /* ColorGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA59B420B0DACA00D3EFE7 /* ColorGridCell.swift */; };
+		CEDA59B720B0E14700D3EFE7 /* StreaksSettingsConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA59B620B0E14700D3EFE7 /* StreaksSettingsConductor.swift */; };
+		CEDA59B920B0E15400D3EFE7 /* StreaksSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA59B820B0E15400D3EFE7 /* StreaksSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,6 +168,8 @@
 		CEC8AD5720AF9593002B7947 /* ActivityListConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListConductor.swift; sourceTree = "<group>"; };
 		CEDA59B220B0DA9E00D3EFE7 /* ColorGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGridViewController.swift; sourceTree = "<group>"; };
 		CEDA59B420B0DACA00D3EFE7 /* ColorGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGridCell.swift; sourceTree = "<group>"; };
+		CEDA59B620B0E14700D3EFE7 /* StreaksSettingsConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreaksSettingsConductor.swift; sourceTree = "<group>"; };
+		CEDA59B820B0E15400D3EFE7 /* StreaksSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreaksSettingsViewController.swift; sourceTree = "<group>"; };
 		D52441EBC8F70B1546028A47 /* Pods-Streaks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Streaks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Streaks/Pods-Streaks.debug.xcconfig"; sourceTree = "<group>"; };
 		E5ABD58FBD65DDAD1BE07772 /* Pods_Progress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Progress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -402,6 +406,7 @@
 				CEBFDF701FE399AF00DC8AA8 /* ActivityConductor.swift */,
 				CEBFDF721FE399CE00DC8AA8 /* StatsConductor.swift */,
 				CEBFDF741FE399E300DC8AA8 /* ActivitySettingsConductor.swift */,
+				CEDA59B620B0E14700D3EFE7 /* StreaksSettingsConductor.swift */,
 				CE23B06520AEB9D30071C5DC /* MarkerConductor.swift */,
 				CEC8AD5720AF9593002B7947 /* ActivityListConductor.swift */,
 			);
@@ -420,6 +425,7 @@
 				CE23B06320AEB33C0071C5DC /* MarkerViewController.swift */,
 				CEC8AD5520AF956C002B7947 /* ActivityListViewController.swift */,
 				CEDA59B220B0DA9E00D3EFE7 /* ColorGridViewController.swift */,
+				CEDA59B820B0E15400D3EFE7 /* StreaksSettingsViewController.swift */,
 			);
 			name = "View Controllers";
 			path = "Progress/View Controllers";
@@ -598,6 +604,7 @@
 				CEBFDF5D1FE38B7800DC8AA8 /* UIView+Streaks.swift in Sources */,
 				CEBFDF621FE38B7800DC8AA8 /* UITabBar+Streaks.swift in Sources */,
 				CE8CA0EF1FF1979C0040C3AF /* CalendarGridFooter.swift in Sources */,
+				CEDA59B920B0E15400D3EFE7 /* StreaksSettingsViewController.swift in Sources */,
 				CEBFDF6D1FE3904A00DC8AA8 /* StatsViewController.swift in Sources */,
 				CEA1F2EA20B00A9000CB378C /* UIView+Extensions.swift in Sources */,
 				CEA1F2F620B00A9000CB378C /* UITextField+Extensions.swift in Sources */,
@@ -612,6 +619,7 @@
 				CE23B06020AE95070071C5DC /* Streaks.xcdatamodeld in Sources */,
 				CEBFDF5F1FE38B7800DC8AA8 /* UIFont+Streaks.swift in Sources */,
 				CEBFDF5B1FE38B7800DC8AA8 /* UIViewController+Streaks.swift in Sources */,
+				CEDA59B720B0E14700D3EFE7 /* StreaksSettingsConductor.swift in Sources */,
 				CEDA59B520B0DACA00D3EFE7 /* ColorGridCell.swift in Sources */,
 				CEBFDF651FE38B7800DC8AA8 /* UILabel+Streaks.swift in Sources */,
 				CEA1F2ED20B00A9000CB378C /* UITextView+Extensions.swift in Sources */,

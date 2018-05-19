@@ -10,7 +10,7 @@ import UIKit
 
 protocol ColorGridViewControllerDataSource: class {
    var colors: [StreaksColor] { get }
-   var activity: Activity? { get }
+   var markerColor: StreaksColor { get }
 }
 
 class ColorGridViewController: UIViewController {
@@ -31,7 +31,6 @@ class ColorGridViewController: UIViewController {
       _cv.backgroundColor = .clear
       _cv.delaysContentTouches = false
       ColorGridCell.register(collectionView: _cv)
-      _cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "ColorGridCell")
       
       _cv.translatesAutoresizingMaskIntoConstraints = false
       view.addSubview(_cv)
@@ -86,10 +85,10 @@ extension ColorGridViewController: UICollectionViewDataSource {
    }
    
    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-      guard let colors = dataSource?.colors else { fatalError() }
-      guard let activity = dataSource?.activity else { fatalError() }
+      guard let colors = dataSource?.colors, let activityColor = dataSource?.markerColor else { fatalError() }
       let color = colors[indexPath.row]
-      let cell = ColorGridCell.dequeueCell(with: collectionView, at: indexPath, with: color, activity: activity)
+      let selected = color == activityColor
+      let cell = ColorGridCell.dequeueCell(with: collectionView, at: indexPath, with: color, selected: selected)
       return cell
    }
 }

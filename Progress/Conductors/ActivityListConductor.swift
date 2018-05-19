@@ -8,6 +8,11 @@
 
 import Conduction
 
+protocol ActivityListConductorDelegate: class {
+   func activityConductorWillShow(_ conductor: ActivityConductor, from listConductor: ActivityListConductor)
+   func activityConductorWillDismiss(_ conductor: ActivityConductor, from listConductor: ActivityListConductor)
+}
+
 class ActivityListConductor: TabConductor {
    fileprivate lazy var _activityListVC: ActivityListViewController = {
       let vc = ActivityListViewController()
@@ -27,6 +32,7 @@ class ActivityListConductor: TabConductor {
    fileprivate(set) var activityConductor: ActivityConductor?
    fileprivate var _editing = false
    let dataLayer: StreaksDataLayer
+   weak var delegate: ActivityListConductorDelegate?
    
    init(dataLayer: StreaksDataLayer) {
       self.dataLayer = dataLayer
@@ -41,8 +47,14 @@ class ActivityListConductor: TabConductor {
    }
    
    fileprivate func _show(activity: Activity, isNew: Bool) {
-      activityConductor = ActivityConductor(dataLayer: dataLayer, activity: activity, isNew: isNew)
-      activityConductor?.delegate = self
+      let conductor = ActivityConductor(dataLayer: dataLayer, activity: activity, isNew: isNew)
+      conductor.delegate = self
+      conductor.willDismissBlock = {
+         self.delegate?.activityConductorWillDismiss(conductor, from: self)
+      }
+      
+      delegate?.activityConductorWillShow(conductor, from: self)
+      activityConductor = conductor
       show(conductor: activityConductor)
    }
    
@@ -64,7 +76,7 @@ extension ActivityListConductor: ActivityListViewModelDelegate {
    func activitySwipedLeft(_ activity: Activity, in viewModel: ActivityListViewController.ViewModel) {
       guard !_editing else { return }
       let alert = UIAlertController(style: .alert, title: "Delete \(activity.name!)?", message: "This cannot be undone.")
-      alert.addAction(title: "Cancel", color: UIColor(.outerSpace), style: .default)
+      alert.addAction(title: "Cancel", color: UIColor(.markerBlue), style: .default)
       alert.addAction(title: "Delete", color: UIColor(.lipstick), style: .destructive) { action in
          self.dataLayer.delete(activity: activity)
          self._updateActivityListViewController()

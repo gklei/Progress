@@ -57,7 +57,7 @@ class StreaksDataLayer {
    
    fileprivate func _newStreakName() -> String {
       switch fetchedActivities.count {
-      case 0: return "New Activity with a really long name"
+      case 0: return "New Activity"
       default: return "New Activity \(fetchedActivities.count + 1)"
       }
    }
@@ -76,6 +76,7 @@ class StreaksDataLayer {
       
       newStreak.setValue(name, forKey: "name")
       newStreak.setValue(Date(), forKey: "creationDate")
+      newStreak.setValue(StreaksColor.markerGreen.rawValue, forKey: "markerColorHex")
       save()
       
       return newStreak as! Activity
