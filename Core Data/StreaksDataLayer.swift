@@ -82,7 +82,7 @@ class StreaksDataLayer {
       
       newStreak.setValue(name, forKey: "name")
       newStreak.setValue(Date(), forKey: "creationDate")
-      newStreak.setValue(StreaksColor.markerGreen.rawValue, forKey: "markerColorHex")
+      newStreak.setValue(StreaksColor.markerYellow.rawValue, forKey: "markerColorHex")
       save()
       
       return newStreak as! Activity
