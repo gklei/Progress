@@ -30,7 +30,7 @@ class StreakConductor: Conductor {
    let dataLayer: StreaksDataLayer
    let streak: Streak
    let isNew: Bool
-   var activity: [Activity] { return dataLayer.fetchedData }
+   var activity: [Marker] { return dataLayer.fetchedData }
    var feedbackGenerator: UIImpactFeedbackGenerator?
    weak var delegate: StreakConductorDelegate?
    
@@ -127,7 +127,7 @@ extension StreakConductor: StreakViewControllerDelegate {
 }
 
 extension StreakConductor: StreakViewControllerDataSource {
-   func activity(at date: Date) -> Activity? {
+   func activity(at date: Date) -> Marker? {
       return streak.activity(for: date)
    }
 }

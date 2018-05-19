@@ -52,10 +52,10 @@ class MarkerConductor: Conductor, Bindable {
    
    let dataLayer: StreaksDataLayer
    let streak: Streak
-   let activity: Activity?
+   let activity: Marker?
    let date: Date
    
-   init(dataLayer: StreaksDataLayer, streak: Streak, activity: Activity?, date: Date) {
+   init(dataLayer: StreaksDataLayer, streak: Streak, activity: Marker?, date: Date) {
       self.dataLayer = dataLayer
       self.streak = streak
       self.activity = activity

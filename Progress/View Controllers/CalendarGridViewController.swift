@@ -14,7 +14,7 @@ protocol CalendarGridViewControllerDataSource: class {
    var startDate: Date { get }
    var endDate: Date { get }
    
-   func activity(at date: Date) -> Activity?
+   func activity(at date: Date) -> Marker?
 }
 
 class CalendarGridViewController : UIViewController {

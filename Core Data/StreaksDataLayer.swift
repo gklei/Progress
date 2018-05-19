@@ -10,8 +10,8 @@ import Foundation
 import CoreData
 
 extension Streak {
-   func activity(for date: Date) -> Activity? {
-      return self.activity?.filter { ($0 as! Activity).epoch == date.timeIntervalSince1970 }.first as? Activity
+   func activity(for date: Date) -> Marker? {
+      return self.activity?.filter { ($0 as! Marker).epoch == date.timeIntervalSince1970 }.first as? Marker
    }
 }
 
@@ -48,7 +48,7 @@ class StreaksDataLayer {
       return persistentContainer.viewContext
    }
    
-   fileprivate(set) var fetchedData: [Activity] = []
+   fileprivate(set) var fetchedData: [Marker] = []
    fileprivate(set) var fetchedStreaks: [Streak] = []
    
    init() {
@@ -106,17 +106,17 @@ class StreaksDataLayer {
       updateFetchedStreaks()
    }
    
-   @discardableResult func createActivity(at date: Date, for streak: Streak, with description: String = "") -> Activity? {
+   @discardableResult func createActivity(at date: Date, for streak: Streak, with description: String = "") -> Marker? {
       guard streak.activity(for: date) == nil else { return nil }
       
-      let entity = NSEntityDescription.entity(forEntityName: "Activity", in: context)
+      let entity = NSEntityDescription.entity(forEntityName: "Marker", in: context)
       let newActivity = NSManagedObject(entity: entity!, insertInto: context)
       
       newActivity.setValue(date, forKey: "date")
       newActivity.setValue(date.timeIntervalSince1970, forKey: "epoch")
       newActivity.setValue(description, forKey: "descriptionText")
       newActivity.setValue(streak, forKey: "streak")
-      return newActivity as? Activity
+      return newActivity as? Marker
    }
    
    func delete(streak: Streak) {
