@@ -9,7 +9,7 @@
 import UIKit
 
 enum ProgressColor: String {
-   case mint, spearmint, lime, lipstick, darkGray, lightGray, outerSpace, white, pink
+   case mint, spearmint, lime, lipstick, darkGray, lightGray, outerSpace, white, pink, markerRed, markerOrange, markerYellow, markerGreen, markerBlue, markerIndigo, markerViolet
    
    var hex: String {
       switch self {
@@ -22,6 +22,13 @@ enum ProgressColor: String {
       case .outerSpace: return "030D15"
       case .white: return "FFFFFF"
       case .pink: return "FF30EE"
+      case .markerRed: return "F57A7A"
+      case .markerOrange: return "F5AD7A"
+      case .markerYellow: return "DCF57A"
+      case .markerGreen: return "7AF5C8"
+      case .markerBlue: return "7ACCF5"
+      case .markerIndigo: return "AB7AF5"
+      case .markerViolet: return "F57AE0"
       }
    }
 }
