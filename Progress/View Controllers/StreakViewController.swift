@@ -9,7 +9,7 @@
 import UIKit
 
 protocol StreakViewControllerDataSource: class {
-   func activity(at date: Date) -> Marker?
+   func marker(at date: Date) -> Marker?
 }
 
 class StreakViewController: UIViewController {
@@ -85,8 +85,8 @@ extension StreakViewController: CalendarGridViewControllerDataSource {
       return calendar.startOfDay(for: Date())
    }
    
-   func activity(at date: Date) -> Marker? {
-      return dataSource?.activity(at: date)
+   func marker(at date: Date) -> Marker? {
+      return dataSource?.marker(at: date)
    }
 }
 

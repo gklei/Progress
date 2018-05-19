@@ -14,7 +14,7 @@ protocol CalendarGridViewControllerDataSource: class {
    var startDate: Date { get }
    var endDate: Date { get }
    
-   func activity(at date: Date) -> Marker?
+   func marker(at date: Date) -> Marker?
 }
 
 class CalendarGridViewController : UIViewController {
@@ -75,8 +75,8 @@ extension CalendarGridViewController: UICollectionViewDataSource {
    
    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
       let date = _date(for: indexPath)
-      let activity = dataSource?.activity(at: date)
-      let cell = CalendarGridCell.dequeueCell(with: collectionView, at: indexPath, date: date, activity: activity)
+      let marker = dataSource?.marker(at: date)
+      let cell = CalendarGridCell.dequeueCell(with: collectionView, at: indexPath, date: date, marker: marker)
       cell.delegate = self
       return cell
    }

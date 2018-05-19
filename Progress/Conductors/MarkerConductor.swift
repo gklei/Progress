@@ -52,20 +52,20 @@ class MarkerConductor: Conductor, Bindable {
    
    let dataLayer: StreaksDataLayer
    let streak: Streak
-   let activity: Marker?
+   let marker: Marker?
    let date: Date
    
-   init(dataLayer: StreaksDataLayer, streak: Streak, activity: Marker?, date: Date) {
+   init(dataLayer: StreaksDataLayer, streak: Streak, marker: Marker?, date: Date) {
       self.dataLayer = dataLayer
       self.streak = streak
-      self.activity = activity
-      activityDetails = activity?.descriptionText ?? ""
+      self.marker = marker
+      activityDetails = marker?.descriptionText ?? ""
       self.date = date
       super.init()
    }
    
    override func conductorWillDismiss(from context: UINavigationController) {
-      switch activity {
+      switch marker {
       case .some(let a):
          a.descriptionText = activityDetails
          dataLayer.save()

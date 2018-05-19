@@ -10,8 +10,8 @@ import Foundation
 import CoreData
 
 extension Streak {
-   func activity(for date: Date) -> Marker? {
-      return self.activity?.filter { ($0 as! Marker).epoch == date.timeIntervalSince1970 }.first as? Marker
+   func marker(for date: Date) -> Marker? {
+      return self.marker?.filter { ($0 as! Marker).epoch == date.timeIntervalSince1970 }.first as? Marker
    }
 }
 
@@ -97,8 +97,8 @@ class StreaksDataLayer {
    }
    
    func toggleActivity(at date: Date, for streak: Streak) {
-      if let activity = streak.activity(for: date) {
-         context.delete(activity)
+      if let marker = streak.marker(for: date) {
+         context.delete(marker)
       } else {
          createActivity(at: date, for: streak)
       }
@@ -107,7 +107,7 @@ class StreaksDataLayer {
    }
    
    @discardableResult func createActivity(at date: Date, for streak: Streak, with description: String = "") -> Marker? {
-      guard streak.activity(for: date) == nil else { return nil }
+      guard streak.marker(for: date) == nil else { return nil }
       
       let entity = NSEntityDescription.entity(forEntityName: "Marker", in: context)
       let newActivity = NSManagedObject(entity: entity!, insertInto: context)
