@@ -21,6 +21,33 @@
 		CE8CA0ED1FF197810040C3AF /* CalendarGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CA0EC1FF197810040C3AF /* CalendarGridCell.swift */; };
 		CE8CA0EF1FF1979C0040C3AF /* CalendarGridFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CA0EE1FF1979C0040C3AF /* CalendarGridFooter.swift */; };
 		CE8CA0F11FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8CA0F01FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift */; };
+		CEA1F2D020B00A9000CB378C /* TwoTextFieldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F28620B00A8F00CB378C /* TwoTextFieldsViewController.swift */; };
+		CEA1F2D120B00A9000CB378C /* OneTextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F28720B00A8F00CB378C /* OneTextFieldViewController.swift */; };
+		CEA1F2D920B00A9000CB378C /* PickerViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F29520B00A8F00CB378C /* PickerViewViewController.swift */; };
+		CEA1F2DE20B00A9000CB378C /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F29F20B00A9000CB378C /* ColorPickerViewController.swift */; };
+		CEA1F2DF20B00A9000CB378C /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2A120B00A9000CB378C /* DatePickerViewController.swift */; };
+		CEA1F2E620B00A9000CB378C /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2AE20B00A9000CB378C /* Array+Extensions.swift */; };
+		CEA1F2E720B00A9000CB378C /* UISegmentedControl+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2AF20B00A9000CB378C /* UISegmentedControl+Extensions.swift */; };
+		CEA1F2E920B00A9000CB378C /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2B120B00A9000CB378C /* UIViewController+Extensions.swift */; };
+		CEA1F2EA20B00A9000CB378C /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2B220B00A9000CB378C /* UIView+Extensions.swift */; };
+		CEA1F2EB20B00A9000CB378C /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2B320B00A9000CB378C /* Date+Extension.swift */; };
+		CEA1F2EC20B00A9000CB378C /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2B420B00A9000CB378C /* String+Extensions.swift */; };
+		CEA1F2ED20B00A9000CB378C /* UITextView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2B520B00A9000CB378C /* UITextView+Extensions.swift */; };
+		CEA1F2EE20B00A9000CB378C /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2B620B00A9000CB378C /* UIColor+Extensions.swift */; };
+		CEA1F2EF20B00A9000CB378C /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2B720B00A9000CB378C /* UIImage+Extensions.swift */; };
+		CEA1F2F020B00A9000CB378C /* UISearchBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2B820B00A9000CB378C /* UISearchBar+Extensions.swift */; };
+		CEA1F2F120B00A9000CB378C /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2B920B00A9000CB378C /* UIApplication+Extensions.swift */; };
+		CEA1F2F220B00A9000CB378C /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2BA20B00A9000CB378C /* UIAlertController+Extensions.swift */; };
+		CEA1F2F320B00A9000CB378C /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2BB20B00A9000CB378C /* Optional+Extensions.swift */; };
+		CEA1F2F420B00A9000CB378C /* Common+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2BC20B00A9000CB378C /* Common+Extensions.swift */; };
+		CEA1F2F620B00A9000CB378C /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2BE20B00A9000CB378C /* UITextField+Extensions.swift */; };
+		CEA1F2F720B00A9000CB378C /* AttributedTextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2C120B00A9000CB378C /* AttributedTextBlock.swift */; };
+		CEA1F2F820B00A9000CB378C /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2C220B00A9000CB378C /* TextViewController.swift */; };
+		CEA1F2F920B00A9000CB378C /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2C420B00A9000CB378C /* Label.swift */; };
+		CEA1F2FA20B00A9000CB378C /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2C520B00A9000CB378C /* SegmentedControl.swift */; };
+		CEA1F2FB20B00A9000CB378C /* GradientSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2C620B00A9000CB378C /* GradientSlider.swift */; };
+		CEA1F2FC20B00A9000CB378C /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2C720B00A9000CB378C /* TextField.swift */; };
+		CEA1F2FD20B00A9000CB378C /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA1F2C820B00A9000CB378C /* Button.swift */; };
 		CEBFDF431FE38AAE00DC8AA8 /* Gotham-XLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF371FE38AAE00DC8AA8 /* Gotham-XLight.otf */; };
 		CEBFDF441FE38AAE00DC8AA8 /* Gotham-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF381FE38AAE00DC8AA8 /* Gotham-Black.otf */; };
 		CEBFDF451FE38AAE00DC8AA8 /* Gotham-XLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF391FE38AAE00DC8AA8 /* Gotham-XLightItalic.otf */; };
@@ -33,17 +60,17 @@
 		CEBFDF4C1FE38AAE00DC8AA8 /* Gotham-BookItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF401FE38AAE00DC8AA8 /* Gotham-BookItalic.otf */; };
 		CEBFDF4D1FE38AAE00DC8AA8 /* Gotham-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF411FE38AAE00DC8AA8 /* Gotham-BlackItalic.otf */; };
 		CEBFDF4E1FE38AAE00DC8AA8 /* Gotham-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEBFDF421FE38AAE00DC8AA8 /* Gotham-MediumItalic.otf */; };
-		CEBFDF5B1FE38B7800DC8AA8 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF501FE38B7800DC8AA8 /* UIViewController+Extensions.swift */; };
-		CEBFDF5C1FE38B7800DC8AA8 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF511FE38B7800DC8AA8 /* UIButton+Extensions.swift */; };
-		CEBFDF5D1FE38B7800DC8AA8 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF521FE38B7800DC8AA8 /* UIView+Extensions.swift */; };
-		CEBFDF5E1FE38B7800DC8AA8 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF531FE38B7800DC8AA8 /* String+Extensions.swift */; };
-		CEBFDF5F1FE38B7800DC8AA8 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF541FE38B7800DC8AA8 /* UIFont+Extensions.swift */; };
-		CEBFDF601FE38B7800DC8AA8 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF551FE38B7800DC8AA8 /* UIColor+Extensions.swift */; };
-		CEBFDF611FE38B7800DC8AA8 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF561FE38B7800DC8AA8 /* UIImage+Extensions.swift */; };
-		CEBFDF621FE38B7800DC8AA8 /* UITabBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF571FE38B7800DC8AA8 /* UITabBar+Extensions.swift */; };
-		CEBFDF631FE38B7800DC8AA8 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF581FE38B7800DC8AA8 /* UINavigationController+Extensions.swift */; };
-		CEBFDF641FE38B7800DC8AA8 /* UIBarButtonItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF591FE38B7800DC8AA8 /* UIBarButtonItem+Extensions.swift */; };
-		CEBFDF651FE38B7800DC8AA8 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF5A1FE38B7800DC8AA8 /* UILabel+Extensions.swift */; };
+		CEBFDF5B1FE38B7800DC8AA8 /* UIViewController+Streaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF501FE38B7800DC8AA8 /* UIViewController+Streaks.swift */; };
+		CEBFDF5C1FE38B7800DC8AA8 /* UIButton+Streaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF511FE38B7800DC8AA8 /* UIButton+Streaks.swift */; };
+		CEBFDF5D1FE38B7800DC8AA8 /* UIView+Streaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF521FE38B7800DC8AA8 /* UIView+Streaks.swift */; };
+		CEBFDF5E1FE38B7800DC8AA8 /* String+Streaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF531FE38B7800DC8AA8 /* String+Streaks.swift */; };
+		CEBFDF5F1FE38B7800DC8AA8 /* UIFont+Streaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF541FE38B7800DC8AA8 /* UIFont+Streaks.swift */; };
+		CEBFDF601FE38B7800DC8AA8 /* UIColor+Streaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF551FE38B7800DC8AA8 /* UIColor+Streaks.swift */; };
+		CEBFDF611FE38B7800DC8AA8 /* UIImage+Streaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF561FE38B7800DC8AA8 /* UIImage+Streaks.swift */; };
+		CEBFDF621FE38B7800DC8AA8 /* UITabBar+Streaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF571FE38B7800DC8AA8 /* UITabBar+Streaks.swift */; };
+		CEBFDF631FE38B7800DC8AA8 /* UINavigationController+Streaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF581FE38B7800DC8AA8 /* UINavigationController+Streaks.swift */; };
+		CEBFDF641FE38B7800DC8AA8 /* UIBarButtonItem+Streaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF591FE38B7800DC8AA8 /* UIBarButtonItem+Streaks.swift */; };
+		CEBFDF651FE38B7800DC8AA8 /* UILabel+Streaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF5A1FE38B7800DC8AA8 /* UILabel+Streaks.swift */; };
 		CEBFDF681FE38E8700DC8AA8 /* MainConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF671FE38E8700DC8AA8 /* MainConductor.swift */; };
 		CEBFDF6B1FE38F7E00DC8AA8 /* StreakViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF6A1FE38F7E00DC8AA8 /* StreakViewController.swift */; };
 		CEBFDF6D1FE3904A00DC8AA8 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF6C1FE3904A00DC8AA8 /* StatsViewController.swift */; };
@@ -75,6 +102,33 @@
 		CE8CA0EC1FF197810040C3AF /* CalendarGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridCell.swift; sourceTree = "<group>"; };
 		CE8CA0EE1FF1979C0040C3AF /* CalendarGridFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridFooter.swift; sourceTree = "<group>"; };
 		CE8CA0F01FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekdayHeaderViewController.swift; sourceTree = "<group>"; };
+		CEA1F28620B00A8F00CB378C /* TwoTextFieldsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoTextFieldsViewController.swift; sourceTree = "<group>"; };
+		CEA1F28720B00A8F00CB378C /* OneTextFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneTextFieldViewController.swift; sourceTree = "<group>"; };
+		CEA1F29520B00A8F00CB378C /* PickerViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewViewController.swift; sourceTree = "<group>"; };
+		CEA1F29F20B00A9000CB378C /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		CEA1F2A120B00A9000CB378C /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		CEA1F2AE20B00A9000CB378C /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		CEA1F2AF20B00A9000CB378C /* UISegmentedControl+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Extensions.swift"; sourceTree = "<group>"; };
+		CEA1F2B120B00A9000CB378C /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		CEA1F2B220B00A9000CB378C /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		CEA1F2B320B00A9000CB378C /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		CEA1F2B420B00A9000CB378C /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		CEA1F2B520B00A9000CB378C /* UITextView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Extensions.swift"; sourceTree = "<group>"; };
+		CEA1F2B620B00A9000CB378C /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		CEA1F2B720B00A9000CB378C /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		CEA1F2B820B00A9000CB378C /* UISearchBar+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extensions.swift"; sourceTree = "<group>"; };
+		CEA1F2B920B00A9000CB378C /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		CEA1F2BA20B00A9000CB378C /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
+		CEA1F2BB20B00A9000CB378C /* Optional+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
+		CEA1F2BC20B00A9000CB378C /* Common+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Common+Extensions.swift"; sourceTree = "<group>"; };
+		CEA1F2BE20B00A9000CB378C /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		CEA1F2C120B00A9000CB378C /* AttributedTextBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedTextBlock.swift; sourceTree = "<group>"; };
+		CEA1F2C220B00A9000CB378C /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		CEA1F2C420B00A9000CB378C /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		CEA1F2C520B00A9000CB378C /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
+		CEA1F2C620B00A9000CB378C /* GradientSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientSlider.swift; sourceTree = "<group>"; };
+		CEA1F2C720B00A9000CB378C /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		CEA1F2C820B00A9000CB378C /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		CEBFDF371FE38AAE00DC8AA8 /* Gotham-XLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLight.otf"; sourceTree = "<group>"; };
 		CEBFDF381FE38AAE00DC8AA8 /* Gotham-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Black.otf"; sourceTree = "<group>"; };
 		CEBFDF391FE38AAE00DC8AA8 /* Gotham-XLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-XLightItalic.otf"; sourceTree = "<group>"; };
@@ -87,17 +141,17 @@
 		CEBFDF401FE38AAE00DC8AA8 /* Gotham-BookItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BookItalic.otf"; sourceTree = "<group>"; };
 		CEBFDF411FE38AAE00DC8AA8 /* Gotham-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-BlackItalic.otf"; sourceTree = "<group>"; };
 		CEBFDF421FE38AAE00DC8AA8 /* Gotham-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-MediumItalic.otf"; sourceTree = "<group>"; };
-		CEBFDF501FE38B7800DC8AA8 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		CEBFDF511FE38B7800DC8AA8 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
-		CEBFDF521FE38B7800DC8AA8 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		CEBFDF531FE38B7800DC8AA8 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		CEBFDF541FE38B7800DC8AA8 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
-		CEBFDF551FE38B7800DC8AA8 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
-		CEBFDF561FE38B7800DC8AA8 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
-		CEBFDF571FE38B7800DC8AA8 /* UITabBar+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBar+Extensions.swift"; sourceTree = "<group>"; };
-		CEBFDF581FE38B7800DC8AA8 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
-		CEBFDF591FE38B7800DC8AA8 /* UIBarButtonItem+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extensions.swift"; sourceTree = "<group>"; };
-		CEBFDF5A1FE38B7800DC8AA8 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		CEBFDF501FE38B7800DC8AA8 /* UIViewController+Streaks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Streaks.swift"; sourceTree = "<group>"; };
+		CEBFDF511FE38B7800DC8AA8 /* UIButton+Streaks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Streaks.swift"; sourceTree = "<group>"; };
+		CEBFDF521FE38B7800DC8AA8 /* UIView+Streaks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Streaks.swift"; sourceTree = "<group>"; };
+		CEBFDF531FE38B7800DC8AA8 /* String+Streaks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Streaks.swift"; sourceTree = "<group>"; };
+		CEBFDF541FE38B7800DC8AA8 /* UIFont+Streaks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Streaks.swift"; sourceTree = "<group>"; };
+		CEBFDF551FE38B7800DC8AA8 /* UIColor+Streaks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Streaks.swift"; sourceTree = "<group>"; };
+		CEBFDF561FE38B7800DC8AA8 /* UIImage+Streaks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Streaks.swift"; sourceTree = "<group>"; };
+		CEBFDF571FE38B7800DC8AA8 /* UITabBar+Streaks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITabBar+Streaks.swift"; sourceTree = "<group>"; };
+		CEBFDF581FE38B7800DC8AA8 /* UINavigationController+Streaks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Streaks.swift"; sourceTree = "<group>"; };
+		CEBFDF591FE38B7800DC8AA8 /* UIBarButtonItem+Streaks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Streaks.swift"; sourceTree = "<group>"; };
+		CEBFDF5A1FE38B7800DC8AA8 /* UILabel+Streaks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Streaks.swift"; sourceTree = "<group>"; };
 		CEBFDF671FE38E8700DC8AA8 /* MainConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainConductor.swift; path = Progress/Conductors/MainConductor.swift; sourceTree = SOURCE_ROOT; };
 		CEBFDF6A1FE38F7E00DC8AA8 /* StreakViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreakViewController.swift; path = "Progress/View Controllers/StreakViewController.swift"; sourceTree = SOURCE_ROOT; };
 		CEBFDF6C1FE3904A00DC8AA8 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatsViewController.swift; path = "Progress/View Controllers/StatsViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -137,6 +191,7 @@
 		CE145A431FE3812200286BE1 = {
 			isa = PBXGroup;
 			children = (
+				CEA1F27820B00A6800CB378C /* Alerts and Pickers */,
 				CE23B05D20AE94DD0071C5DC /* Core Data */,
 				CE8CA0EB1FF197530040C3AF /* Cells */,
 				CEBFDF761FE39A0E00DC8AA8 /* Element Configs */,
@@ -190,6 +245,112 @@
 			path = Progress/Cells;
 			sourceTree = "<group>";
 		};
+		CEA1F27820B00A6800CB378C /* Alerts and Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				CEA1F2AD20B00A9000CB378C /* Extensions */,
+				CEA1F27920B00A8F00CB378C /* Pickers */,
+				CEA1F2BF20B00A9000CB378C /* Viewers */,
+				CEA1F2C320B00A9000CB378C /* Views */,
+			);
+			path = "Alerts and Pickers";
+			sourceTree = "<group>";
+		};
+		CEA1F27920B00A8F00CB378C /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				CEA1F28520B00A8F00CB378C /* TextFields */,
+				CEA1F29420B00A8F00CB378C /* PickerView */,
+				CEA1F29E20B00A9000CB378C /* Color */,
+				CEA1F2A020B00A9000CB378C /* Date */,
+			);
+			path = Pickers;
+			sourceTree = "<group>";
+		};
+		CEA1F28520B00A8F00CB378C /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				CEA1F28620B00A8F00CB378C /* TwoTextFieldsViewController.swift */,
+				CEA1F28720B00A8F00CB378C /* OneTextFieldViewController.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		CEA1F29420B00A8F00CB378C /* PickerView */ = {
+			isa = PBXGroup;
+			children = (
+				CEA1F29520B00A8F00CB378C /* PickerViewViewController.swift */,
+			);
+			path = PickerView;
+			sourceTree = "<group>";
+		};
+		CEA1F29E20B00A9000CB378C /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				CEA1F29F20B00A9000CB378C /* ColorPickerViewController.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		CEA1F2A020B00A9000CB378C /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				CEA1F2A120B00A9000CB378C /* DatePickerViewController.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
+		CEA1F2AD20B00A9000CB378C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CEA1F2AE20B00A9000CB378C /* Array+Extensions.swift */,
+				CEA1F2AF20B00A9000CB378C /* UISegmentedControl+Extensions.swift */,
+				CEA1F2B120B00A9000CB378C /* UIViewController+Extensions.swift */,
+				CEA1F2B220B00A9000CB378C /* UIView+Extensions.swift */,
+				CEA1F2B320B00A9000CB378C /* Date+Extension.swift */,
+				CEA1F2B420B00A9000CB378C /* String+Extensions.swift */,
+				CEA1F2B520B00A9000CB378C /* UITextView+Extensions.swift */,
+				CEA1F2B620B00A9000CB378C /* UIColor+Extensions.swift */,
+				CEA1F2B720B00A9000CB378C /* UIImage+Extensions.swift */,
+				CEA1F2B820B00A9000CB378C /* UISearchBar+Extensions.swift */,
+				CEA1F2B920B00A9000CB378C /* UIApplication+Extensions.swift */,
+				CEA1F2BA20B00A9000CB378C /* UIAlertController+Extensions.swift */,
+				CEA1F2BB20B00A9000CB378C /* Optional+Extensions.swift */,
+				CEA1F2BC20B00A9000CB378C /* Common+Extensions.swift */,
+				CEA1F2BE20B00A9000CB378C /* UITextField+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CEA1F2BF20B00A9000CB378C /* Viewers */ = {
+			isa = PBXGroup;
+			children = (
+				CEA1F2C020B00A9000CB378C /* Models */,
+				CEA1F2C220B00A9000CB378C /* TextViewController.swift */,
+			);
+			path = Viewers;
+			sourceTree = "<group>";
+		};
+		CEA1F2C020B00A9000CB378C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CEA1F2C120B00A9000CB378C /* AttributedTextBlock.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CEA1F2C320B00A9000CB378C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CEA1F2C420B00A9000CB378C /* Label.swift */,
+				CEA1F2C520B00A9000CB378C /* SegmentedControl.swift */,
+				CEA1F2C620B00A9000CB378C /* GradientSlider.swift */,
+				CEA1F2C720B00A9000CB378C /* TextField.swift */,
+				CEA1F2C820B00A9000CB378C /* Button.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		CEBFDF361FE38AAE00DC8AA8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,17 +374,17 @@
 		CEBFDF4F1FE38B7800DC8AA8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CEBFDF501FE38B7800DC8AA8 /* UIViewController+Extensions.swift */,
-				CEBFDF511FE38B7800DC8AA8 /* UIButton+Extensions.swift */,
-				CEBFDF521FE38B7800DC8AA8 /* UIView+Extensions.swift */,
-				CEBFDF531FE38B7800DC8AA8 /* String+Extensions.swift */,
-				CEBFDF541FE38B7800DC8AA8 /* UIFont+Extensions.swift */,
-				CEBFDF551FE38B7800DC8AA8 /* UIColor+Extensions.swift */,
-				CEBFDF561FE38B7800DC8AA8 /* UIImage+Extensions.swift */,
-				CEBFDF571FE38B7800DC8AA8 /* UITabBar+Extensions.swift */,
-				CEBFDF581FE38B7800DC8AA8 /* UINavigationController+Extensions.swift */,
-				CEBFDF591FE38B7800DC8AA8 /* UIBarButtonItem+Extensions.swift */,
-				CEBFDF5A1FE38B7800DC8AA8 /* UILabel+Extensions.swift */,
+				CEBFDF501FE38B7800DC8AA8 /* UIViewController+Streaks.swift */,
+				CEBFDF511FE38B7800DC8AA8 /* UIButton+Streaks.swift */,
+				CEBFDF521FE38B7800DC8AA8 /* UIView+Streaks.swift */,
+				CEBFDF531FE38B7800DC8AA8 /* String+Streaks.swift */,
+				CEBFDF541FE38B7800DC8AA8 /* UIFont+Streaks.swift */,
+				CEBFDF551FE38B7800DC8AA8 /* UIColor+Streaks.swift */,
+				CEBFDF561FE38B7800DC8AA8 /* UIImage+Streaks.swift */,
+				CEBFDF571FE38B7800DC8AA8 /* UITabBar+Streaks.swift */,
+				CEBFDF581FE38B7800DC8AA8 /* UINavigationController+Streaks.swift */,
+				CEBFDF591FE38B7800DC8AA8 /* UIBarButtonItem+Streaks.swift */,
+				CEBFDF5A1FE38B7800DC8AA8 /* UILabel+Streaks.swift */,
 			);
 			name = Extensions;
 			path = Progress/Extensions;
@@ -426,29 +587,54 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEBFDF5D1FE38B7800DC8AA8 /* UIView+Extensions.swift in Sources */,
-				CEBFDF621FE38B7800DC8AA8 /* UITabBar+Extensions.swift in Sources */,
+				CEA1F2E720B00A9000CB378C /* UISegmentedControl+Extensions.swift in Sources */,
+				CEA1F2FB20B00A9000CB378C /* GradientSlider.swift in Sources */,
+				CEBFDF5D1FE38B7800DC8AA8 /* UIView+Streaks.swift in Sources */,
+				CEBFDF621FE38B7800DC8AA8 /* UITabBar+Streaks.swift in Sources */,
 				CE8CA0EF1FF1979C0040C3AF /* CalendarGridFooter.swift in Sources */,
 				CEBFDF6D1FE3904A00DC8AA8 /* StatsViewController.swift in Sources */,
+				CEA1F2EA20B00A9000CB378C /* UIView+Extensions.swift in Sources */,
+				CEA1F2F620B00A9000CB378C /* UITextField+Extensions.swift in Sources */,
+				CEA1F2FD20B00A9000CB378C /* Button.swift in Sources */,
 				CEC8AD5620AF956C002B7947 /* StreakListViewController.swift in Sources */,
+				CEA1F2D120B00A9000CB378C /* OneTextFieldViewController.swift in Sources */,
 				CE23B06420AEB33C0071C5DC /* ActivityDetailsViewController.swift in Sources */,
-				CEBFDF5E1FE38B7800DC8AA8 /* String+Extensions.swift in Sources */,
+				CEA1F2EE20B00A9000CB378C /* UIColor+Extensions.swift in Sources */,
+				CEA1F2EB20B00A9000CB378C /* Date+Extension.swift in Sources */,
+				CEA1F2FC20B00A9000CB378C /* TextField.swift in Sources */,
+				CEBFDF5E1FE38B7800DC8AA8 /* String+Streaks.swift in Sources */,
 				CE23B06020AE95070071C5DC /* Streaks.xcdatamodeld in Sources */,
-				CEBFDF5F1FE38B7800DC8AA8 /* UIFont+Extensions.swift in Sources */,
-				CEBFDF5B1FE38B7800DC8AA8 /* UIViewController+Extensions.swift in Sources */,
-				CEBFDF651FE38B7800DC8AA8 /* UILabel+Extensions.swift in Sources */,
+				CEBFDF5F1FE38B7800DC8AA8 /* UIFont+Streaks.swift in Sources */,
+				CEBFDF5B1FE38B7800DC8AA8 /* UIViewController+Streaks.swift in Sources */,
+				CEBFDF651FE38B7800DC8AA8 /* UILabel+Streaks.swift in Sources */,
+				CEA1F2ED20B00A9000CB378C /* UITextView+Extensions.swift in Sources */,
 				CEBFDF751FE399E300DC8AA8 /* ProfileConductor.swift in Sources */,
 				CEBFDF711FE399AF00DC8AA8 /* StreakConductor.swift in Sources */,
 				CEBFDF6F1FE3906700DC8AA8 /* ProfileViewController.swift in Sources */,
+				CEA1F2F220B00A9000CB378C /* UIAlertController+Extensions.swift in Sources */,
+				CEA1F2E920B00A9000CB378C /* UIViewController+Extensions.swift in Sources */,
+				CEA1F2EC20B00A9000CB378C /* String+Extensions.swift in Sources */,
+				CEA1F2F420B00A9000CB378C /* Common+Extensions.swift in Sources */,
+				CEA1F2EF20B00A9000CB378C /* UIImage+Extensions.swift in Sources */,
+				CEA1F2E620B00A9000CB378C /* Array+Extensions.swift in Sources */,
+				CEA1F2DE20B00A9000CB378C /* ColorPickerViewController.swift in Sources */,
 				CE145A501FE3812200286BE1 /* AppDelegate.swift in Sources */,
-				CEBFDF641FE38B7800DC8AA8 /* UIBarButtonItem+Extensions.swift in Sources */,
+				CEBFDF641FE38B7800DC8AA8 /* UIBarButtonItem+Streaks.swift in Sources */,
+				CEA1F2F720B00A9000CB378C /* AttributedTextBlock.swift in Sources */,
 				CEBFDF7A1FE39A4000DC8AA8 /* ElementConfigs.swift in Sources */,
 				CE8CA0ED1FF197810040C3AF /* CalendarGridCell.swift in Sources */,
-				CEBFDF631FE38B7800DC8AA8 /* UINavigationController+Extensions.swift in Sources */,
+				CEBFDF631FE38B7800DC8AA8 /* UINavigationController+Streaks.swift in Sources */,
+				CEA1F2F920B00A9000CB378C /* Label.swift in Sources */,
+				CEA1F2F320B00A9000CB378C /* Optional+Extensions.swift in Sources */,
 				CE09067F1FE75B9B00A388C2 /* CalendarGridViewController.swift in Sources */,
-				CEBFDF5C1FE38B7800DC8AA8 /* UIButton+Extensions.swift in Sources */,
-				CEBFDF611FE38B7800DC8AA8 /* UIImage+Extensions.swift in Sources */,
-				CEBFDF601FE38B7800DC8AA8 /* UIColor+Extensions.swift in Sources */,
+				CEBFDF5C1FE38B7800DC8AA8 /* UIButton+Streaks.swift in Sources */,
+				CEA1F2D020B00A9000CB378C /* TwoTextFieldsViewController.swift in Sources */,
+				CEA1F2F120B00A9000CB378C /* UIApplication+Extensions.swift in Sources */,
+				CEA1F2DF20B00A9000CB378C /* DatePickerViewController.swift in Sources */,
+				CEBFDF611FE38B7800DC8AA8 /* UIImage+Streaks.swift in Sources */,
+				CEBFDF601FE38B7800DC8AA8 /* UIColor+Streaks.swift in Sources */,
+				CEA1F2F020B00A9000CB378C /* UISearchBar+Extensions.swift in Sources */,
+				CEA1F2D920B00A9000CB378C /* PickerViewViewController.swift in Sources */,
 				CE145A621FE387BE00286BE1 /* AppRouter.swift in Sources */,
 				CEBFDF6B1FE38F7E00DC8AA8 /* StreakViewController.swift in Sources */,
 				CEBFDF731FE399CE00DC8AA8 /* StatsConductor.swift in Sources */,
@@ -457,6 +643,8 @@
 				CE8CA0F11FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift in Sources */,
 				CEC8AD5820AF9593002B7947 /* StreakListConductor.swift in Sources */,
 				CE23B06220AE95910071C5DC /* StreaksDataLayer.swift in Sources */,
+				CEA1F2FA20B00A9000CB378C /* SegmentedControl.swift in Sources */,
+				CEA1F2F820B00A9000CB378C /* TextViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

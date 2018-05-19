@@ -16,12 +16,19 @@ class StreakListViewController: ElementalViewController {
       }
    }
    
+   private var _swipeRecognizer: UISwipeGestureRecognizer!
+   
    override func viewDidLoad() {
       super.viewDidLoad()
       view.backgroundColor = .white
+      _swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(StreakListViewController._leftSwipeRecognized(sender:)))
+      _swipeRecognizer.direction = .left
+      _swipeRecognizer.cancelsTouchesInView = false
+      view.addGestureRecognizer(_swipeRecognizer)
    }
    
    override func formDidLoad() {
+      super.formDidLoad()
       formDelegate = self
    }
    
@@ -29,17 +36,24 @@ class StreakListViewController: ElementalViewController {
       guard let vm = viewModel else { return nil }
       return vm.streakElements
    }
+   
+   @objc private func _leftSwipeRecognized(sender: UISwipeGestureRecognizer) {
+      let location = sender.location(in: view)
+      guard let indexPath = collectionView.indexPathForItem(at: location) else { return }
+      viewModel?.streakSwipedLeft(at: indexPath)
+   }
 }
 
 extension StreakListViewController: ElementalViewControllerDelegate {
    func elementSelected(_ element: Elemental, in viewController: ElementalViewController) {
-      guard let element = element as? TextElement else { return }
-      viewModel?.streakSelected(name: element.content)
+      guard let index = self.index(of: element) else { return }
+      viewModel?.streakSelected(at: IndexPath(row: index, section: 0))
    }
 }
 
 protocol StreakListViewModelDelegate: class {
-   func streakSelected(_ streak: Streak, in: StreakListViewController.ViewModel)
+   func streakSelected(_ streak: Streak, in viewModel: StreakListViewController.ViewModel)
+   func streakSwipedLeft(_ streak: Streak, in viewModel: StreakListViewController.ViewModel)
 }
 
 extension StreakListViewController {
@@ -52,21 +66,38 @@ extension StreakListViewController {
       }
       
       var streakElements: [Elemental] {
-         let configuration = TextConfiguration(size: 26, weight: .xLight, alignment: .left)
-         var elems: [Elemental] = [
-            VerticalSpaceElement(value: 20),
-         ]
+         var elems: [Elemental] = []
          for streak in streaks {
-            elems.append(TextElement(configuration: configuration, content: streak.name!))
-            elems.append(VerticalSpaceElement(value: 20))
+            let label = UILabel()
+            label.font = UIFont(26, .xLight)
+            label.textColor = UIColor(.outerSpace, alpha: 0.5)
+            label.text = streak.name
+            label.numberOfLines = 0
+            label.sizeToFit(constrainedWidth: UIScreen.main.bounds.width - 40)
+            let view = UIView()
+            var size = label.frame.size
+            size.height += 30
+            view.frame = CGRect(origin: .zero, size: size)
+            view.addSubview(label)
+            label.center = view.center
+            elems.append(CustomViewElement(view: view))
          }
          return elems
       }
       
-      func streakSelected(name: String) {
-         let streak = streaks.filter { $0.name == name }.first
-         guard let s = streak else { return }
-         delegate?.streakSelected(s, in: self)
+      func streakSelected(at indexPath: IndexPath) {
+         guard let streak = _streak(at: indexPath) else { return }
+         delegate?.streakSelected(streak, in: self)
+      }
+      
+      func streakSwipedLeft(at indexPath: IndexPath) {
+         guard let streak = _streak(at: indexPath) else { return }
+         delegate?.streakSwipedLeft(streak, in: self)
+      }
+      
+      private func _streak(at indexPath: IndexPath) -> Streak? {
+         guard streaks.count > indexPath.row else { return nil }
+         return streaks[indexPath.row]
       }
    }
 }

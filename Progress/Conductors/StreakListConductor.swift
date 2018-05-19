@@ -44,7 +44,7 @@ class StreakListConductor: TabConductor {
       show(conductor: streakConductor)
    }
    
-   private func _updateStreakListViewController() {
+   fileprivate func _updateStreakListViewController() {
       dataLayer.updateFetchedStreaks()
       let streaks = dataLayer.fetchedStreaks
       let vm = StreakListViewController.ViewModel(model: streaks)
@@ -54,7 +54,17 @@ class StreakListConductor: TabConductor {
 }
 
 extension StreakListConductor: StreakListViewModelDelegate {
-   func streakSelected(_ streak: Streak, in: StreakListViewController.ViewModel) {
+   func streakSelected(_ streak: Streak, in viewModel: StreakListViewController.ViewModel) {
       _show(streak: streak)
+   }
+   
+   func streakSwipedLeft(_ streak: Streak, in viewModel: StreakListViewController.ViewModel) {
+      let alert = UIAlertController(style: .alert, title: "Delete \(streak.name!)?", message: "This cannot be undone.")
+      alert.addAction(title: "Cancel", color: UIColor(.outerSpace), style: .default)
+      alert.addAction(title: "Delete", color: UIColor(.lipstick), style: .destructive) { action in
+         self.dataLayer.delete(streak: streak)
+         self._updateStreakListViewController()
+      }
+      alert.show(animated: true, vibrate: true)
    }
 }

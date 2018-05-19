@@ -76,7 +76,7 @@ class StreaksDataLayer {
    
    fileprivate func _newStreakName() -> String {
       switch fetchedStreaks.count {
-      case 0: return "New Streak"
+      case 0: return "New Streak with a really long name"
       default: return "New Streak \(fetchedStreaks.count + 1)"
       }
    }
@@ -110,5 +110,10 @@ class StreaksDataLayer {
       }
       save()
       updateFetchedStreaks()
+   }
+   
+   func delete(streak: Streak) {
+      context.delete(streak)
+      save()
    }
 }
