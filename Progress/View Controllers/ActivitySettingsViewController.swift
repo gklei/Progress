@@ -8,7 +8,7 @@
 
 import Elemental
 
-class SettingsViewController: ElementalViewController {
+class ActivitySettingsViewController: ElementalViewController {
    fileprivate lazy var _colorGridVC: ColorGridViewController = {
       let vc = ColorGridViewController()
       vc.dataSource = self
@@ -37,7 +37,7 @@ class SettingsViewController: ElementalViewController {
    }
 }
 
-extension SettingsViewController: ColorGridViewControllerDataSource {
+extension ActivitySettingsViewController: ColorGridViewControllerDataSource {
    var colors: [StreaksColor] {
       return [
          .markerYellow, .markerOrange, .markerViolet, .markerBlue,

@@ -8,9 +8,9 @@
 
 import Conduction
 
-class SettingsConductor: TabConductor {
-   fileprivate lazy var _settingsVC: SettingsViewController = {
-      let vc = SettingsViewController()
+class ActivitySettingsConductor: TabConductor {
+   fileprivate lazy var _settingsVC: ActivitySettingsViewController = {
+      let vc = ActivitySettingsViewController()
       vc.title = "Settings"
       vc.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: " settings"), selectedImage: #imageLiteral(resourceName: " settings"))
       vc.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -10, right: 0)

@@ -12,7 +12,7 @@ class MainConductor: Conductor {
    fileprivate let _tabController = UITabBarController()
    fileprivate let _activityListConductor: ActivityListConductor
    fileprivate let _statsConductor: StatsConductor
-   fileprivate let _settingsConductor: SettingsConductor
+   fileprivate let _settingsConductor: ActivitySettingsConductor
    
    fileprivate lazy var _childConductors: [TabConductor] = {
       return [self._activityListConductor, self._statsConductor, self._settingsConductor]
@@ -26,7 +26,7 @@ class MainConductor: Conductor {
       self.dataLayer = dataLayer
       _activityListConductor = ActivityListConductor(dataLayer: dataLayer)
       _statsConductor = StatsConductor(dataLayer: dataLayer)
-      _settingsConductor = SettingsConductor(dataLayer: dataLayer)
+      _settingsConductor = ActivitySettingsConductor(dataLayer: dataLayer)
       
       super.init()
       _activityListConductor.show(in: _tabController, with: UINavigationController(style: .light))
