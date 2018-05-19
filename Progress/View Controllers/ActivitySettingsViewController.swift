@@ -14,6 +14,7 @@ class ActivitySettingsViewController: ElementalViewController {
    fileprivate lazy var _colorGridVC: ColorGridViewController = {
       let vc = ColorGridViewController()
       vc.dataSource = self
+      vc.delegate = self
       return vc
    }()
    
@@ -27,6 +28,10 @@ class ActivitySettingsViewController: ElementalViewController {
       super.viewDidLoad()
       view.backgroundColor = .white
       collectionView.contentInsetAdjustmentBehavior = .always
+   }
+   
+   func reloadColorPicker() {
+      _colorGridVC.reload()
    }
    
    override func generateElements() -> [Elemental]? {
@@ -53,12 +58,19 @@ extension ActivitySettingsViewController {
 extension ActivitySettingsViewController: ColorGridViewControllerDataSource {
    var colors: [StreaksColor] {
       return [
-         .markerYellow, .markerOrange, .markerViolet, .markerBlue,
-         .markerGreen, .markerRed, .markerIndigo, .markerGray
+         .markerYellow, .markerOrange, .markerIndigo, .markerBlue,
+         .markerGreen, .markerRed, .markerViolet, .markerGray
       ]
    }
    
    var markerColor: StreaksColor {
-      return .markerGreen
+      guard let vm = viewModel else { fatalError() }
+      return vm.viewData.forceCast(key: .markerColor)
+   }
+}
+
+extension ActivitySettingsViewController: ColorGridViewControllerDelegate {
+   func colorSelected(_ color: StreaksColor, in viewController: ColorGridViewController) {
+      viewModel?.viewData[.markerColor] = color
    }
 }

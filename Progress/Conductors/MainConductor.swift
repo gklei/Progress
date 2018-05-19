@@ -11,6 +11,7 @@ import Conduction
 class MainConductor: Conductor {
    fileprivate let _tabController = UITabBarController()
    fileprivate let _activityListConductor: ActivityListConductor
+   fileprivate var _currentActivityConductor: ActivityConductor?
    fileprivate let _statsConductor: StatsConductor
    
    fileprivate var _streaksSettingsConductor: StreaksSettingsConductor
@@ -42,7 +43,11 @@ class MainConductor: Conductor {
 
 extension MainConductor: ActivityListConductorDelegate {
    func activityConductorWillShow(_ conductor: ActivityConductor, from listConductor: ActivityListConductor) {
+      _currentActivityConductor = conductor
+      
       _activitySettingsConductor = ActivitySettingsConductor(dataLayer: dataLayer, activity: conductor.activity)
+      _activitySettingsConductor?.delegate = self
+      
       _streaksSettingsConductor.dismiss()
       _activitySettingsConductor?.show(in: _tabController, with: UINavigationController(style: .light))
    }
@@ -50,5 +55,13 @@ extension MainConductor: ActivityListConductorDelegate {
    func activityConductorWillDismiss(_ conductor: ActivityConductor, from listConductor: ActivityListConductor) {
       _activitySettingsConductor?.dismiss()
       _streaksSettingsConductor.show(in: _tabController, with: UINavigationController(style: .light))
+   }
+}
+
+extension MainConductor: ActivitySettingsConductorDelegate {
+   func settingChanged(key: ActivitySettingsConductor.Key, in conductor: ActivitySettingsConductor) {
+      switch key {
+      case .markerColor: _currentActivityConductor?.reload()
+      }
    }
 }

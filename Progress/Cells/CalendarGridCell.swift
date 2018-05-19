@@ -79,7 +79,10 @@ class CalendarGridCell: UICollectionViewCell {
    func configure(with date: Date, marker: Marker?) {
       let components = Calendar.current.dateComponents([.month, .day], from: date)
       _label.text = CalendarGridCell.df.string(from: date).uppercased()
-      contentView.backgroundColor = marker == nil ? UIColor(hex: "EBEBEB") : UIColor(.lime)
+      switch marker {
+      case .some(let m): contentView.backgroundColor = UIColor(m.color)
+      case .none: contentView.backgroundColor = UIColor(hex: "EBEBEB")
+      }
       
       if components.day == 1 {
          contentView.layer.borderColor = UIColor(.outerSpace, alpha: 0.15).cgColor

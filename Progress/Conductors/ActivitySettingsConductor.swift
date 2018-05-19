@@ -9,6 +9,10 @@
 import Conduction
 import Bindable
 
+protocol ActivitySettingsConductorDelegate: class {
+   func settingChanged(key: ActivitySettingsConductor.Key, in conductor: ActivitySettingsConductor)
+}
+
 class ActivitySettingsConductor: TabConductor, Bindable {
    enum Key: String, IncKVKeyType {
       case markerColor
@@ -18,7 +22,12 @@ class ActivitySettingsConductor: TabConductor, Bindable {
    
    func setOwn(value: inout Any?, for key: Key) throws {
       switch key {
-      case .markerColor: print("Setting marker color: \(value as! StreaksColor)")
+      case .markerColor:
+         guard let color = value as? StreaksColor else { fatalError() }
+         activity.markerColorHex = color.rawValue
+         dataLayer.save()
+         _settingsVC.reloadColorPicker()
+         self.delegate?.settingChanged(key: key, in: self)
       }
    }
    
@@ -33,11 +42,14 @@ class ActivitySettingsConductor: TabConductor, Bindable {
       vc.title = "Activity Settings"
       vc.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: " settings"), selectedImage: #imageLiteral(resourceName: " settings"))
       vc.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -10, right: 0)
+      vc.viewModel = ActivitySettingsViewController.ViewModel(model: self)
       return vc
    }()
    
    let dataLayer: StreaksDataLayer
    let activity: Activity
+   weak var delegate: ActivitySettingsConductorDelegate?
+   
    override var rootViewController: UIViewController? { return _settingsVC }
    
    init(dataLayer: StreaksDataLayer, activity: Activity) {

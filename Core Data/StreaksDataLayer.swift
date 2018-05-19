@@ -15,6 +15,12 @@ extension Activity {
    }
 }
 
+extension Marker {
+   var color: StreaksColor {
+      return StreaksColor(rawValue: activity!.markerColorHex!)!
+   }
+}
+
 class StreaksDataLayer {
    // MARK: - Core Data Stack
    private lazy var persistentContainer: NSPersistentContainer = {

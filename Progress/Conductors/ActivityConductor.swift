@@ -47,9 +47,6 @@ class ActivityConductor: Conductor {
       _updateTitleView()
    }
    
-   @objc private func _menuSelected() {
-   }
-   
    fileprivate func _updateTitleView() {
       let label = UILabel()
       let width = label.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude,
@@ -61,6 +58,11 @@ class ActivityConductor: Conductor {
       let attribtues = UINavigationBar.titleAttributes(for: .light)
       label.attributedText = NSAttributedString(string: activity.name!, attributes: attribtues)
       _activityVC.navigationItem.titleView = label
+   }
+   
+   override func conductorDidShow(in context: UINavigationController) {
+      guard isNew else { return }
+      editTitle()
    }
    
    func editTitle() {
@@ -95,9 +97,8 @@ class ActivityConductor: Conductor {
       alert.show()
    }
    
-   override func conductorDidShow(in context: UINavigationController) {
-      guard isNew else { return }
-      editTitle()
+   func reload() {
+      _activityVC.reload()
    }
 }
 

@@ -23,5 +23,15 @@ class ColorGridCell: UICollectionViewCell {
    
    func configure(with color: StreaksColor, selected: Bool) {
       contentView.backgroundColor = UIColor(color)
+      switch selected {
+      case true:
+//         contentView.layer.cornerRadius = 16
+         contentView.layer.borderWidth = 4
+         contentView.layer.borderColor = UIColor(.outerSpace, alpha: 0.1).cgColor
+      case false:
+         contentView.layer.cornerRadius = 0
+         contentView.layer.borderWidth = 0
+         contentView.layer.borderColor = UIColor.clear.cgColor
+      }
    }
 }

@@ -13,12 +13,17 @@ protocol ColorGridViewControllerDataSource: class {
    var markerColor: StreaksColor { get }
 }
 
+protocol ColorGridViewControllerDelegate: class {
+   func colorSelected(_ color: StreaksColor, in viewController: ColorGridViewController)
+}
+
 class ColorGridViewController: UIViewController {
    fileprivate var _cv: UICollectionView!
    fileprivate let _spacingFraction: CGFloat = 0.015
    fileprivate let _cellsPerRow: CGFloat = 4
    
    weak var dataSource: ColorGridViewControllerDataSource?
+   weak var delegate: ColorGridViewControllerDelegate?
    
    override func loadView() {
       let view = UIView()
@@ -50,6 +55,10 @@ class ColorGridViewController: UIViewController {
       _cv.collectionViewLayout.invalidateLayout()
       _cv.reloadData()
    }
+   
+   func reload() {
+      _cv.reloadData()
+   }
 }
 
 extension ColorGridViewController: UICollectionViewDelegateFlowLayout {
@@ -72,6 +81,11 @@ extension ColorGridViewController: UICollectionViewDelegateFlowLayout {
    
    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
       return collectionView.bounds.width * _spacingFraction
+   }
+   
+   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+      guard let colors = dataSource?.colors else { return }
+      delegate?.colorSelected(colors[indexPath.row], in: self)
    }
 }
 
