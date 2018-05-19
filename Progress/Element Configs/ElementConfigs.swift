@@ -54,8 +54,8 @@ class ActivityDetailsInputConfiguration: TextInputConfiguration {
       sizeConstraint.height = .constant(300)
       inputHeight = 300
       textInsets = UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
-      inputStyle = TextStyle(size: 24, weight: .light)
-      placeholderStyle = TextStyle(size: 24, weight: .light, color: UIColor(.outerSpace, alpha: 0.5), alignment: .left)
+      inputStyle = TextStyle(size: 24, weight: .xLight)
+      placeholderStyle = TextStyle(size: 24, weight: .xLight, color: UIColor(.outerSpace, alpha: 0.5), alignment: .left)
    }
 }
 
