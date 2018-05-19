@@ -8,17 +8,16 @@
 
 import UIKit
 import Elemental
+import Bindable
+import Conduction
 
 class ActivityDetailsViewController: ElementalViewController {
-   let viewModel: ViewModel
-   
-   init(model: Activity?) {
-      viewModel = ViewModel(model: model)
-      super.init(nibName: nil, bundle: nil)
-   }
-   
-   required init?(coder aDecoder: NSCoder) {
-      fatalError("init(coder:) has not been implemented")
+   struct State: ConductionState {}
+   class ViewModel: ConductionModel<ActivityDetailsConductor.Key, IncEmptyKey, State> {}
+   var viewModel: ViewModel? {
+      didSet {
+         setNeedsReload()
+      }
    }
    
    override func viewDidLoad() {
@@ -27,23 +26,12 @@ class ActivityDetailsViewController: ElementalViewController {
    }
    
    override func generateElements() -> [Elemental]? {
+      guard let viewModel = viewModel else { return nil }
       return Element.form([
          .verticalSpace(26),
          .textViewInput(configuration: ActivityDetailsInputConfiguration(),
                         content: TextInputElementContent(name: "", placeholder: "No details."),
-                        bindings: []),
+                        bindings: [viewModel.viewData.targetBinding(key: BindableElementKey.text, targetKey: .activityDetails)]),
       ])
-   }
-}
-
-extension ActivityDetailsViewController {
-   final class ViewModel {
-      var details: String?
-      var date: NSDate?
-      
-      init(model: Activity?) {
-         details = model?.descriptionText
-         date = model?.date
-      }
    }
 }

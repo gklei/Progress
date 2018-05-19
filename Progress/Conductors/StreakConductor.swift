@@ -11,7 +11,7 @@ import Conduction
 class StreakConductor: Conductor {
    fileprivate lazy var _streakVC: StreakViewController = {
       let vc = StreakViewController()
-      vc.title = self.streak.name
+//      vc.title = self.streak.name
       vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "",
                                                             icon: #imageLiteral(resourceName: "chevron-left"),
                                                             tintColor: UIColor(.outerSpace),
@@ -26,6 +26,17 @@ class StreakConductor: Conductor {
       let vm = StreakViewController.ViewModel()
       vm.delegate = self
       vc.viewModel = vm
+      
+      let titleView = UILabel()
+      titleView.text = self.streak.name
+      titleView.font = UIFont(14, .light)
+      let width = titleView.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude,
+                                                height: CGFloat.greatestFiniteMagnitude)).width
+      titleView.frame = CGRect(origin: .zero, size:CGSize(width: width, height: 500))
+      let recognizer = UITapGestureRecognizer(target: self, action: #selector(StreakConductor._titleTapped))
+      titleView.isUserInteractionEnabled = true
+      titleView.addGestureRecognizer(recognizer)
+      vc.navigationItem.titleView = titleView
       
       return vc
    }()
@@ -48,6 +59,9 @@ class StreakConductor: Conductor {
    
    @objc private func _menuSelected() {
    }
+   
+   @objc private func _titleTapped() {
+   }
 }
 
 extension StreakConductor: StreakViewControllerDelegate {
@@ -67,7 +81,10 @@ extension StreakConductor: StreakViewControllerDelegate {
       feedbackGenerator?.impactOccurred()
     
       let activity = streak.activity(for: date)
-      detailsConductor = ActivityDetailsConductor(activity: activity, date: date)
+      detailsConductor = ActivityDetailsConductor(dataLayer: dataLayer, streak: streak, activity: activity, date: date)
+      detailsConductor?.willDismissBlock = {
+         self._streakVC.reload()
+      }
       show(conductor: detailsConductor)
    }
 }

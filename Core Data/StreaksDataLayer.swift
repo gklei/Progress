@@ -100,16 +100,23 @@ class StreaksDataLayer {
       if let activity = streak.activity(for: date) {
          context.delete(activity)
       } else {
-         let entity = NSEntityDescription.entity(forEntityName: "Activity", in: context)
-         let newActivity = NSManagedObject(entity: entity!, insertInto: context)
-         
-         newActivity.setValue(date, forKey: "date")
-         newActivity.setValue(date.timeIntervalSince1970, forKey: "epoch")
-         newActivity.setValue("Hello", forKey: "descriptionText")
-         newActivity.setValue(streak, forKey: "streak")
+         createActivity(at: date, for: streak)
       }
       save()
       updateFetchedStreaks()
+   }
+   
+   @discardableResult func createActivity(at date: Date, for streak: Streak, with description: String = "") -> Activity? {
+      guard streak.activity(for: date) == nil else { return nil }
+      
+      let entity = NSEntityDescription.entity(forEntityName: "Activity", in: context)
+      let newActivity = NSManagedObject(entity: entity!, insertInto: context)
+      
+      newActivity.setValue(date, forKey: "date")
+      newActivity.setValue(date.timeIntervalSince1970, forKey: "epoch")
+      newActivity.setValue(description, forKey: "descriptionText")
+      newActivity.setValue(streak, forKey: "streak")
+      return newActivity as? Activity
    }
    
    func delete(streak: Streak) {
