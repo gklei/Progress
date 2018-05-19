@@ -19,10 +19,10 @@ extension UIButton {
    convenience init(title: String?,
                     fontSize: CGFloat = 14,
                     fontWeight: FontWeight = .medium,
-                    titleColor: ProgressColor = .outerSpace,
-                    highlightedTitleColor: ProgressColor? = nil,
-                    backgroundColor: ProgressColor = .mint,
-                    highlightedBackgroundColor: ProgressColor? = nil) {
+                    titleColor: StreaksColor = .outerSpace,
+                    highlightedTitleColor: StreaksColor? = nil,
+                    backgroundColor: StreaksColor = .mint,
+                    highlightedBackgroundColor: StreaksColor? = nil) {
       
       let hTitleColor: UIColor? = highlightedBackgroundColor != nil ? UIColor(highlightedTitleColor!) : nil
       let hBackgroundColor: UIColor? = highlightedBackgroundColor != nil ? UIColor(highlightedBackgroundColor!) : nil
