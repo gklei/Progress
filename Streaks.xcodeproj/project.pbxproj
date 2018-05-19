@@ -52,6 +52,8 @@
 		CEBFDF731FE399CE00DC8AA8 /* StatsConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF721FE399CE00DC8AA8 /* StatsConductor.swift */; };
 		CEBFDF751FE399E300DC8AA8 /* ProfileConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF741FE399E300DC8AA8 /* ProfileConductor.swift */; };
 		CEBFDF7A1FE39A4000DC8AA8 /* ElementConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF791FE39A4000DC8AA8 /* ElementConfigs.swift */; };
+		CEC8AD5620AF956C002B7947 /* StreakListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC8AD5520AF956C002B7947 /* StreakListViewController.swift */; };
+		CEC8AD5820AF9593002B7947 /* StreakListConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC8AD5720AF9593002B7947 /* StreakListConductor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +106,8 @@
 		CEBFDF721FE399CE00DC8AA8 /* StatsConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatsConductor.swift; path = Progress/Conductors/StatsConductor.swift; sourceTree = SOURCE_ROOT; };
 		CEBFDF741FE399E300DC8AA8 /* ProfileConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileConductor.swift; path = Progress/Conductors/ProfileConductor.swift; sourceTree = SOURCE_ROOT; };
 		CEBFDF791FE39A4000DC8AA8 /* ElementConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ElementConfigs.swift; path = "Progress/Element Configs/ElementConfigs.swift"; sourceTree = SOURCE_ROOT; };
+		CEC8AD5520AF956C002B7947 /* StreakListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakListViewController.swift; sourceTree = "<group>"; };
+		CEC8AD5720AF9593002B7947 /* StreakListConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakListConductor.swift; sourceTree = "<group>"; };
 		D52441EBC8F70B1546028A47 /* Pods-Streaks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Streaks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Streaks/Pods-Streaks.debug.xcconfig"; sourceTree = "<group>"; };
 		E5ABD58FBD65DDAD1BE07772 /* Pods_Progress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Progress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -233,6 +237,7 @@
 				CEBFDF721FE399CE00DC8AA8 /* StatsConductor.swift */,
 				CEBFDF741FE399E300DC8AA8 /* ProfileConductor.swift */,
 				CE23B06520AEB9D30071C5DC /* ActivityDetailsConductor.swift */,
+				CEC8AD5720AF9593002B7947 /* StreakListConductor.swift */,
 			);
 			name = Conductors;
 			path = Progress/Conductors;
@@ -247,6 +252,7 @@
 				CE09067E1FE75B9B00A388C2 /* CalendarGridViewController.swift */,
 				CE8CA0F01FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift */,
 				CE23B06320AEB33C0071C5DC /* ActivityDetailsViewController.swift */,
+				CEC8AD5520AF956C002B7947 /* StreakListViewController.swift */,
 			);
 			name = "View Controllers";
 			path = "Progress/View Controllers";
@@ -424,6 +430,7 @@
 				CEBFDF621FE38B7800DC8AA8 /* UITabBar+Extensions.swift in Sources */,
 				CE8CA0EF1FF1979C0040C3AF /* CalendarGridFooter.swift in Sources */,
 				CEBFDF6D1FE3904A00DC8AA8 /* StatsViewController.swift in Sources */,
+				CEC8AD5620AF956C002B7947 /* StreakListViewController.swift in Sources */,
 				CE23B06420AEB33C0071C5DC /* ActivityDetailsViewController.swift in Sources */,
 				CEBFDF5E1FE38B7800DC8AA8 /* String+Extensions.swift in Sources */,
 				CE23B06020AE95070071C5DC /* Streaks.xcdatamodeld in Sources */,
@@ -448,6 +455,7 @@
 				CE23B06620AEB9D30071C5DC /* ActivityDetailsConductor.swift in Sources */,
 				CEBFDF681FE38E8700DC8AA8 /* MainConductor.swift in Sources */,
 				CE8CA0F11FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift in Sources */,
+				CEC8AD5820AF9593002B7947 /* StreakListConductor.swift in Sources */,
 				CE23B06220AE95910071C5DC /* StreaksDataLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
