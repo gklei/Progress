@@ -4,8 +4,15 @@
         <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="descriptionText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="epoch" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="streak" maxCount="1" deletionRule="Nullify" destinationEntity="Streak" inverseName="activity" inverseEntity="Streak" syncable="YES"/>
+    </entity>
+    <entity name="Streak" representedClassName="Streak" syncable="YES" codeGenerationType="class">
+        <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="activity" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Activity" inverseName="streak" inverseEntity="Activity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Activity" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Activity" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Streak" positionX="-45" positionY="27" width="128" height="90"/>
     </elements>
 </model>

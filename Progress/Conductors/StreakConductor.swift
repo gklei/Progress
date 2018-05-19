@@ -8,19 +8,21 @@
 
 import Conduction
 
-class StreakConductor: TabConductor {
+class StreakConductor: Conductor {
    fileprivate lazy var _streakVC: StreakViewController = {
       let vc = StreakViewController()
-      vc.title = "Streaks"
-      vc.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "grid"), selectedImage: #imageLiteral(resourceName: "grid"))
-      vc.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -10, right: 0)
+      vc.title = self.streak.name
+      vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "",
+                                                            icon: #imageLiteral(resourceName: "chevron-left"),
+                                                            tintColor: UIColor(.outerSpace),
+                                                            target: self,
+                                                            selector: #selector(Conductor.dismiss))
       vc.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",
                                                              icon: #imageLiteral(resourceName: "three_dots"),
                                                              tintColor: UIColor(.outerSpace),
                                                              target: self,
                                                              selector: #selector(StreakConductor._menuSelected))
       vc.dataSource = self
-      
       let vm = StreakViewController.ViewModel()
       vm.delegate = self
       vc.viewModel = vm
@@ -29,6 +31,7 @@ class StreakConductor: TabConductor {
    }()
    
    let dataLayer: StreaksDataLayer
+   let streak: Streak
    var activity: [Activity] { return dataLayer.fetchedData }
    
    fileprivate(set) var detailsConductor: ActivityDetailsConductor?
@@ -37,8 +40,9 @@ class StreakConductor: TabConductor {
    
    override var rootViewController: UIViewController? { return _streakVC }
    
-   init(dataLayer: StreaksDataLayer) {
+   init(dataLayer: StreaksDataLayer, streak: Streak) {
       self.dataLayer = dataLayer
+      self.streak = streak
       super.init()
    }
    
@@ -52,7 +56,7 @@ extension StreakConductor: StreakViewControllerDelegate {
       feedbackGenerator?.prepare()
       feedbackGenerator?.impactOccurred()
       
-      dataLayer.toggleActivity(at: date)
+      dataLayer.toggleActivity(at: date, for: streak)
       _streakVC.reload()
    }
    
@@ -62,7 +66,7 @@ extension StreakConductor: StreakViewControllerDelegate {
       feedbackGenerator?.prepare()
       feedbackGenerator?.impactOccurred()
     
-      let activity = dataLayer.activity(at: date)
+      let activity = streak.activity(for: date)
       detailsConductor = ActivityDetailsConductor(activity: activity, date: date)
       show(conductor: detailsConductor)
    }
@@ -70,6 +74,6 @@ extension StreakConductor: StreakViewControllerDelegate {
 
 extension StreakConductor: StreakViewControllerDataSource {
    func activity(at date: Date) -> Activity? {
-      return dataLayer.activity(at: date)
+      return streak.activity(for: date)
    }
 }

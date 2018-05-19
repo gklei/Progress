@@ -9,6 +9,12 @@
 import Foundation
 import CoreData
 
+extension Streak {
+   func activity(for date: Date) -> Activity? {
+      return self.activity?.filter { ($0 as! Activity).epoch == date.timeIntervalSince1970 }.first as? Activity
+   }
+}
+
 class StreaksDataLayer {
    // MARK: - Core Data Stack
    private lazy var persistentContainer: NSPersistentContainer = {
@@ -43,15 +49,36 @@ class StreaksDataLayer {
    }
    
    fileprivate(set) var fetchedData: [Activity] = []
+   fileprivate(set) var fetchedStreaks: [Streak] = []
    
    init() {
-      _updateFetchedData()
+      updateFetchedStreaks()
    }
    
-   private func _updateFetchedData() {
-      let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Activity")
+   func updateFetchedStreaks() {
+      let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Streak")
       request.returnsObjectsAsFaults = false
-      fetchedData = try! context.fetch(request) as! [Activity]
+      fetchedStreaks = try! context.fetch(request) as! [Streak]
+   }
+   
+   func createNewStreak() -> Streak {
+      updateFetchedStreaks()
+      let name = _newStreakName()
+      let entity = NSEntityDescription.entity(forEntityName: "Streak", in: context)
+      let newStreak = NSManagedObject(entity: entity!, insertInto: context)
+      
+      newStreak.setValue(name, forKey: "name")
+      newStreak.setValue(Date(), forKey: "creationDate")
+      save()
+      
+      return newStreak as! Streak
+   }
+   
+   fileprivate func _newStreakName() -> String {
+      switch fetchedStreaks.count {
+      case 0: return "New Streak with a really long name"
+      default: return "New Streak \(fetchedStreaks.count + 1)"
+      }
    }
    
    // MARK: - Core Data Saving support
@@ -69,14 +96,9 @@ class StreaksDataLayer {
       }
    }
    
-   func activity(at date: Date) -> Activity? {
-      return fetchedData.filter { $0.epoch == date.timeIntervalSince1970 }.first
-   }
-   
-   func toggleActivity(at date: Date) {
-      if let activity = activity(at: date) {
+   func toggleActivity(at date: Date, for streak: Streak) {
+      if let activity = streak.activity(for: date) {
          context.delete(activity)
-         try! context.save()
       } else {
          let entity = NSEntityDescription.entity(forEntityName: "Activity", in: context)
          let newActivity = NSManagedObject(entity: entity!, insertInto: context)
@@ -84,8 +106,9 @@ class StreaksDataLayer {
          newActivity.setValue(date, forKey: "date")
          newActivity.setValue(date.timeIntervalSince1970, forKey: "epoch")
          newActivity.setValue("Hello", forKey: "descriptionText")
-         try! context.save()
+         newActivity.setValue(streak, forKey: "streak")
       }
-      _updateFetchedData()
+      save()
+      updateFetchedStreaks()
    }
 }

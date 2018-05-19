@@ -59,3 +59,11 @@ class ActivityDetailsInputConfiguration: TextInputConfiguration {
    }
 }
 
+class LineConfiguration: LineElementConfiguration {
+   init() {
+      super.init()
+      sizeConstraint.height = .constant(1)
+      isConfinedToMargins = false
+      color = UIColor(.outerSpace)
+   }
+}
