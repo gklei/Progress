@@ -10,12 +10,12 @@ import Conduction
 
 class MainConductor: Conductor {
    fileprivate let _tabController = UITabBarController()
-   fileprivate let _streakListConductor: StreakListConductor
+   fileprivate let _activityListConductor: ActivityListConductor
    fileprivate let _statsConductor: StatsConductor
    fileprivate let _profileConductor: ProfileConductor
    
    fileprivate lazy var _childConductors: [TabConductor] = {
-      return [self._streakListConductor, self._statsConductor, self._profileConductor]
+      return [self._activityListConductor, self._statsConductor, self._profileConductor]
    }()
    
    override var rootViewController: UIViewController? { return _tabController }
@@ -24,12 +24,12 @@ class MainConductor: Conductor {
    // MARK: - Init
    init(dataLayer: StreaksDataLayer) {
       self.dataLayer = dataLayer
-      _streakListConductor = StreakListConductor(dataLayer: dataLayer)
+      _activityListConductor = ActivityListConductor(dataLayer: dataLayer)
       _statsConductor = StatsConductor(dataLayer: dataLayer)
       _profileConductor = ProfileConductor(dataLayer: dataLayer)
       
       super.init()
-      _streakListConductor.show(in: _tabController, with: UINavigationController(style: .light))
+      _activityListConductor.show(in: _tabController, with: UINavigationController(style: .light))
       _statsConductor.show(in: _tabController, with: UINavigationController(style: .light))
       _profileConductor.show(in: _tabController, with: UINavigationController(style: .light))
       

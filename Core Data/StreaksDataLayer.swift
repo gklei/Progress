@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-extension Streak {
+extension Activity {
    func marker(for date: Date) -> Marker? {
       return self.marker?.filter { ($0 as! Marker).epoch == date.timeIntervalSince1970 }.first as? Marker
    }
@@ -49,35 +49,35 @@ class StreaksDataLayer {
    }
    
    fileprivate(set) var fetchedData: [Marker] = []
-   fileprivate(set) var fetchedStreaks: [Streak] = []
+   fileprivate(set) var fetchedStreaks: [Activity] = []
    
    init() {
       updateFetchedStreaks()
    }
    
    func updateFetchedStreaks() {
-      let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Streak")
+      let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Activity")
       request.returnsObjectsAsFaults = false
-      fetchedStreaks = try! context.fetch(request) as! [Streak]
+      fetchedStreaks = try! context.fetch(request) as! [Activity]
    }
    
-   func createNewStreak() -> Streak {
+   func createNewStreak() -> Activity {
       updateFetchedStreaks()
       let name = _newStreakName()
-      let entity = NSEntityDescription.entity(forEntityName: "Streak", in: context)
+      let entity = NSEntityDescription.entity(forEntityName: "Activity", in: context)
       let newStreak = NSManagedObject(entity: entity!, insertInto: context)
       
       newStreak.setValue(name, forKey: "name")
       newStreak.setValue(Date(), forKey: "creationDate")
       save()
       
-      return newStreak as! Streak
+      return newStreak as! Activity
    }
    
    fileprivate func _newStreakName() -> String {
       switch fetchedStreaks.count {
-      case 0: return "New Streak with a really long name"
-      default: return "New Streak \(fetchedStreaks.count + 1)"
+      case 0: return "New Activity with a really long name"
+      default: return "New Activity \(fetchedStreaks.count + 1)"
       }
    }
    
@@ -96,18 +96,18 @@ class StreaksDataLayer {
       }
    }
    
-   func toggleActivity(at date: Date, for streak: Streak) {
-      if let marker = streak.marker(for: date) {
+   func toggleActivity(at date: Date, for activity: Activity) {
+      if let marker = activity.marker(for: date) {
          context.delete(marker)
       } else {
-         createActivity(at: date, for: streak)
+         createActivity(at: date, for: activity)
       }
       save()
       updateFetchedStreaks()
    }
    
-   @discardableResult func createActivity(at date: Date, for streak: Streak, with description: String = "") -> Marker? {
-      guard streak.marker(for: date) == nil else { return nil }
+   @discardableResult func createActivity(at date: Date, for activity: Activity, with description: String = "") -> Marker? {
+      guard activity.marker(for: date) == nil else { return nil }
       
       let entity = NSEntityDescription.entity(forEntityName: "Marker", in: context)
       let newActivity = NSManagedObject(entity: entity!, insertInto: context)
@@ -115,12 +115,12 @@ class StreaksDataLayer {
       newActivity.setValue(date, forKey: "date")
       newActivity.setValue(date.timeIntervalSince1970, forKey: "epoch")
       newActivity.setValue(description, forKey: "descriptionText")
-      newActivity.setValue(streak, forKey: "streak")
+      newActivity.setValue(activity, forKey: "activity")
       return newActivity as? Marker
    }
    
-   func delete(streak: Streak) {
-      context.delete(streak)
+   func delete(activity: Activity) {
+      context.delete(activity)
       save()
    }
 }

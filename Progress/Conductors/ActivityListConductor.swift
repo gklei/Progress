@@ -8,23 +8,23 @@
 
 import Conduction
 
-class StreakListConductor: TabConductor {
-   fileprivate lazy var _streakListVC: StreakListViewController = {
-      let vc = StreakListViewController()
-      vc.title = "Streaks"
+class ActivityListConductor: TabConductor {
+   fileprivate lazy var _activityListVC: ActivityListViewController = {
+      let vc = ActivityListViewController()
+      vc.title = "Activities"
       vc.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "grid"), selectedImage: #imageLiteral(resourceName: "grid"))
       vc.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -10, right: 0)
       vc.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",
                                                              icon: #imageLiteral(resourceName: " plus"),
                                                              tintColor: UIColor(.outerSpace),
                                                              target: self,
-                                                             selector: #selector(StreakListConductor._addStreak))
+                                                             selector: #selector(ActivityListConductor._addStreak))
       return vc
    }()
    
-   override var rootViewController: UIViewController? { return _streakListVC }
+   override var rootViewController: UIViewController? { return _activityListVC }
    
-   fileprivate(set) var streakConductor: StreakConductor?
+   fileprivate(set) var activityConductor: ActivityConductor?
    fileprivate var _editing = false
    let dataLayer: StreaksDataLayer
    
@@ -35,44 +35,44 @@ class StreakListConductor: TabConductor {
    }
    
    @objc private func _addStreak() {
-      let streak = dataLayer.createNewStreak()
+      let activity = dataLayer.createNewStreak()
       _updateStreakListViewController()
-      _show(streak: streak, isNew: true)
+      _show(activity: activity, isNew: true)
    }
    
-   fileprivate func _show(streak: Streak, isNew: Bool) {
-      streakConductor = StreakConductor(dataLayer: dataLayer, streak: streak, isNew: isNew)
-      streakConductor?.delegate = self
-      show(conductor: streakConductor)
+   fileprivate func _show(activity: Activity, isNew: Bool) {
+      activityConductor = ActivityConductor(dataLayer: dataLayer, activity: activity, isNew: isNew)
+      activityConductor?.delegate = self
+      show(conductor: activityConductor)
    }
    
    fileprivate func _updateStreakListViewController() {
       dataLayer.updateFetchedStreaks()
-      let streaks = dataLayer.fetchedStreaks
-      let vm = StreakListViewController.ViewModel(model: streaks)
+      let activities = dataLayer.fetchedStreaks
+      let vm = ActivityListViewController.ViewModel(model: activities)
       vm.delegate = self
-      _streakListVC.viewModel = vm
+      _activityListVC.viewModel = vm
    }
 }
 
-extension StreakListConductor: StreakListViewModelDelegate {
-   func streakSelected(_ streak: Streak, in viewModel: StreakListViewController.ViewModel) {
+extension ActivityListConductor: ActivityListViewModelDelegate {
+   func activitySelected(_ activity: Activity, in viewModel: ActivityListViewController.ViewModel) {
       guard !_editing else { return }
-      _show(streak: streak, isNew: false)
+      _show(activity: activity, isNew: false)
    }
    
-   func streakSwipedLeft(_ streak: Streak, in viewModel: StreakListViewController.ViewModel) {
+   func activitySwipedLeft(_ activity: Activity, in viewModel: ActivityListViewController.ViewModel) {
       guard !_editing else { return }
-      let alert = UIAlertController(style: .alert, title: "Delete \(streak.name!)?", message: "This cannot be undone.")
+      let alert = UIAlertController(style: .alert, title: "Delete \(activity.name!)?", message: "This cannot be undone.")
       alert.addAction(title: "Cancel", color: UIColor(.outerSpace), style: .default)
       alert.addAction(title: "Delete", color: UIColor(.lipstick), style: .destructive) { action in
-         self.dataLayer.delete(streak: streak)
+         self.dataLayer.delete(activity: activity)
          self._updateStreakListViewController()
       }
       alert.show(animated: true, vibrate: true)
    }
    
-   func streakLongPressed(_ streak: Streak, in viewModel: StreakListViewController.ViewModel) {
+   func activityLongPressed(_ activity: Activity, in viewModel: ActivityListViewController.ViewModel) {
       guard !_editing else { return }
       _editing = true
       var newName: String? = nil
@@ -80,7 +80,7 @@ extension StreakListConductor: StreakListViewModelDelegate {
       let config: TextField.Config = { textField in
          textField.becomeFirstResponder()
          textField.textColor = UIColor(.outerSpace)
-         textField.placeholder = "Edit Streak Name"
+         textField.placeholder = "Edit Activity Name"
          textField.left(image: #imageLiteral(resourceName: " edit-3"), color: UIColor(.outerSpace))
          textField.leftViewPadding = 12
          textField.cornerRadius = 8
@@ -90,7 +90,7 @@ extension StreakListConductor: StreakListViewModelDelegate {
          textField.keyboardType = .default
          textField.autocapitalizationType = .words
          textField.returnKeyType = .done
-         textField.text = streak.name
+         textField.text = activity.name
          textField.action { textField in
             newName = textField.text
          }
@@ -101,16 +101,16 @@ extension StreakListConductor: StreakListViewModelDelegate {
          
          guard let text = newName else { return }
          guard !text.isEmpty else { return }
-         streak.name = text
+         activity.name = text
          self.dataLayer.save()
-         self._streakListVC.setNeedsReload()
+         self._activityListVC.setNeedsReload()
       }
       alert.show(animated: true)
    }
 }
 
-extension StreakListConductor: StreakConductorDelegate {
-   func streakConductor(conductor: StreakConductor, didRenameStreak streak: Streak) {
-      _streakListVC.setNeedsReload()
+extension ActivityListConductor: ActivityConductorDelegate {
+   func activityConductor(conductor: ActivityConductor, didRenameStreak activity: Activity) {
+      _activityListVC.setNeedsReload()
    }
 }

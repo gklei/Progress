@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol StreakViewControllerDataSource: class {
+protocol ActivityViewControllerDataSource: class {
    func marker(at date: Date) -> Marker?
 }
 
-class StreakViewController: UIViewController {
+class ActivityViewController: UIViewController {
    fileprivate var _calendarGrid: CalendarGridViewController!
-   weak var dataSource: StreakViewControllerDataSource?
+   weak var dataSource: ActivityViewControllerDataSource?
    var viewModel = ViewModel()
    
    var daysBack: TimeInterval = 90 {
@@ -52,11 +52,11 @@ class StreakViewController: UIViewController {
 }
 
 protocol StreakViewControllerDelegate: class {
-   func dateSelected(_ date: Date, in: StreakViewController.ViewModel, at: IndexPath)
-   func dateLongPressed(_ date: Date, in: StreakViewController.ViewModel, at: IndexPath)
+   func dateSelected(_ date: Date, in: ActivityViewController.ViewModel, at: IndexPath)
+   func dateLongPressed(_ date: Date, in: ActivityViewController.ViewModel, at: IndexPath)
 }
 
-extension StreakViewController {
+extension ActivityViewController {
    class ViewModel {
       weak var delegate: StreakViewControllerDelegate?
       func dateSelected(_ date: Date, at indexPath: IndexPath) {
@@ -69,7 +69,7 @@ extension StreakViewController {
    }
 }
 
-extension StreakViewController: CalendarGridViewControllerDataSource {
+extension ActivityViewController: CalendarGridViewControllerDataSource {
    var calendar: Calendar {
       return .gregorian
    }
@@ -90,7 +90,7 @@ extension StreakViewController: CalendarGridViewControllerDataSource {
    }
 }
 
-extension StreakViewController: CalendarGridViewModelDelegate {
+extension ActivityViewController: CalendarGridViewModelDelegate {
    func dateSelected(_ date: Date, in viewModel: CalendarGridViewController.ViewModel, at indexPath: IndexPath) {
       self.viewModel.dateSelected(date, at: indexPath)
    }

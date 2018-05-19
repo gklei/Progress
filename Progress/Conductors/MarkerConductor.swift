@@ -51,13 +51,13 @@ class MarkerConductor: Conductor, Bindable {
    override var rootViewController: UIViewController? { return _detailsVC }
    
    let dataLayer: StreaksDataLayer
-   let streak: Streak
+   let activity: Activity
    let marker: Marker?
    let date: Date
    
-   init(dataLayer: StreaksDataLayer, streak: Streak, marker: Marker?, date: Date) {
+   init(dataLayer: StreaksDataLayer, activity: Activity, marker: Marker?, date: Date) {
       self.dataLayer = dataLayer
-      self.streak = streak
+      self.activity = activity
       self.marker = marker
       activityDetails = marker?.descriptionText ?? ""
       self.date = date
@@ -71,7 +71,7 @@ class MarkerConductor: Conductor, Bindable {
          dataLayer.save()
       case .none:
          guard !activityDetails.isEmpty else { return }
-         dataLayer.createActivity(at: date, for: streak, with: activityDetails)
+         dataLayer.createActivity(at: date, for: activity, with: activityDetails)
          dataLayer.save()
       }
    }

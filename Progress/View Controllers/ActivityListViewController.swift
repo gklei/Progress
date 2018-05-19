@@ -9,7 +9,7 @@
 import Elemental
 import Foundation
 
-class StreakListViewController: ElementalViewController {
+class ActivityListViewController: ElementalViewController {
    var viewModel: ViewModel? {
       didSet {
          setNeedsReload()
@@ -23,13 +23,13 @@ class StreakListViewController: ElementalViewController {
       super.viewDidLoad()
       view.backgroundColor = .white
       _swipeRecognizer = UISwipeGestureRecognizer(target: self,
-                                                  action: #selector(StreakListViewController._leftSwipeRecognized(sender:)))
+                                                  action: #selector(ActivityListViewController._leftSwipeRecognized(sender:)))
       _swipeRecognizer.direction = .left
       _swipeRecognizer.cancelsTouchesInView = false
       view.addGestureRecognizer(_swipeRecognizer)
       
       _longPressRecognizer = UILongPressGestureRecognizer(target: self,
-                                                          action: #selector(StreakListViewController._longPressRecognized(sender:)))
+                                                          action: #selector(ActivityListViewController._longPressRecognized(sender:)))
       _longPressRecognizer.cancelsTouchesInView = false
       view.addGestureRecognizer(_longPressRecognizer)
    }
@@ -41,51 +41,51 @@ class StreakListViewController: ElementalViewController {
    
    override func generateElements() -> [Elemental]? {
       guard let vm = viewModel else { return nil }
-      return vm.streakElements
+      return vm.activityElements
    }
    
    @objc private func _leftSwipeRecognized(sender: UISwipeGestureRecognizer) {
       let location = sender.location(in: view)
       guard let indexPath = collectionView.indexPathForItem(at: location) else { return }
-      viewModel?.streakSwipedLeft(at: indexPath)
+      viewModel?.activitySwipedLeft(at: indexPath)
    }
    
    @objc private func _longPressRecognized(sender: UISwipeGestureRecognizer) {
       let location = sender.location(in: view)
       guard let indexPath = collectionView.indexPathForItem(at: location) else { return }
-      viewModel?.streakLongPressed(at: indexPath)
+      viewModel?.activityLongPressed(at: indexPath)
    }
 }
 
-extension StreakListViewController: ElementalViewControllerDelegate {
+extension ActivityListViewController: ElementalViewControllerDelegate {
    func elementSelected(_ element: Elemental, in viewController: ElementalViewController) {
       guard let index = self.index(of: element) else { return }
-      viewModel?.streakSelected(at: IndexPath(row: index, section: 0))
+      viewModel?.activitySelected(at: IndexPath(row: index, section: 0))
    }
 }
 
-protocol StreakListViewModelDelegate: class {
-   func streakSelected(_ streak: Streak, in viewModel: StreakListViewController.ViewModel)
-   func streakSwipedLeft(_ streak: Streak, in viewModel: StreakListViewController.ViewModel)
-   func streakLongPressed(_ streak: Streak, in viewModel: StreakListViewController.ViewModel)
+protocol ActivityListViewModelDelegate: class {
+   func activitySelected(_ activity: Activity, in viewModel: ActivityListViewController.ViewModel)
+   func activitySwipedLeft(_ activity: Activity, in viewModel: ActivityListViewController.ViewModel)
+   func activityLongPressed(_ activity: Activity, in viewModel: ActivityListViewController.ViewModel)
 }
 
-extension StreakListViewController {
+extension ActivityListViewController {
    final class ViewModel {
-      let streaks: [Streak]
-      weak var delegate: StreakListViewModelDelegate?
+      let activities: [Activity]
+      weak var delegate: ActivityListViewModelDelegate?
       
-      init(model: [Streak]) {
-         self.streaks = model
+      init(model: [Activity]) {
+         self.activities = model
       }
       
-      var streakElements: [Elemental] {
+      var activityElements: [Elemental] {
          var elems: [Elemental] = []
-         for streak in streaks {
+         for activity in activities {
             let label = UILabel()
             label.font = UIFont(26, .xLight)
             label.textColor = UIColor(.outerSpace, alpha: 0.5)
-            label.text = streak.name
+            label.text = activity.name
             label.numberOfLines = 0
             label.sizeToFit(constrainedWidth: UIScreen.main.bounds.width - 40)
             let view = UIView()
@@ -99,24 +99,24 @@ extension StreakListViewController {
          return elems
       }
       
-      func streakSelected(at indexPath: IndexPath) {
-         guard let streak = _streak(at: indexPath) else { return }
-         delegate?.streakSelected(streak, in: self)
+      func activitySelected(at indexPath: IndexPath) {
+         guard let activity = _activity(at: indexPath) else { return }
+         delegate?.activitySelected(activity, in: self)
       }
       
-      func streakSwipedLeft(at indexPath: IndexPath) {
-         guard let streak = _streak(at: indexPath) else { return }
-         delegate?.streakSwipedLeft(streak, in: self)
+      func activitySwipedLeft(at indexPath: IndexPath) {
+         guard let activity = _activity(at: indexPath) else { return }
+         delegate?.activitySwipedLeft(activity, in: self)
       }
       
-      func streakLongPressed(at indexPath: IndexPath) {
-         guard let streak = _streak(at: indexPath) else { return }
-         delegate?.streakLongPressed(streak, in: self)
+      func activityLongPressed(at indexPath: IndexPath) {
+         guard let activity = _activity(at: indexPath) else { return }
+         delegate?.activityLongPressed(activity, in: self)
       }
       
-      private func _streak(at indexPath: IndexPath) -> Streak? {
-         guard streaks.count > indexPath.row else { return nil }
-         return streaks[indexPath.row]
+      private func _activity(at indexPath: IndexPath) -> Activity? {
+         guard activities.count > indexPath.row else { return nil }
+         return activities[indexPath.row]
       }
    }
 }
