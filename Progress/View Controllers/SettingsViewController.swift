@@ -8,7 +8,7 @@
 
 import Elemental
 
-class ProfileViewController: ElementalViewController {
+class SettingsViewController: ElementalViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       view.backgroundColor = .white

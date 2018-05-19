@@ -12,10 +12,10 @@ class MainConductor: Conductor {
    fileprivate let _tabController = UITabBarController()
    fileprivate let _activityListConductor: ActivityListConductor
    fileprivate let _statsConductor: StatsConductor
-   fileprivate let _profileConductor: ProfileConductor
+   fileprivate let _settingsConductor: SettingsConductor
    
    fileprivate lazy var _childConductors: [TabConductor] = {
-      return [self._activityListConductor, self._statsConductor, self._profileConductor]
+      return [self._activityListConductor, self._statsConductor, self._settingsConductor]
    }()
    
    override var rootViewController: UIViewController? { return _tabController }
@@ -26,12 +26,12 @@ class MainConductor: Conductor {
       self.dataLayer = dataLayer
       _activityListConductor = ActivityListConductor(dataLayer: dataLayer)
       _statsConductor = StatsConductor(dataLayer: dataLayer)
-      _profileConductor = ProfileConductor(dataLayer: dataLayer)
+      _settingsConductor = SettingsConductor(dataLayer: dataLayer)
       
       super.init()
       _activityListConductor.show(in: _tabController, with: UINavigationController(style: .light))
       _statsConductor.show(in: _tabController, with: UINavigationController(style: .light))
-      _profileConductor.show(in: _tabController, with: UINavigationController(style: .light))
+      _settingsConductor.show(in: _tabController, with: UINavigationController(style: .light))
       
       _tabController.tabBar.configureWithProgressUIDefaults()
    }

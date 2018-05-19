@@ -8,9 +8,9 @@
 
 import Conduction
 
-class ProfileConductor: TabConductor {
-   fileprivate lazy var _profileVC: ProfileViewController = {
-      let vc = ProfileViewController()
+class SettingsConductor: TabConductor {
+   fileprivate lazy var _settingsVC: SettingsViewController = {
+      let vc = SettingsViewController()
       vc.title = "Settings"
       vc.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: " settings"), selectedImage: #imageLiteral(resourceName: " settings"))
       vc.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -10, right: 0)
@@ -18,7 +18,7 @@ class ProfileConductor: TabConductor {
    }()
    
    let dataLayer: StreaksDataLayer
-   override var rootViewController: UIViewController? { return _profileVC }
+   override var rootViewController: UIViewController? { return _settingsVC }
    
    init(dataLayer: StreaksDataLayer) {
       self.dataLayer = dataLayer
