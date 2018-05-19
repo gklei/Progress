@@ -65,11 +65,14 @@ class ActivityDetailsConductor: Conductor, Bindable {
    }
    
    override func conductorWillDismiss(from context: UINavigationController) {
-      if let activity = activity {
-         activity.descriptionText = activityDetails
-      } else {
+      switch activity {
+      case .some(let a):
+         a.descriptionText = activityDetails
+         dataLayer.save()
+      case .none:
+         guard !activityDetails.isEmpty else { return }
          dataLayer.createActivity(at: date, for: streak, with: activityDetails)
+         dataLayer.save()
       }
-      dataLayer.save()
    }
 }

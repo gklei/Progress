@@ -30,7 +30,7 @@ class ActivityDetailsViewController: ElementalViewController {
       return Element.form([
          .verticalSpace(26),
          .textViewInput(configuration: ActivityDetailsInputConfiguration(),
-                        content: TextInputElementContent(name: "", placeholder: "No details."),
+                        content: TextInputElementContent(name: "", placeholder: "What did you do?"),
                         bindings: [viewModel.viewData.targetBinding(key: BindableElementKey.text, targetKey: .activityDetails)]),
       ])
    }

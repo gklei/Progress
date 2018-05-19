@@ -17,10 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    let dataLayer = StreaksDataLayer()
    
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-      
       appRouter = AppRouter(window: window!, dataLayer: dataLayer)
       IQKeyboardManager.shared().isEnabled = true
       return true
+   }
+   
+   func applicationWillTerminate(_ application: UIApplication) {
+      dataLayer.save()
    }
 }
 
