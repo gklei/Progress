@@ -139,7 +139,11 @@ extension UINavigationBar {
       shadowImage = style.shadowImage
       barStyle = style.barStyle
       setBackgroundImage(style.backgroundImage, for: .default)
-      titleTextAttributes = [
+      titleTextAttributes = UINavigationBar.titleAttributes(for: style)
+   }
+   
+   class func titleAttributes(for style: NavigationBarStyle) -> [String : Any] {
+      return [
          NSFontAttributeName : UIFont(14, style.titleWeight),
          NSForegroundColorAttributeName : style.titleColor,
          NSKernAttributeName : 4.0

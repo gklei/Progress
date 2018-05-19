@@ -17,14 +17,21 @@ class StreakListViewController: ElementalViewController {
    }
    
    private var _swipeRecognizer: UISwipeGestureRecognizer!
+   private var _longPressRecognizer: UILongPressGestureRecognizer!
    
    override func viewDidLoad() {
       super.viewDidLoad()
       view.backgroundColor = .white
-      _swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(StreakListViewController._leftSwipeRecognized(sender:)))
+      _swipeRecognizer = UISwipeGestureRecognizer(target: self,
+                                                  action: #selector(StreakListViewController._leftSwipeRecognized(sender:)))
       _swipeRecognizer.direction = .left
       _swipeRecognizer.cancelsTouchesInView = false
       view.addGestureRecognizer(_swipeRecognizer)
+      
+      _longPressRecognizer = UILongPressGestureRecognizer(target: self,
+                                                          action: #selector(StreakListViewController._longPressRecognized(sender:)))
+      _longPressRecognizer.cancelsTouchesInView = false
+      view.addGestureRecognizer(_longPressRecognizer)
    }
    
    override func formDidLoad() {
@@ -42,6 +49,12 @@ class StreakListViewController: ElementalViewController {
       guard let indexPath = collectionView.indexPathForItem(at: location) else { return }
       viewModel?.streakSwipedLeft(at: indexPath)
    }
+   
+   @objc private func _longPressRecognized(sender: UISwipeGestureRecognizer) {
+      let location = sender.location(in: view)
+      guard let indexPath = collectionView.indexPathForItem(at: location) else { return }
+      viewModel?.streakLongPressed(at: indexPath)
+   }
 }
 
 extension StreakListViewController: ElementalViewControllerDelegate {
@@ -54,6 +67,7 @@ extension StreakListViewController: ElementalViewControllerDelegate {
 protocol StreakListViewModelDelegate: class {
    func streakSelected(_ streak: Streak, in viewModel: StreakListViewController.ViewModel)
    func streakSwipedLeft(_ streak: Streak, in viewModel: StreakListViewController.ViewModel)
+   func streakLongPressed(_ streak: Streak, in viewModel: StreakListViewController.ViewModel)
 }
 
 extension StreakListViewController {
@@ -93,6 +107,11 @@ extension StreakListViewController {
       func streakSwipedLeft(at indexPath: IndexPath) {
          guard let streak = _streak(at: indexPath) else { return }
          delegate?.streakSwipedLeft(streak, in: self)
+      }
+      
+      func streakLongPressed(at indexPath: IndexPath) {
+         guard let streak = _streak(at: indexPath) else { return }
+         delegate?.streakLongPressed(streak, in: self)
       }
       
       private func _streak(at indexPath: IndexPath) -> Streak? {

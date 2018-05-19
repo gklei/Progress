@@ -25,6 +25,7 @@ class StreakListConductor: TabConductor {
    override var rootViewController: UIViewController? { return _streakListVC }
    
    fileprivate(set) var streakConductor: StreakConductor?
+   fileprivate var _editing = false
    let dataLayer: StreaksDataLayer
    
    init(dataLayer: StreaksDataLayer) {
@@ -36,11 +37,12 @@ class StreakListConductor: TabConductor {
    @objc private func _addStreak() {
       let streak = dataLayer.createNewStreak()
       _updateStreakListViewController()
-      _show(streak: streak)
+      _show(streak: streak, isNew: true)
    }
    
-   fileprivate func _show(streak: Streak) {
-      streakConductor = StreakConductor(dataLayer: dataLayer, streak: streak)
+   fileprivate func _show(streak: Streak, isNew: Bool) {
+      streakConductor = StreakConductor(dataLayer: dataLayer, streak: streak, isNew: isNew)
+      streakConductor?.delegate = self
       show(conductor: streakConductor)
    }
    
@@ -55,10 +57,12 @@ class StreakListConductor: TabConductor {
 
 extension StreakListConductor: StreakListViewModelDelegate {
    func streakSelected(_ streak: Streak, in viewModel: StreakListViewController.ViewModel) {
-      _show(streak: streak)
+      guard !_editing else { return }
+      _show(streak: streak, isNew: false)
    }
    
    func streakSwipedLeft(_ streak: Streak, in viewModel: StreakListViewController.ViewModel) {
+      guard !_editing else { return }
       let alert = UIAlertController(style: .alert, title: "Delete \(streak.name!)?", message: "This cannot be undone.")
       alert.addAction(title: "Cancel", color: UIColor(.outerSpace), style: .default)
       alert.addAction(title: "Delete", color: UIColor(.lipstick), style: .destructive) { action in
@@ -66,5 +70,47 @@ extension StreakListConductor: StreakListViewModelDelegate {
          self._updateStreakListViewController()
       }
       alert.show(animated: true, vibrate: true)
+   }
+   
+   func streakLongPressed(_ streak: Streak, in viewModel: StreakListViewController.ViewModel) {
+      guard !_editing else { return }
+      _editing = true
+      var newName: String? = nil
+      let alert = UIAlertController(style: .alert, title: "Edit Name")
+      let config: TextField.Config = { textField in
+         textField.becomeFirstResponder()
+         textField.textColor = UIColor(.outerSpace)
+         textField.placeholder = "Edit Streak Name"
+         textField.left(image: #imageLiteral(resourceName: " edit-3"), color: UIColor(.outerSpace))
+         textField.leftViewPadding = 12
+         textField.cornerRadius = 8
+         textField.borderColor = UIColor(.outerSpace, alpha: 0.15)
+         textField.borderWidth = 1
+         textField.backgroundColor = nil
+         textField.keyboardType = .default
+         textField.autocapitalizationType = .words
+         textField.returnKeyType = .done
+         textField.text = streak.name
+         textField.action { textField in
+            newName = textField.text
+         }
+      }
+      alert.addOneTextField(configuration: config)
+      alert.addAction(title: "OK", style: .cancel) { action in
+         defer { self._editing = false }
+         
+         guard let text = newName else { return }
+         guard !text.isEmpty else { return }
+         streak.name = text
+         self.dataLayer.save()
+         self._streakListVC.setNeedsReload()
+      }
+      alert.show(animated: true)
+   }
+}
+
+extension StreakListConductor: StreakConductorDelegate {
+   func streakConductor(conductor: StreakConductor, didRenameStreak streak: Streak) {
+      _streakListVC.setNeedsReload()
    }
 }

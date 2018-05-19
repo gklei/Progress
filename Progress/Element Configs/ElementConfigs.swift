@@ -37,7 +37,7 @@ class TextInputConfiguration: TextInputElementConfiguration {
                  placeholderStyle: TextStyle(size: 14, weight: .medium, color: UIColor(.outerSpace, alpha: 0.4)),
                  inputStyle: TextStyle(size: 14, weight: .medium),
                  keyboardStyle: ElementalKeyboardStyle(type: keyboardType,
-                                                       appearance: .dark,
+//                                                       appearance: .dark,
                                                        autocapitalizationType: autocapitalizationType,
                                                        autocorrectionType: autocorrectionType,
                                                        isSecureTextEntry: secureEntry),
