@@ -76,7 +76,7 @@ class StreaksDataLayer {
    
    fileprivate func _newStreakName() -> String {
       switch fetchedStreaks.count {
-      case 0: return "New Streak with a really long name"
+      case 0: return "New Streak"
       default: return "New Streak \(fetchedStreaks.count + 1)"
       }
    }
