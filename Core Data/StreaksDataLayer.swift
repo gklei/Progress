@@ -49,20 +49,27 @@ class StreaksDataLayer {
    }
    
    fileprivate(set) var fetchedData: [Marker] = []
-   fileprivate(set) var fetchedStreaks: [Activity] = []
+   fileprivate(set) var fetchedActivities: [Activity] = []
    
    init() {
-      updateFetchedStreaks()
+      updateFetchedActivities()
    }
    
-   func updateFetchedStreaks() {
+   fileprivate func _newStreakName() -> String {
+      switch fetchedActivities.count {
+      case 0: return "New Activity with a really long name"
+      default: return "New Activity \(fetchedActivities.count + 1)"
+      }
+   }
+   
+   func updateFetchedActivities() {
       let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Activity")
       request.returnsObjectsAsFaults = false
-      fetchedStreaks = try! context.fetch(request) as! [Activity]
+      fetchedActivities = try! context.fetch(request) as! [Activity]
    }
    
-   func createNewStreak() -> Activity {
-      updateFetchedStreaks()
+   func createNewActivity() -> Activity {
+      updateFetchedActivities()
       let name = _newStreakName()
       let entity = NSEntityDescription.entity(forEntityName: "Activity", in: context)
       let newStreak = NSManagedObject(entity: entity!, insertInto: context)
@@ -72,13 +79,6 @@ class StreaksDataLayer {
       save()
       
       return newStreak as! Activity
-   }
-   
-   fileprivate func _newStreakName() -> String {
-      switch fetchedStreaks.count {
-      case 0: return "New Activity with a really long name"
-      default: return "New Activity \(fetchedStreaks.count + 1)"
-      }
    }
    
    // MARK: - Core Data Saving support
@@ -96,17 +96,22 @@ class StreaksDataLayer {
       }
    }
    
+   func delete(activity: Activity) {
+      context.delete(activity)
+      save()
+   }
+   
    func toggleActivity(at date: Date, for activity: Activity) {
       if let marker = activity.marker(for: date) {
          context.delete(marker)
       } else {
-         createActivity(at: date, for: activity)
+         createMarker(at: date, for: activity)
       }
       save()
-      updateFetchedStreaks()
+      updateFetchedActivities()
    }
    
-   @discardableResult func createActivity(at date: Date, for activity: Activity, with description: String = "") -> Marker? {
+   @discardableResult func createMarker(at date: Date, for activity: Activity, with description: String = "") -> Marker? {
       guard activity.marker(for: date) == nil else { return nil }
       
       let entity = NSEntityDescription.entity(forEntityName: "Marker", in: context)
@@ -117,10 +122,5 @@ class StreaksDataLayer {
       newActivity.setValue(description, forKey: "descriptionText")
       newActivity.setValue(activity, forKey: "activity")
       return newActivity as? Marker
-   }
-   
-   func delete(activity: Activity) {
-      context.delete(activity)
-      save()
    }
 }

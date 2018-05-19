@@ -9,7 +9,7 @@
 import Conduction
 
 protocol ActivityConductorDelegate: class {
-   func activityConductor(conductor: ActivityConductor, didRenameStreak activity: Activity)
+   func activityConductor(conductor: ActivityConductor, didRenameActivity activity: Activity)
 }
 
 class ActivityConductor: Conductor {
@@ -90,7 +90,7 @@ class ActivityConductor: Conductor {
          self.activity.name = text
          self.dataLayer.save()
          self._updateTitleView()
-         self.delegate?.activityConductor(conductor: self, didRenameStreak: self.activity)
+         self.delegate?.activityConductor(conductor: self, didRenameActivity: self.activity)
       }
       alert.show()
    }
@@ -101,7 +101,7 @@ class ActivityConductor: Conductor {
    }
 }
 
-extension ActivityConductor: StreakViewControllerDelegate {
+extension ActivityConductor: ActivityViewControllerDelegate {
    func dateSelected(_ date: Date, in: ActivityViewController.ViewModel, at indexPath: IndexPath) {
       feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
       feedbackGenerator?.prepare()

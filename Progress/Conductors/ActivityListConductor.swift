@@ -1,5 +1,5 @@
 //
-//  StreakListConductor.swift
+//  ActivityListConductor.swift
 //  Streaks
 //
 //  Created by Gregory Klein on 5/18/18.
@@ -18,7 +18,7 @@ class ActivityListConductor: TabConductor {
                                                              icon: #imageLiteral(resourceName: " plus"),
                                                              tintColor: UIColor(.outerSpace),
                                                              target: self,
-                                                             selector: #selector(ActivityListConductor._addStreak))
+                                                             selector: #selector(ActivityListConductor._addActivity))
       return vc
    }()
    
@@ -31,12 +31,12 @@ class ActivityListConductor: TabConductor {
    init(dataLayer: StreaksDataLayer) {
       self.dataLayer = dataLayer
       super.init()
-      _updateStreakListViewController()
+      _updateActivityListViewController()
    }
    
-   @objc private func _addStreak() {
-      let activity = dataLayer.createNewStreak()
-      _updateStreakListViewController()
+   @objc private func _addActivity() {
+      let activity = dataLayer.createNewActivity()
+      _updateActivityListViewController()
       _show(activity: activity, isNew: true)
    }
    
@@ -46,9 +46,9 @@ class ActivityListConductor: TabConductor {
       show(conductor: activityConductor)
    }
    
-   fileprivate func _updateStreakListViewController() {
-      dataLayer.updateFetchedStreaks()
-      let activities = dataLayer.fetchedStreaks
+   fileprivate func _updateActivityListViewController() {
+      dataLayer.updateFetchedActivities()
+      let activities = dataLayer.fetchedActivities
       let vm = ActivityListViewController.ViewModel(model: activities)
       vm.delegate = self
       _activityListVC.viewModel = vm
@@ -67,7 +67,7 @@ extension ActivityListConductor: ActivityListViewModelDelegate {
       alert.addAction(title: "Cancel", color: UIColor(.outerSpace), style: .default)
       alert.addAction(title: "Delete", color: UIColor(.lipstick), style: .destructive) { action in
          self.dataLayer.delete(activity: activity)
-         self._updateStreakListViewController()
+         self._updateActivityListViewController()
       }
       alert.show(animated: true, vibrate: true)
    }
@@ -110,7 +110,7 @@ extension ActivityListConductor: ActivityListViewModelDelegate {
 }
 
 extension ActivityListConductor: ActivityConductorDelegate {
-   func activityConductor(conductor: ActivityConductor, didRenameStreak activity: Activity) {
+   func activityConductor(conductor: ActivityConductor, didRenameActivity activity: Activity) {
       _activityListVC.setNeedsReload()
    }
 }

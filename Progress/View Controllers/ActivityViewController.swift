@@ -51,14 +51,14 @@ class ActivityViewController: UIViewController {
    }
 }
 
-protocol StreakViewControllerDelegate: class {
+protocol ActivityViewControllerDelegate: class {
    func dateSelected(_ date: Date, in: ActivityViewController.ViewModel, at: IndexPath)
    func dateLongPressed(_ date: Date, in: ActivityViewController.ViewModel, at: IndexPath)
 }
 
 extension ActivityViewController {
    class ViewModel {
-      weak var delegate: StreakViewControllerDelegate?
+      weak var delegate: ActivityViewControllerDelegate?
       func dateSelected(_ date: Date, at indexPath: IndexPath) {
          delegate?.dateSelected(date, in: self, at: indexPath)
       }

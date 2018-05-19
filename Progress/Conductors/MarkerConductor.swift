@@ -71,7 +71,7 @@ class MarkerConductor: Conductor, Bindable {
          dataLayer.save()
       case .none:
          guard !activityDetails.isEmpty else { return }
-         dataLayer.createActivity(at: date, for: activity, with: activityDetails)
+         dataLayer.createMarker(at: date, for: activity, with: activityDetails)
          dataLayer.save()
       }
    }
