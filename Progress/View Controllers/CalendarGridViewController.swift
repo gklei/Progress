@@ -25,6 +25,9 @@ class CalendarGridViewController : UIViewController {
    fileprivate var _cv: UICollectionView!
    fileprivate let _spacingFraction: CGFloat = 0.015
    
+   fileprivate var _propertyAnimatorIn: UIViewPropertyAnimator?
+   fileprivate var _propertyAnimatorOut: UIViewPropertyAnimator?
+   
    required init?(coder aDecoder: NSCoder) { fatalError() }
    init(dataSource: CalendarGridViewControllerDataSource) {
       self.dataSource = dataSource
@@ -58,6 +61,26 @@ class CalendarGridViewController : UIViewController {
    
    func reload() {
       _cv.reloadData()
+   }
+   
+   func animateDays(duration: TimeInterval) {
+      _cv.visibleCells.forEach { cell in
+         let animateDuration = duration / 4.0
+         let pauseDuration = animateDuration * 2
+         _propertyAnimatorIn = UIViewPropertyAnimator.runningPropertyAnimator(withDuration: animateDuration,
+                                                                              delay: 0,
+                                                                              options: .curveEaseIn,
+                                                                              animations: {
+            (cell as? CalendarGridCell)?.dayNumberLabel.alpha = 1
+         }) { (pos) in
+            self._propertyAnimatorOut = UIViewPropertyAnimator.runningPropertyAnimator(withDuration: animateDuration,
+                                                                                       delay: pauseDuration,
+                                                                                       options: .curveEaseOut,
+                                                                                       animations: {
+               (cell as? CalendarGridCell)?.dayNumberLabel.alpha = 0
+            })
+         }
+      }
    }
 }
 
@@ -98,11 +121,6 @@ extension CalendarGridViewController: CalendarGridCellDelegate {
    func cellLongPressed(cell: CalendarGridCell) {
       guard let indexPath = _cv.indexPath(for: cell) else { return }
       viewModel.dateLongPressed(_date(for: indexPath), at: indexPath)
-   }
-}
-
-extension CalendarGridViewController: UICollectionViewDelegate {
-   func scrollViewDidScroll(_ scrollView: UIScrollView) {
    }
 }
 

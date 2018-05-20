@@ -124,8 +124,12 @@ extension ActivityListConductor: ActivityListViewModelDelegate {
 }
 
 extension ActivityListConductor: ActivityConductorDelegate {
-   func activityConductor(conductor: ActivityConductor, didRenameActivity activity: Activity) {
+   func activityConductor(_ conductor: ActivityConductor, didRenameActivity activity: Activity) {
       reload()
+   }
+   
+   func activityConductorDidShake(_ conductor: ActivityConductor) {
+      conductor.animateDays()
    }
 }
 

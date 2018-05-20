@@ -9,7 +9,8 @@
 import Conduction
 
 protocol ActivityConductorDelegate: class {
-   func activityConductor(conductor: ActivityConductor, didRenameActivity activity: Activity)
+   func activityConductor(_ conductor: ActivityConductor, didRenameActivity activity: Activity)
+   func activityConductorDidShake(_ conductor: ActivityConductor)
 }
 
 class ActivityConductor: Conductor {
@@ -52,15 +53,23 @@ class ActivityConductor: Conductor {
       let width = label.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude,
                                             height: CGFloat.greatestFiniteMagnitude)).width
       label.frame = CGRect(origin: .zero, size:CGSize(width: width, height: 500))
-      let recognizer = UITapGestureRecognizer(target: self, action: #selector(ActivityConductor.editTitle))
-      label.isUserInteractionEnabled = true
-      label.addGestureRecognizer(recognizer)
       let attribtues = UINavigationBar.titleAttributes(for: .light)
       label.attributedText = NSAttributedString(string: activity.name!, attributes: attribtues)
+      label.isUserInteractionEnabled = true
+      
+      let recognizer = UITapGestureRecognizer(target: self, action: #selector(ActivityConductor.editTitle))
+      recognizer.cancelsTouchesInView = false
+      label.addGestureRecognizer(recognizer)
+      
+      let longPressRecognizer = UIGestureRecognizer(target: self, action: #selector(ActivityConductor.animateDays))
+      longPressRecognizer.cancelsTouchesInView = false
+      label.addGestureRecognizer(longPressRecognizer)
+      
       _activityVC.navigationItem.titleView = label
    }
    
    override func conductorDidShow(in context: UINavigationController) {
+      defer { _activityVC.becomeFirstResponder() }
       guard isNew else { return }
       editTitle()
    }
@@ -70,10 +79,14 @@ class ActivityConductor: Conductor {
       renameOp.completionBlock = {
          DispatchQueue.main.async {
             self._updateTitleView()
-            self.delegate?.activityConductor(conductor: self, didRenameActivity: self.activity)
+            self.delegate?.activityConductor(self, didRenameActivity: self.activity)
          }
       }
       _queue.addOperation(renameOp)
+   }
+   
+   func animateDays() {
+      _activityVC.animateDays(duration: 3)
    }
    
    func reload() {
@@ -103,6 +116,10 @@ extension ActivityConductor: ActivityViewControllerDelegate {
          self._activityVC.reload()
       }
       show(conductor: detailsConductor)
+   }
+   
+   func activityViewControllerDidShake() {
+      delegate?.activityConductorDidShake(self)
    }
 }
 

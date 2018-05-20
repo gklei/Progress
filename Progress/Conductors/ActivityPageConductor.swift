@@ -102,6 +102,10 @@ extension ActivityPageConductor: ActivityViewControllerDelegate {
       }
       show(conductor: detailsConductor)
    }
+   
+   func activityViewControllerDidShake() {
+      focusedConductor.animateDays()
+   }
 }
 
 extension ActivityPageConductor: ActivityViewControllerDataSource {

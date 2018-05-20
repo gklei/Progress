@@ -23,6 +23,12 @@ class ActivityViewController: UIViewController {
       }
    }
    
+   override var canBecomeFirstResponder: Bool {
+      get {
+         return true
+      }
+   }
+   
    override func loadView() {
       let view = UIView()
       _calendarGrid = CalendarGridViewController(dataSource: self)
@@ -46,14 +52,27 @@ class ActivityViewController: UIViewController {
       view.backgroundColor = .white
    }
    
+   // Enable detection of shake motion
+   override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+      switch motion {
+      case .motionShake: viewModel.shake()
+      default: return
+      }
+   }
+   
    func reload() {
       _calendarGrid.reload()
+   }
+   
+   func animateDays(duration: TimeInterval) {
+      _calendarGrid.animateDays(duration: duration)
    }
 }
 
 protocol ActivityViewControllerDelegate: class {
    func dateSelected(_ date: Date, in: ActivityViewController.ViewModel, at: IndexPath)
    func dateLongPressed(_ date: Date, in: ActivityViewController.ViewModel, at: IndexPath)
+   func activityViewControllerDidShake()
 }
 
 extension ActivityViewController {
@@ -65,6 +84,10 @@ extension ActivityViewController {
       
       func dateLongPressed(_ date: Date, at indexPath: IndexPath) {
          delegate?.dateLongPressed(date, in: self, at: indexPath)
+      }
+      
+      func shake() {
+         delegate?.activityViewControllerDidShake()
       }
    }
 }

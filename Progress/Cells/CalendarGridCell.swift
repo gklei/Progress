@@ -15,7 +15,8 @@ protocol CalendarGridCellDelegate: class {
 
 class CalendarGridCell: UICollectionViewCell {
    static var reuseID = "CalendarGridCell"
-   static var df: DateFormatter {
+   
+   static var monthNameDateFormatter: DateFormatter {
       let df = DateFormatter()
       df.dateFormat = "MMM"
       return df
@@ -38,6 +39,13 @@ class CalendarGridCell: UICollectionViewCell {
       return label
    }()
    
+   fileprivate(set) lazy var dayNumberLabel: UILabel = {
+      let label = UILabel()
+      label.font = UIFont(14, .light)
+      label.textColor = UIColor(.outerSpace, alpha: 0.6)
+      return label
+   }()
+   
    var _doubleTapRecognizer: UITapGestureRecognizer!
    var _longPressRecognizer: UILongPressGestureRecognizer!
    
@@ -52,6 +60,14 @@ class CalendarGridCell: UICollectionViewCell {
          _label.centerXAnchor.constraint(equalTo: centerXAnchor),
          _label.centerYAnchor.constraint(equalTo: centerYAnchor)
       ])
+      
+      dayNumberLabel.alpha = 0
+      dayNumberLabel.translatesAutoresizingMaskIntoConstraints = false
+      contentView.addSubview(dayNumberLabel)
+      NSLayoutConstraint.activate([
+         dayNumberLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+         dayNumberLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+         ])
       
       _doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(CalendarGridCell._doubleTapped))
       _doubleTapRecognizer.numberOfTapsRequired = 2
@@ -78,7 +94,7 @@ class CalendarGridCell: UICollectionViewCell {
    
    func configure(with date: Date, marker: Marker?) {
       let components = Calendar.current.dateComponents([.month, .day], from: date)
-      _label.text = CalendarGridCell.df.string(from: date).uppercased()
+      _label.text = CalendarGridCell.monthNameDateFormatter.string(from: date).uppercased()
       switch marker {
       case .some(let m): contentView.backgroundColor = UIColor(m.color)
       case .none: contentView.backgroundColor = UIColor(hex: "EBEBEB")
@@ -88,10 +104,12 @@ class CalendarGridCell: UICollectionViewCell {
          contentView.layer.borderColor = UIColor(.outerSpace, alpha: 0.15).cgColor
          contentView.layer.borderWidth = 2
          contentView.layer.cornerRadius = 6
+         dayNumberLabel.text = ""
          _label.isHidden = false
       } else {
          contentView.layer.borderWidth = 0
          contentView.layer.cornerRadius = 0
+         dayNumberLabel.text = "\(components.day!)"
          _label.isHidden = true
       }
    }
