@@ -81,6 +81,11 @@ class ActivityListConductor: TabConductor {
       vm.delegate = self
       _activityListVC.viewModel = vm
    }
+   
+   func reload() {
+      _updateActivityListViewController()
+      _activityPageConductor?.reload()
+   }
 }
 
 extension ActivityListConductor: ActivityListViewModelDelegate {
@@ -111,7 +116,7 @@ extension ActivityListConductor: ActivityListViewModelDelegate {
                                              textFieldBorderWidth: 1)
       renameOp.completionBlock = {
          self._editing = false
-         DispatchQueue.main.async { self._activityListVC.setNeedsReload() }
+         DispatchQueue.main.async { self._updateActivityListViewController() }
       }
       _queue.addOperation(renameOp)
    }
@@ -119,7 +124,7 @@ extension ActivityListConductor: ActivityListViewModelDelegate {
 
 extension ActivityListConductor: ActivityConductorDelegate {
    func activityConductor(conductor: ActivityConductor, didRenameActivity activity: Activity) {
-      _activityListVC.setNeedsReload()
+      _updateActivityListViewController()
    }
 }
 

@@ -3,12 +3,12 @@
 import UIKit
 import PlaygroundSupport
 
-let calendar = Calendar.current
+let name = "E"
 
-let daysBack: TimeInterval = 2
-let timeIntervalSinceNow: TimeInterval = 60 * 60 * 24 * daysBack
-let daysAgo = calendar.startOfDay(for: Date(timeIntervalSinceNow: -timeIntervalSinceNow))
-calendar.date(bySetting: .weekday, value: 1, of: daysAgo)
+let index = name.index(name.startIndex, offsetBy: 1)
+let firstPart = name.substring(to: index)
+let secondPart = name.substring(from: index)
 
-calendar.firstWeekday
+print(firstPart)
+print(secondPart)
 

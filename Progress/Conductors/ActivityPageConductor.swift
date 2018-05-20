@@ -73,6 +73,10 @@ class ActivityPageConductor: Conductor {
       label.attributedText = NSAttributedString(string: focusedActivity.name!, attributes: attribtues)
       _activityPageVC.navigationItem.titleView = label
    }
+   
+   func reload() {
+      _updateTitleView()
+   }
 }
 
 extension ActivityPageConductor: ActivityViewControllerDelegate {

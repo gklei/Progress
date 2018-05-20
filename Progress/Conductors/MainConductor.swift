@@ -63,7 +63,9 @@ extension MainConductor: ActivityListConductorDelegate {
 extension MainConductor: ActivitySettingsConductorDelegate {
    func settingChanged(key: ActivitySettingsConductor.Key, in conductor: ActivitySettingsConductor) {
       switch key {
-      case .markerColor: _currentActivityConductor?.reload()
+      case .markerColor:
+         _currentActivityConductor?.reload()
+         _activityListConductor.reload()
       }
    }
 }

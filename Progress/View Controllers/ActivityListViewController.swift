@@ -18,6 +18,7 @@ class ActivityListViewController: ElementalViewController {
    
    private var _swipeRecognizer: UISwipeGestureRecognizer!
    private var _longPressRecognizer: UILongPressGestureRecognizer!
+   fileprivate let _topPadding: CGFloat = 18
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -37,22 +38,29 @@ class ActivityListViewController: ElementalViewController {
    override func formDidLoad() {
       super.formDidLoad()
       formDelegate = self
+      sidePadding = 20
    }
    
    override func generateElements() -> [Elemental]? {
       guard let vm = viewModel else { return nil }
-      return vm.activityElements
+      var elements: [Elemental] = Element.form([
+         .verticalSpace(_topPadding),
+      ])
+      elements.append(contentsOf: vm.activityElements)
+      return elements
    }
    
    @objc private func _leftSwipeRecognized(sender: UISwipeGestureRecognizer) {
       let location = sender.location(in: view)
-      guard let indexPath = collectionView.indexPathForItem(at: location) else { return }
+      guard var indexPath = collectionView.indexPathForItem(at: location) else { return }
+      indexPath.row -= 1
       viewModel?.activitySwipedLeft(at: indexPath)
    }
    
    @objc private func _longPressRecognized(sender: UISwipeGestureRecognizer) {
       let location = sender.location(in: view)
-      guard let indexPath = collectionView.indexPathForItem(at: location) else { return }
+      guard var indexPath = collectionView.indexPathForItem(at: location) else { return }
+      indexPath.row -= 1
       viewModel?.activityLongPressed(at: indexPath)
    }
 }
@@ -60,7 +68,7 @@ class ActivityListViewController: ElementalViewController {
 extension ActivityListViewController: ElementalViewControllerDelegate {
    func elementSelected(_ element: Elemental, in viewController: ElementalViewController) {
       guard let index = self.index(of: element) else { return }
-      viewModel?.activitySelected(at: IndexPath(row: index, section: 0))
+      viewModel?.activitySelected(at: IndexPath(row: index - 1, section: 0))
    }
 }
 
@@ -83,9 +91,36 @@ extension ActivityListViewController {
          var elems: [Elemental] = []
          for activity in activities {
             let label = UILabel()
-            label.font = UIFont(26, .xLight)
-            label.textColor = UIColor(.outerSpace, alpha: 0.5)
-            label.text = activity.name
+            let activityColor = StreaksColor(rawValue: activity.markerColorHex!)!
+            let hbsa = UIColor(activityColor).hsbaComponents
+            let saturatedColor: UIColor
+            switch activityColor {
+            case .markerGray: saturatedColor = UIColor(.outerSpace, alpha: 0.5)
+            default: saturatedColor = UIColor(hue: hbsa.hue,
+                                              saturation: 1,
+                                              brightness: hbsa.brightness,
+                                              alpha: hbsa.alpha)
+            }
+            
+            let firstAttrs: [String : Any] = [
+               NSForegroundColorAttributeName : saturatedColor,
+               NSFontAttributeName : UIFont(26, .light),
+            ]
+            let secondAttrs: [String : Any] = [
+               NSForegroundColorAttributeName : UIColor(.outerSpace, alpha: 0.5),
+               NSFontAttributeName : UIFont(26, .xLight),
+               ]
+            let name = activity.name!
+            let index = name.index(name.startIndex, offsetBy: 1)
+            let firstPart = name.substring(to: index)
+            let secondPart = name.substring(from: index)
+            
+            let firstAttrString = NSAttributedString(string: firstPart, attributes: firstAttrs)
+            let secondAttrString = NSAttributedString(string: secondPart, attributes: secondAttrs)
+            let attrString = NSMutableAttributedString(attributedString: firstAttrString)
+            attrString.append(secondAttrString)
+            
+            label.attributedText = attrString
             label.numberOfLines = 0
             label.sizeToFit(constrainedWidth: UIScreen.main.bounds.width - 40)
             let view = UIView()
@@ -94,6 +129,7 @@ extension ActivityListViewController {
             view.frame = CGRect(origin: .zero, size: size)
             view.addSubview(label)
             label.center = view.center
+            
             elems.append(CustomViewElement(view: view))
          }
          return elems
