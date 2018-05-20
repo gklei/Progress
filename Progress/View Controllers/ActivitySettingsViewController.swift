@@ -44,7 +44,6 @@ class ActivitySettingsViewController: ElementalViewController {
          .verticalSpace(26),
          .text(configuration: TextConfiguration(size: 24, weight: .light),
                content: "Marker Color"),
-         .verticalSpace(12),
          vcElement
       ])
    }

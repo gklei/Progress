@@ -87,6 +87,7 @@
 		CEDA59B920B0E15400D3EFE7 /* StreaksSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA59B820B0E15400D3EFE7 /* StreaksSettingsViewController.swift */; };
 		CEDA59BC20B0F35800D3EFE7 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA59BB20B0F35800D3EFE7 /* BaseOperation.swift */; };
 		CEDA59BE20B0F37100D3EFE7 /* RenameActivityOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA59BD20B0F37100D3EFE7 /* RenameActivityOperation.swift */; };
+		CEDA59C020B11BD000D3EFE7 /* ActivityPageConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA59BF20B11BD000D3EFE7 /* ActivityPageConductor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -174,6 +175,7 @@
 		CEDA59B820B0E15400D3EFE7 /* StreaksSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreaksSettingsViewController.swift; sourceTree = "<group>"; };
 		CEDA59BB20B0F35800D3EFE7 /* BaseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
 		CEDA59BD20B0F37100D3EFE7 /* RenameActivityOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameActivityOperation.swift; sourceTree = "<group>"; };
+		CEDA59BF20B11BD000D3EFE7 /* ActivityPageConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPageConductor.swift; sourceTree = "<group>"; };
 		D52441EBC8F70B1546028A47 /* Pods-Streaks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Streaks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Streaks/Pods-Streaks.debug.xcconfig"; sourceTree = "<group>"; };
 		E5ABD58FBD65DDAD1BE07772 /* Pods_Progress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Progress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -414,6 +416,7 @@
 				CEDA59B620B0E14700D3EFE7 /* StreaksSettingsConductor.swift */,
 				CE23B06520AEB9D30071C5DC /* MarkerConductor.swift */,
 				CEC8AD5720AF9593002B7947 /* ActivityListConductor.swift */,
+				CEDA59BF20B11BD000D3EFE7 /* ActivityPageConductor.swift */,
 			);
 			name = Conductors;
 			path = Progress/Conductors;
@@ -642,6 +645,7 @@
 				CEBFDF751FE399E300DC8AA8 /* ActivitySettingsConductor.swift in Sources */,
 				CEBFDF711FE399AF00DC8AA8 /* ActivityConductor.swift in Sources */,
 				CEBFDF6F1FE3906700DC8AA8 /* ActivitySettingsViewController.swift in Sources */,
+				CEDA59C020B11BD000D3EFE7 /* ActivityPageConductor.swift in Sources */,
 				CEA1F2F220B00A9000CB378C /* UIAlertController+Extensions.swift in Sources */,
 				CEA1F2E920B00A9000CB378C /* UIViewController+Extensions.swift in Sources */,
 				CEA1F2EC20B00A9000CB378C /* String+Extensions.swift in Sources */,

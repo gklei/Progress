@@ -43,13 +43,15 @@ class MainConductor: Conductor {
 
 extension MainConductor: ActivityListConductorDelegate {
    func activityConductorWillShow(_ conductor: ActivityConductor, from listConductor: ActivityListConductor) {
-      _currentActivityConductor = conductor
-      
+      if _activitySettingsConductor?.context != nil {
+         _activitySettingsConductor?.dismiss()
+      }
       _activitySettingsConductor = ActivitySettingsConductor(dataLayer: dataLayer, activity: conductor.activity)
       _activitySettingsConductor?.delegate = self
       
       _streaksSettingsConductor.dismiss()
       _activitySettingsConductor?.show(in: _tabController, with: UINavigationController(style: .light))
+      _currentActivityConductor = conductor
    }
    
    func activityConductorWillDismiss(_ conductor: ActivityConductor, from listConductor: ActivityListConductor) {

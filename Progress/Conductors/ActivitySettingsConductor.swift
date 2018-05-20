@@ -39,7 +39,7 @@ class ActivitySettingsConductor: TabConductor, Bindable {
    
    fileprivate lazy var _settingsVC: ActivitySettingsViewController = {
       let vc = ActivitySettingsViewController()
-      vc.title = "Activity Settings"
+      vc.title = self.activity.name
       vc.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: " settings"), selectedImage: #imageLiteral(resourceName: " settings"))
       vc.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -10, right: 0)
       vc.viewModel = ActivitySettingsViewController.ViewModel(model: self)
@@ -47,7 +47,7 @@ class ActivitySettingsConductor: TabConductor, Bindable {
    }()
    
    let dataLayer: StreaksDataLayer
-   let activity: Activity
+   fileprivate(set) var activity: Activity
    weak var delegate: ActivitySettingsConductorDelegate?
    
    override var rootViewController: UIViewController? { return _settingsVC }
@@ -56,5 +56,10 @@ class ActivitySettingsConductor: TabConductor, Bindable {
       self.dataLayer = dataLayer
       self.activity = activity
       super.init()
+   }
+   
+   func _update(activity: Activity) {
+      self.activity = activity
+      _settingsVC.reloadColorPicker()
    }
 }

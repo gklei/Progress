@@ -31,6 +31,7 @@ class ActivityListConductor: TabConductor {
    
    fileprivate let _queue = OperationQueue()
    fileprivate(set) var activityConductor: ActivityConductor?
+   fileprivate(set) var _activityPageConductor: ActivityPageConductor?
    fileprivate var _editing = false
    let dataLayer: StreaksDataLayer
    weak var delegate: ActivityListConductorDelegate?
@@ -59,6 +60,20 @@ class ActivityListConductor: TabConductor {
       show(conductor: activityConductor)
    }
    
+   fileprivate func _showActivityPages(focusedActivity activity: Activity) {
+      let activities = dataLayer.fetchedActivities
+      let conductor = ActivityPageConductor(dataLayer: dataLayer, activities: activities, focusedActivity: activity)
+      conductor.delegate = self
+      conductor.activiesConductorDelegate = self
+      conductor.willDismissBlock = {
+         self.delegate?.activityConductorWillDismiss(conductor.focusedConductor, from: self)
+      }
+      
+      delegate?.activityConductorWillShow(conductor.focusedConductor, from: self)
+      _activityPageConductor = conductor
+      show(conductor: _activityPageConductor)
+   }
+   
    fileprivate func _updateActivityListViewController() {
       dataLayer.updateFetchedActivities()
       let activities = dataLayer.fetchedActivities
@@ -71,7 +86,7 @@ class ActivityListConductor: TabConductor {
 extension ActivityListConductor: ActivityListViewModelDelegate {
    func activitySelected(_ activity: Activity, in viewModel: ActivityListViewController.ViewModel) {
       guard !_editing else { return }
-      _show(activity: activity, isNew: false)
+      _showActivityPages(focusedActivity: activity)
    }
    
    func activitySwipedLeft(_ activity: Activity, in viewModel: ActivityListViewController.ViewModel) {
@@ -105,5 +120,11 @@ extension ActivityListConductor: ActivityListViewModelDelegate {
 extension ActivityListConductor: ActivityConductorDelegate {
    func activityConductor(conductor: ActivityConductor, didRenameActivity activity: Activity) {
       _activityListVC.setNeedsReload()
+   }
+}
+
+extension ActivityListConductor: ActivityPageConductorDelegate {
+   func activityPageConductor(_ conductor: ActivityPageConductor, didChangeFocusedConductor focusedConductor: ActivityConductor) {
+      delegate?.activityConductorWillShow(conductor.focusedConductor, from: self)
    }
 }

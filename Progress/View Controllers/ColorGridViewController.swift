@@ -19,7 +19,7 @@ protocol ColorGridViewControllerDelegate: class {
 
 class ColorGridViewController: UIViewController {
    fileprivate var _cv: UICollectionView!
-   fileprivate let _spacingFraction: CGFloat = 0.015
+   fileprivate let _spacingFraction: CGFloat = 0.07
    fileprivate let _cellsPerRow: CGFloat = 4
    
    weak var dataSource: ColorGridViewControllerDataSource?

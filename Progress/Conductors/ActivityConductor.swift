@@ -30,7 +30,6 @@ class ActivityConductor: Conductor {
    let dataLayer: StreaksDataLayer
    let activity: Activity
    let isNew: Bool
-   var marker: [Marker] { return dataLayer.fetchedData }
    var feedbackGenerator: UIImpactFeedbackGenerator?
    weak var delegate: ActivityConductorDelegate?
    
