@@ -124,7 +124,7 @@ extension ActivityListConductor: ActivityListViewModelDelegate {
 
 extension ActivityListConductor: ActivityConductorDelegate {
    func activityConductor(conductor: ActivityConductor, didRenameActivity activity: Activity) {
-      _updateActivityListViewController()
+      reload()
    }
 }
 

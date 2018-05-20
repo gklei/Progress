@@ -17,6 +17,6 @@ class StreaksSettingsViewController: ElementalViewController {
    override func generateElements() -> [Elemental]? {
       return Element.form([
          .verticalSpace(26),
-         ])
+      ])
    }
 }
