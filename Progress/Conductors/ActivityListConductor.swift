@@ -29,6 +29,7 @@ class ActivityListConductor: TabConductor {
    
    override var rootViewController: UIViewController? { return _activityListVC }
    
+   fileprivate let _queue = OperationQueue()
    fileprivate(set) var activityConductor: ActivityConductor?
    fileprivate var _editing = false
    let dataLayer: StreaksDataLayer
@@ -87,37 +88,17 @@ extension ActivityListConductor: ActivityListViewModelDelegate {
    func activityLongPressed(_ activity: Activity, in viewModel: ActivityListViewController.ViewModel) {
       guard !_editing else { return }
       _editing = true
-      var newName: String? = nil
-      let alert = UIAlertController(style: .alert, title: "Edit Name")
-      let config: TextField.Config = { textField in
-         textField.becomeFirstResponder()
-         textField.textColor = UIColor(.outerSpace)
-         textField.placeholder = "Edit Activity Name"
-         textField.left(image: #imageLiteral(resourceName: " edit-3"), color: UIColor(.outerSpace))
-         textField.leftViewPadding = 12
-         textField.cornerRadius = 8
-         textField.borderColor = UIColor(.outerSpace, alpha: 0.15)
-         textField.borderWidth = 1
-         textField.backgroundColor = nil
-         textField.keyboardType = .default
-         textField.autocapitalizationType = .words
-         textField.returnKeyType = .done
-         textField.text = activity.name
-         textField.action { textField in
-            newName = textField.text
-         }
+      
+      let renameOp = RenameActivityOperation(dataLayer: dataLayer,
+                                             activity: activity,
+                                             style: .alert,
+                                             alertTitle: "Rename Activity",
+                                             textFieldBorderWidth: 1)
+      renameOp.completionBlock = {
+         self._editing = false
+         DispatchQueue.main.async { self._activityListVC.setNeedsReload() }
       }
-      alert.addOneTextField(configuration: config)
-      alert.addAction(title: "OK", style: .cancel) { action in
-         defer { self._editing = false }
-         
-         guard let text = newName else { return }
-         guard !text.isEmpty else { return }
-         activity.name = text
-         self.dataLayer.save()
-         self._activityListVC.setNeedsReload()
-      }
-      alert.show(animated: true)
+      _queue.addOperation(renameOp)
    }
 }
 

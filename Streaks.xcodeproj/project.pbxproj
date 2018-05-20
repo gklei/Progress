@@ -85,6 +85,8 @@
 		CEDA59B520B0DACA00D3EFE7 /* ColorGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA59B420B0DACA00D3EFE7 /* ColorGridCell.swift */; };
 		CEDA59B720B0E14700D3EFE7 /* StreaksSettingsConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA59B620B0E14700D3EFE7 /* StreaksSettingsConductor.swift */; };
 		CEDA59B920B0E15400D3EFE7 /* StreaksSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA59B820B0E15400D3EFE7 /* StreaksSettingsViewController.swift */; };
+		CEDA59BC20B0F35800D3EFE7 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA59BB20B0F35800D3EFE7 /* BaseOperation.swift */; };
+		CEDA59BE20B0F37100D3EFE7 /* RenameActivityOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA59BD20B0F37100D3EFE7 /* RenameActivityOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,6 +172,8 @@
 		CEDA59B420B0DACA00D3EFE7 /* ColorGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGridCell.swift; sourceTree = "<group>"; };
 		CEDA59B620B0E14700D3EFE7 /* StreaksSettingsConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreaksSettingsConductor.swift; sourceTree = "<group>"; };
 		CEDA59B820B0E15400D3EFE7 /* StreaksSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreaksSettingsViewController.swift; sourceTree = "<group>"; };
+		CEDA59BB20B0F35800D3EFE7 /* BaseOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
+		CEDA59BD20B0F37100D3EFE7 /* RenameActivityOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameActivityOperation.swift; sourceTree = "<group>"; };
 		D52441EBC8F70B1546028A47 /* Pods-Streaks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Streaks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Streaks/Pods-Streaks.debug.xcconfig"; sourceTree = "<group>"; };
 		E5ABD58FBD65DDAD1BE07772 /* Pods_Progress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Progress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -199,6 +203,7 @@
 		CE145A431FE3812200286BE1 = {
 			isa = PBXGroup;
 			children = (
+				CEDA59BA20B0F34E00D3EFE7 /* Operations */,
 				CEA1F27820B00A6800CB378C /* Alerts and Pickers */,
 				CE23B05D20AE94DD0071C5DC /* Core Data */,
 				CE8CA0EB1FF197530040C3AF /* Cells */,
@@ -440,6 +445,15 @@
 			path = "Progress/Element Configs";
 			sourceTree = "<group>";
 		};
+		CEDA59BA20B0F34E00D3EFE7 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				CEDA59BB20B0F35800D3EFE7 /* BaseOperation.swift */,
+				CEDA59BD20B0F37100D3EFE7 /* RenameActivityOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
 		EB7AA54EC3DB057A478A53D5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,7 +627,9 @@
 				CEA1F2D120B00A9000CB378C /* OneTextFieldViewController.swift in Sources */,
 				CE23B06420AEB33C0071C5DC /* MarkerViewController.swift in Sources */,
 				CEA1F2EE20B00A9000CB378C /* UIColor+Extensions.swift in Sources */,
+				CEDA59BE20B0F37100D3EFE7 /* RenameActivityOperation.swift in Sources */,
 				CEA1F2EB20B00A9000CB378C /* Date+Extension.swift in Sources */,
+				CEDA59BC20B0F35800D3EFE7 /* BaseOperation.swift in Sources */,
 				CEA1F2FC20B00A9000CB378C /* TextField.swift in Sources */,
 				CEBFDF5E1FE38B7800DC8AA8 /* String+Streaks.swift in Sources */,
 				CE23B06020AE95070071C5DC /* Streaks.xcdatamodeld in Sources */,

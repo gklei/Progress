@@ -34,6 +34,7 @@ class ActivityConductor: Conductor {
    var feedbackGenerator: UIImpactFeedbackGenerator?
    weak var delegate: ActivityConductorDelegate?
    
+   fileprivate let _queue = OperationQueue()
    fileprivate(set) var detailsConductor: MarkerConductor?
    fileprivate var _isShowingDetails = false
    
@@ -66,35 +67,14 @@ class ActivityConductor: Conductor {
    }
    
    func editTitle() {
-      var newName: String? = nil
-      let alert = UIAlertController(style: .actionSheet, title: nil)
-      let config: TextField.Config = { textField in
-         textField.becomeFirstResponder()
-         textField.textColor = UIColor(.outerSpace)
-         textField.placeholder = self.isNew ? self.activity.name : "Edit Activity Name"
-         textField.left(image: #imageLiteral(resourceName: " edit-3"), color: UIColor(.outerSpace))
-         textField.leftViewPadding = 12
-         textField.cornerRadius = 8
-         textField.borderColor = UIColor(.outerSpace, alpha: 0.15)
-         textField.backgroundColor = nil
-         textField.keyboardType = .default
-         textField.autocapitalizationType = .words
-         textField.returnKeyType = .done
-         textField.text = self.isNew ? "" : self.activity.name
-         textField.action { textField in
-            newName = textField.text
+      let renameOp = RenameActivityOperation(dataLayer: dataLayer, activity: activity, style: .actionSheet)
+      renameOp.completionBlock = {
+         DispatchQueue.main.async {
+            self._updateTitleView()
+            self.delegate?.activityConductor(conductor: self, didRenameActivity: self.activity)
          }
       }
-      alert.addOneTextField(configuration: config)
-      alert.addAction(title: "OK", style: .cancel) { action in
-         guard let text = newName else { return }
-         guard !text.isEmpty else { return }
-         self.activity.name = text
-         self.dataLayer.save()
-         self._updateTitleView()
-         self.delegate?.activityConductor(conductor: self, didRenameActivity: self.activity)
-      }
-      alert.show()
+      _queue.addOperation(renameOp)
    }
    
    func reload() {
