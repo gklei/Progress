@@ -103,7 +103,7 @@ extension ActivityListViewController {
             }
             
             let firstAttrs: [String : Any] = [
-               NSForegroundColorAttributeName : saturatedColor,
+               NSForegroundColorAttributeName : UIColor(.outerSpace, alpha: 0.5),
                NSFontAttributeName : UIFont(26, .light),
             ]
             let secondAttrs: [String : Any] = [
