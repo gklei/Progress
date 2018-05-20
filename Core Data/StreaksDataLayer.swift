@@ -70,6 +70,7 @@ class StreaksDataLayer {
    
    func updateFetchedActivities() {
       let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Activity")
+      request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
       request.returnsObjectsAsFaults = false
       fetchedActivities = try! context.fetch(request) as! [Activity]
    }

@@ -55,6 +55,7 @@ class ActivityPageConductor: Conductor {
       activityConductors = activities.map { ActivityConductor(dataLayer: dataLayer, activity: $0) }
       super.init()
       
+      activityConductors.forEach { ($0.rootViewController as? ActivityViewController)?.viewModel.delegate = self }
       guard let index = activities.index(of: focusedActivity) else { fatalError() }
       _activityPageVC.navigate(to: index)
       _updateTitleView()
