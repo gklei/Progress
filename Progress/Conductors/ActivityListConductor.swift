@@ -17,7 +17,7 @@ class ActivityListConductor: TabConductor {
    fileprivate lazy var _activityListVC: ActivityListViewController = {
       let vc = ActivityListViewController()
       vc.title = "Activities"
-      vc.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "grid"), selectedImage: #imageLiteral(resourceName: "grid"))
+      vc.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "list"), selectedImage: #imageLiteral(resourceName: "list"))
       vc.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -10, right: 0)
       vc.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",
                                                              icon: #imageLiteral(resourceName: " plus"),
@@ -46,7 +46,7 @@ class ActivityListConductor: TabConductor {
    @objc private func _addActivity() {
       let activity = dataLayer.createNewActivity()
       _updateActivityListViewController()
-      _show(activity: activity, isNew: true)
+      _showActivityPages(focusedActivity: activity)
    }
    
    fileprivate func _show(activity: Activity, isNew: Bool) {

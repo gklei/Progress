@@ -11,7 +11,7 @@ import CoreData
 
 extension Activity {
    func marker(for date: Date) -> Marker? {
-      return self.marker?.filter { ($0 as! Marker).epoch == date.timeIntervalSince1970 }.first as? Marker
+      return self.markers?.filter { ($0 as! Marker).epoch == date.timeIntervalSince1970 }.first as? Marker
    }
 }
 
@@ -130,5 +130,14 @@ class StreaksDataLayer {
       newActivity.setValue(description, forKey: "descriptionText")
       newActivity.setValue(activity, forKey: "activity")
       return newActivity as? Marker
+   }
+   
+   func marker(before date: Date, in activity: Activity) -> Marker? {
+      let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Marker")
+      request.predicate = NSPredicate(format: "activity == %@ AND date < %@", activity, date as NSDate)
+      request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+      request.returnsObjectsAsFaults = false
+      let markers = try! context.fetch(request) as! [Marker]
+      return markers.last
    }
 }

@@ -44,6 +44,12 @@ class MarkerConductor: Conductor, Bindable {
                                                             tintColor: UIColor(.outerSpace),
                                                             target: self,
                                                             selector: #selector(Conductor.dismiss))
+      
+      vc.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",
+                                                             icon: #imageLiteral(resourceName: "more_vertical"),
+                                                             tintColor: UIColor(.outerSpace),
+                                                             target: self,
+                                                             selector: #selector(MarkerConductor._morePressed))
       vc.viewModel = MarkerViewController.ViewModel(model: self)
       return vc
    }()
@@ -74,5 +80,23 @@ class MarkerConductor: Conductor, Bindable {
          dataLayer.createMarker(at: date, for: activity, with: activityDetails)
          dataLayer.save()
       }
+   }
+   
+   @objc func _morePressed() {
+      let alert = UIAlertController(style: .actionSheet, title: nil)
+      alert.addAction(title: "Cancel", color: UIColor(.markerBlue), style: .cancel) { action in
+         print("Cancel")
+      }
+      alert.addAction(image: #imageLiteral(resourceName: "copy"), title: "Copy from previous", color: UIColor(.outerSpace), style: .default) { action in
+         guard let lastMarker = self.dataLayer.marker(before: self.date, in: self.activity) else { return }
+         self[.activityDetails] = lastMarker.descriptionText
+         if let marker = self.marker {
+            marker.descriptionText = lastMarker.descriptionText
+         } else {
+            self.dataLayer.createMarker(at: self.date, for: self.activity, with: lastMarker.descriptionText!)
+         }
+         self.dataLayer.save()
+      }
+      alert.show(animated: true)
    }
 }
