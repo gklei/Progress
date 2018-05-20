@@ -24,6 +24,7 @@ class ActivityListConductor: TabConductor {
                                                              tintColor: UIColor(.outerSpace),
                                                              target: self,
                                                              selector: #selector(ActivityListConductor._addActivity))
+      vc.collectionView.alwaysBounceVertical = true
       return vc
    }()
    

@@ -46,6 +46,7 @@ class RenameActivityOperation: BaseOperation {
          textField.autocapitalizationType = .words
          textField.returnKeyType = .done
          textField.text = self.activity.name
+         textField.clearButtonMode = .always
          textField.action { textField in
             newName = textField.text
          }
