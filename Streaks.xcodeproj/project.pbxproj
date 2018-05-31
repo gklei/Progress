@@ -106,6 +106,7 @@
 		CE23B06120AE95910071C5DC /* StreaksDataLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreaksDataLayer.swift; sourceTree = "<group>"; };
 		CE23B06320AEB33C0071C5DC /* MarkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerViewController.swift; sourceTree = "<group>"; };
 		CE23B06520AEB9D30071C5DC /* MarkerConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerConductor.swift; sourceTree = "<group>"; };
+		CE30D02720BB8F6D008C38D7 /* Streaks_v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Streaks_v2.xcdatamodel; sourceTree = "<group>"; };
 		CE8CA0EC1FF197810040C3AF /* CalendarGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridCell.swift; sourceTree = "<group>"; };
 		CE8CA0EE1FF1979C0040C3AF /* CalendarGridFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridFooter.swift; sourceTree = "<group>"; };
 		CE8CA0F01FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekdayHeaderViewController.swift; sourceTree = "<group>"; };
@@ -866,9 +867,10 @@
 		CE23B05E20AE95070071C5DC /* Streaks.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				CE30D02720BB8F6D008C38D7 /* Streaks_v2.xcdatamodel */,
 				CE23B05F20AE95070071C5DC /* Streaks.xcdatamodel */,
 			);
-			currentVersion = CE23B05F20AE95070071C5DC /* Streaks.xcdatamodel */;
+			currentVersion = CE30D02720BB8F6D008C38D7 /* Streaks_v2.xcdatamodel */;
 			path = Streaks.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
