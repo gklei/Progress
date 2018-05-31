@@ -27,6 +27,7 @@ extension UITabBar {
       UIGraphicsEndImageContext()
       
 //      shadowImage = UIImage.with(color: .mint)
-      shadowImage = image
+//      shadowImage = image
+      setShadow(opacity: 0.5, xOffset: 0, yOffset: 2, radius: 20)
    }
 }

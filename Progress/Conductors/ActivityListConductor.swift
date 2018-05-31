@@ -24,6 +24,11 @@ class ActivityListConductor: TabConductor {
                                                              tintColor: UIColor(.outerSpace),
                                                              target: self,
                                                              selector: #selector(ActivityListConductor._addActivity))
+      vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "",
+                                                             icon: #imageLiteral(resourceName: "info_icon"),
+                                                             tintColor: UIColor(.outerSpace),
+                                                             target: self,
+                                                             selector: #selector(ActivityListConductor._migrateDatabase))
       vc.collectionView.alwaysBounceVertical = true
       return vc
    }()
@@ -47,6 +52,23 @@ class ActivityListConductor: TabConductor {
       let activity = dataLayer.createNewActivity()
       _updateActivityListViewController()
       _showActivityPages(focusedActivity: activity)
+   }
+   
+   @objc private func _migrateDatabase() {
+      let alert = UIAlertController(style: .alert,
+                                    title: "Database Migration",
+                                    message: "Update all marker timezones to \(TimeZone.autoupdatingCurrent.identifier)?")
+      alert.addAction(title: "Cancel", color: UIColor(.outerSpace), style: .default)
+      alert.addAction(title: "Update", color: UIColor(.markerBlue), style: .default) { action in
+         self.dataLayer.fetchedActivities.forEach {
+            $0.markers?.forEach { marker in
+               guard (marker as! Marker).timeZoneID == nil else { return }
+               (marker as! Marker).timeZoneID = TimeZone.autoupdatingCurrent.identifier
+            }
+         }
+         self.dataLayer.save()
+      }
+      alert.show(animated: true, vibrate: true)
    }
    
    fileprivate func _show(activity: Activity, isNew: Bool) {

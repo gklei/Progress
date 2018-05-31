@@ -51,14 +51,16 @@ class ActivityListViewController: ElementalViewController {
    }
    
    @objc private func _leftSwipeRecognized(sender: UISwipeGestureRecognizer) {
-      let location = sender.location(in: view)
+      var location = sender.location(in: view)
+      location.y += collectionView.contentOffset.y
       guard var indexPath = collectionView.indexPathForItem(at: location) else { return }
       indexPath.row -= 1
       viewModel?.activitySwipedLeft(at: indexPath)
    }
    
    @objc private func _longPressRecognized(sender: UISwipeGestureRecognizer) {
-      let location = sender.location(in: view)
+      var location = sender.location(in: view)
+      location.y += collectionView.contentOffset.y
       guard var indexPath = collectionView.indexPathForItem(at: location) else { return }
       indexPath.row -= 1
       viewModel?.activityLongPressed(at: indexPath)

@@ -61,19 +61,19 @@ enum NavigationBarStyle {
       switch self {
       case .dark: return nil
       case .light:
-//         return UIImage.with(color: UIColor(.outerSpace))
-         let gradientLayer = CAGradientLayer()
-         let updatedFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 2)
-         gradientLayer.frame = updatedFrame
-         gradientLayer.colors = [UIColor(.lipstick, alpha: 0.7).cgColor, UIColor(.pink, alpha: 0.7).cgColor]
-         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-         gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-
-         UIGraphicsBeginImageContext(gradientLayer.bounds.size)
-         gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
-         let image = UIGraphicsGetImageFromCurrentImageContext()!
-         UIGraphicsEndImageContext()
-         return image
+         return UIImage.with(color: UIColor(.white))
+//         let gradientLayer = CAGradientLayer()
+//         let updatedFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 2)
+//         gradientLayer.frame = updatedFrame
+//         gradientLayer.colors = [UIColor(.lipstick, alpha: 0.7).cgColor, UIColor(.pink, alpha: 0.7).cgColor]
+//         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+//         gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+//
+//         UIGraphicsBeginImageContext(gradientLayer.bounds.size)
+//         gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+//         let image = UIGraphicsGetImageFromCurrentImageContext()!
+//         UIGraphicsEndImageContext()
+//         return image
       case .white: return UIImage.with(color: .white)
       }
    }
@@ -111,6 +111,10 @@ fileprivate class DarkNavigationBar: NavigationBar {
 fileprivate class LightNavigationBar: NavigationBar {
    init(frame: CGRect) {
       super.init(style: .light, frame: frame)
+      shadowColor = UIColor(.outerSpace)
+      shadowOffset = CGSize(width: 0, height: 2.5)
+      shadowRadius = 20
+      shadowOpacity = 0.12
    }
    
    required init?(coder aDecoder: NSCoder) {
