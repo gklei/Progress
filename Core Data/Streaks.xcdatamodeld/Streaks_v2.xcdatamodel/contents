@@ -10,10 +10,11 @@
         <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="descriptionText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="epoch" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="timeZoneID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="activity" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="markers" inverseEntity="Activity" syncable="YES"/>
     </entity>
     <elements>
         <element name="Activity" positionX="-45" positionY="27" width="128" height="105"/>
-        <element name="Marker" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Marker" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>

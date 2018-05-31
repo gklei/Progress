@@ -9,9 +9,23 @@
 import Foundation
 import CoreData
 
+extension Date {
+   func convertToLocalTime(fromTimeZone identifier: String) -> Date? {
+      guard let timeZone = TimeZone(identifier: identifier) else { return nil }
+      let targetOffset = TimeInterval(timeZone.secondsFromGMT(for: self))
+      let localOffeset = TimeInterval(TimeZone.autoupdatingCurrent.secondsFromGMT(for: self))
+      return self.addingTimeInterval(targetOffset - localOffeset)
+   }
+}
+
 extension Activity {
    func marker(for date: Date) -> Marker? {
-      return self.markers?.filter { ($0 as! Marker).epoch == date.timeIntervalSince1970 }.first as? Marker
+      return self.markers?.filter {
+         let marker = $0 as! Marker
+         let markerDate = Date(timeIntervalSince1970: marker.epoch)
+         let convertedDate = markerDate.convertToLocalTime(fromTimeZone: marker.timeZoneID!)
+         return convertedDate!.timeIntervalSince1970 == date.timeIntervalSince1970
+      }.first as? Marker
    }
 }
 
@@ -127,6 +141,7 @@ class StreaksDataLayer {
       
       newActivity.setValue(date, forKey: "date")
       newActivity.setValue(date.timeIntervalSince1970, forKey: "epoch")
+      newActivity.setValue(TimeZone.autoupdatingCurrent.identifier, forKey: "timeZoneID")
       newActivity.setValue(description, forKey: "descriptionText")
       newActivity.setValue(activity, forKey: "activity")
       return newActivity as? Marker
