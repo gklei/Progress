@@ -103,7 +103,7 @@ class CalendarGridCell: UICollectionViewCell {
       }
       
       if components.day == 1 {
-         contentView.backgroundColor = marker == nil ? UIColor(.chalkboard, alpha: 0.2) : UIColor(marker!.color)
+         contentView.backgroundColor = marker == nil ? UIColor(.chalkboard, alpha: 0.15) : UIColor(marker!.color)
          contentView.layer.borderColor = marker == nil ? UIColor(.chalkboard, alpha: 0.2).cgColor : UIColor(.shadowSpace, alpha: 0.1).cgColor
          contentView.layer.borderWidth = marker == nil ? 0 : 2
          contentView.layer.cornerRadius = 6

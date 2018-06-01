@@ -30,7 +30,7 @@ enum StreaksColor: String {
       case .markerBlue: return "7ACCF5"
       case .markerIndigo: return "AB7AF5"
       case .markerViolet: return "F57AE0"
-      case .markerGray: return "CCCED4"
+      case .markerGray: return "B2B6C1"
       case .tileGray: return "EBEBEB"
       }
    }
