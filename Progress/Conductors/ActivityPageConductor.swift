@@ -81,11 +81,23 @@ class ActivityPageConductor: Conductor {
 
 extension ActivityPageConductor: ActivityViewControllerDelegate {
    func dateSelected(_ date: Date, in: ActivityViewController.ViewModel, at indexPath: IndexPath) {
+      if let marker = focusedActivity.marker(for: date), !marker.descriptionText!.trimmed.isEmpty {
+         let alert = UIAlertController(style: .alert, title: "Are you sure you want to remove this marker?", message: "The markers data will permanently be lost.")
+         alert.addAction(title: "Cancel", color: UIColor(.markerBlue), style: .default)
+         alert.addAction(title: "Remove", color: UIColor(.lipstick), style: .destructive) { action in
+            self._toggle(activity: self.focusedActivity, at: date)
+         }
+         alert.show(animated: true, vibrate: true)
+      } else {
+         _toggle(activity: focusedActivity, at: date)
+      }
+   }
+   
+   private func _toggle(activity: Activity, at date: Date) {
       feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
       feedbackGenerator?.prepare()
       feedbackGenerator?.impactOccurred()
-      
-      dataLayer.toggleActivity(at: date, for: focusedActivity)
+      dataLayer.toggleActivity(at: date, for: activity)
       focusedConductor.reload()
    }
    
