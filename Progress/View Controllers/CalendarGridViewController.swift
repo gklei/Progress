@@ -23,7 +23,7 @@ class CalendarGridViewController : UIViewController {
    
    fileprivate var _headerVC: CalendarWeekdayHeaderViewController!
    fileprivate let _headerFadeInOffset: CGFloat = 40
-   fileprivate let _headerFadeInPoints: CGFloat = 30
+   fileprivate let _headerFadeInPoints: CGFloat = 40
    
    fileprivate var _cv: UICollectionView!
    fileprivate let _spacingFraction: CGFloat = 0.015
