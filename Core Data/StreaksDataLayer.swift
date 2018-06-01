@@ -77,7 +77,7 @@ class StreaksDataLayer {
    fileprivate func _newStreakName() -> String {
       switch fetchedActivities.count {
       case 0: return "New Activity"
-      default: return "New Activity \(fetchedActivities.count + 1)"
+      default: return "\(fetchedActivities.count + 1).New Activity"
       }
    }
    
