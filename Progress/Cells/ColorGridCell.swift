@@ -27,7 +27,7 @@ class ColorGridCell: UICollectionViewCell {
       case true:
 //         contentView.layer.cornerRadius = 16
          contentView.layer.borderWidth = 4
-         contentView.layer.borderColor = UIColor(.outerSpace, alpha: 0.1).cgColor
+         contentView.layer.borderColor = UIColor(.chalkboard, alpha: 0.1).cgColor
       case false:
          contentView.layer.cornerRadius = 0
          contentView.layer.borderWidth = 0

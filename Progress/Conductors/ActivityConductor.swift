@@ -18,7 +18,7 @@ class ActivityConductor: Conductor {
       let vc = ActivityViewController()
       vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "",
                                                             icon: #imageLiteral(resourceName: "chevron-left"),
-                                                            tintColor: UIColor(.outerSpace),
+                                                            tintColor: UIColor(.chalkboard),
                                                             target: self,
                                                             selector: #selector(Conductor.dismiss))
       vc.dataSource = self

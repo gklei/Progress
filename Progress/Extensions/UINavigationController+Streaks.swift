@@ -21,7 +21,7 @@ enum NavigationBarStyle {
    
    var backgroundImage: UIImage {
       switch self {
-      case .dark: return UIImage.with(color: .outerSpace)!
+      case .dark: return UIImage.with(color: .chalkboard)!
       case .light: return UIImage.with(color: .white)!
 //         let gradientLayer = CAGradientLayer()
 //         let updatedFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 84)
@@ -43,8 +43,8 @@ enum NavigationBarStyle {
    var titleColor: UIColor {
       switch self {
       case .dark: return .white
-      case .light: return UIColor(.outerSpace)
-      case .white: return UIColor(.outerSpace)
+      case .light: return UIColor(.chalkboard)
+      case .white: return UIColor(.chalkboard)
 //         return UIColor(white: 1, alpha: 1)
       }
    }
@@ -111,10 +111,10 @@ fileprivate class DarkNavigationBar: NavigationBar {
 fileprivate class LightNavigationBar: NavigationBar {
    init(frame: CGRect) {
       super.init(style: .light, frame: frame)
-      shadowColor = UIColor(.outerSpace)
+      shadowColor = UIColor(.shadowSpace)
       shadowOffset = CGSize(width: 0, height: 2.5)
       shadowRadius = 20
-      shadowOpacity = 0.12
+      shadowOpacity = 0.15
    }
    
    required init?(coder aDecoder: NSCoder) {

@@ -33,7 +33,7 @@ extension UIView {
       return view
    }
    
-   func setShadow(color: UIColor = UIColor(.outerSpace), opacity: Float = 0.2, xOffset: CGFloat = 0, yOffset: CGFloat = 0, radius: CGFloat = 20) {
+   func setShadow(color: UIColor = UIColor(.chalkboard), opacity: Float = 0.2, xOffset: CGFloat = 0, yOffset: CGFloat = 0, radius: CGFloat = 20) {
       layer.shadowColor = color.cgColor
       layer.shadowOpacity = opacity
       layer.shadowOffset = CGSize(width: xOffset, height: yOffset)

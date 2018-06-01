@@ -21,7 +21,7 @@ class ActivityListConductor: TabConductor {
       vc.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -10, right: 0)
       vc.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",
                                                              icon: #imageLiteral(resourceName: " plus"),
-                                                             tintColor: UIColor(.outerSpace),
+                                                             tintColor: UIColor(.chalkboard),
                                                              target: self,
                                                              selector: #selector(ActivityListConductor._addActivity))
       vc.collectionView.alwaysBounceVertical = true

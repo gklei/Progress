@@ -34,15 +34,15 @@ class CalendarGridCell: UICollectionViewCell {
    
    fileprivate lazy var _label: UILabel = {
       let label = UILabel()
-      label.font = UIFont(14, .light)
-      label.textColor = UIColor(.outerSpace, alpha: 0.6)
+      label.font = UIFont(14, .medium)
+      label.textColor = UIColor(.white)
       return label
    }()
    
    fileprivate(set) lazy var dayNumberLabel: UILabel = {
       let label = UILabel()
-      label.font = UIFont(14, .light)
-      label.textColor = UIColor(.outerSpace, alpha: 0.6)
+      label.font = UIFont(14, .medium)
+      label.textColor = UIColor(.shadowSpace, alpha: 0.25)
       return label
    }()
    
@@ -97,14 +97,16 @@ class CalendarGridCell: UICollectionViewCell {
       _label.text = CalendarGridCell.monthNameDateFormatter.string(from: date).uppercased()
       switch marker {
       case .some(let m): contentView.backgroundColor = UIColor(m.color)
-      case .none: contentView.backgroundColor = UIColor(hex: "EBEBEB")
+      case .none: contentView.backgroundColor = UIColor(.tileGray)
       }
       
       if components.day == 1 {
-         contentView.layer.borderColor = UIColor(.outerSpace, alpha: 0.15).cgColor
-         contentView.layer.borderWidth = 2
+         contentView.backgroundColor = marker == nil ? UIColor(.chalkboard, alpha: 0.2) : UIColor(marker!.color)
+         contentView.layer.borderColor = marker == nil ? UIColor(.chalkboard, alpha: 0.2).cgColor : UIColor(.shadowSpace, alpha: 0.1).cgColor
+         contentView.layer.borderWidth = marker == nil ? 0 : 2
          contentView.layer.cornerRadius = 6
          dayNumberLabel.text = ""
+         _label.textColor = marker == nil ? UIColor(.white) : UIColor(.shadowSpace, alpha: 0.2)
          _label.isHidden = false
       } else {
          contentView.layer.borderWidth = 0

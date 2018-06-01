@@ -41,13 +41,13 @@ class MarkerConductor: Conductor, Bindable {
       vc.title = MarkerConductor.df.string(from: self.date)
       vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "",
                                                             icon: #imageLiteral(resourceName: "arrow_left"),
-                                                            tintColor: UIColor(.outerSpace),
+                                                            tintColor: UIColor(.chalkboard),
                                                             target: self,
                                                             selector: #selector(Conductor.dismiss))
       
       vc.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",
                                                              icon: #imageLiteral(resourceName: "more_vertical"),
-                                                             tintColor: UIColor(.outerSpace),
+                                                             tintColor: UIColor(.chalkboard),
                                                              target: self,
                                                              selector: #selector(MarkerConductor._morePressed))
       vc.viewModel = MarkerViewController.ViewModel(model: self)
@@ -87,7 +87,7 @@ class MarkerConductor: Conductor, Bindable {
       alert.addAction(title: "Cancel", color: UIColor(.markerBlue), style: .cancel) { action in
          print("Cancel")
       }
-      alert.addAction(image: #imageLiteral(resourceName: "copy"), title: "Copy from previous", color: UIColor(.outerSpace), style: .default) { action in
+      alert.addAction(image: #imageLiteral(resourceName: "copy"), title: "Copy from previous", color: UIColor(.chalkboard), style: .default) { action in
          guard let lastMarker = self.dataLayer.markerWithText(before: self.date, in: self.activity) else { return }
          self[.activityDetails] = lastMarker.descriptionText
          if let marker = self.marker {

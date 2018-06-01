@@ -19,7 +19,7 @@ extension UIButton {
    convenience init(title: String?,
                     fontSize: CGFloat = 14,
                     fontWeight: FontWeight = .medium,
-                    titleColor: StreaksColor = .outerSpace,
+                    titleColor: StreaksColor = .chalkboard,
                     highlightedTitleColor: StreaksColor? = nil,
                     backgroundColor: StreaksColor = .mint,
                     highlightedBackgroundColor: StreaksColor? = nil) {

@@ -67,7 +67,7 @@ class CalendarGridFooter: UICollectionReusableView {
    
    override init(frame: CGRect) {
       super.init(frame: frame)
-      backgroundColor = UIColor(.outerSpace)
+      backgroundColor = UIColor(.chalkboard)
       
       let layout = UICollectionViewFlowLayout()
       _cv = UICollectionView(frame: .zero, collectionViewLayout: layout)

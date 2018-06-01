@@ -30,7 +30,7 @@ class CalendarWeekdayHeaderViewController: UIViewController {
       fileprivate lazy var _label: UILabel = {
          let label = UILabel()
          label.font = UIFont(12, .light)
-         label.textColor = UIColor(.outerSpace)
+         label.textColor = UIColor(.chalkboard)
          return label
       }()
       

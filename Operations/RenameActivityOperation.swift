@@ -34,12 +34,12 @@ class RenameActivityOperation: BaseOperation {
       let alert = UIAlertController(style: style, title: alertTitle)
       let config: TextField.Config = { textField in
          textField.becomeFirstResponder()
-         textField.textColor = UIColor(.outerSpace)
+         textField.textColor = UIColor(.chalkboard)
          textField.placeholder = "Edit Activity Name"
-         textField.left(image: #imageLiteral(resourceName: " edit-3"), color: UIColor(.outerSpace))
+         textField.left(image: #imageLiteral(resourceName: " edit-3"), color: UIColor(.chalkboard))
          textField.leftViewPadding = 12
          textField.cornerRadius = 8
-         textField.borderColor = UIColor(.outerSpace, alpha: 0.15)
+         textField.borderColor = UIColor(.chalkboard, alpha: 0.15)
          textField.borderWidth = self.textFieldBorderWidth
          textField.backgroundColor = nil
          textField.keyboardType = .default

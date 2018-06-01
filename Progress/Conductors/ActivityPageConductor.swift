@@ -18,7 +18,7 @@ class ActivityPageConductor: Conductor {
       let vc = ElementalPageViewController(viewControllers: self.activityConductors.flatMap { $0.rootViewController })
       vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "",
                                                             icon: #imageLiteral(resourceName: "chevron-left"),
-                                                            tintColor: UIColor(.outerSpace),
+                                                            tintColor: UIColor(.chalkboard),
                                                             target: self,
                                                             selector: #selector(ActivityPageConductor.dismiss))
       vc.view.backgroundColor = .white

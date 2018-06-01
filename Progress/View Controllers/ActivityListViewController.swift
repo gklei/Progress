@@ -97,7 +97,7 @@ extension ActivityListViewController {
             let hbsa = UIColor(activityColor).hsbaComponents
             let saturatedColor: UIColor
             switch activityColor {
-            case .markerGray: saturatedColor = UIColor(.outerSpace, alpha: 0.5)
+            case .markerGray: saturatedColor = UIColor(.chalkboard, alpha: 0.5)
             default: saturatedColor = UIColor(hue: hbsa.hue,
                                               saturation: 1,
                                               brightness: hbsa.brightness,
@@ -105,11 +105,11 @@ extension ActivityListViewController {
             }
             
             let firstAttrs: [String : Any] = [
-               NSForegroundColorAttributeName : UIColor(.outerSpace, alpha: 0.5),
+               NSForegroundColorAttributeName : UIColor(.chalkboard, alpha: 0.5),
                NSFontAttributeName : UIFont(26, .light),
             ]
             let secondAttrs: [String : Any] = [
-               NSForegroundColorAttributeName : UIColor(.outerSpace, alpha: 0.5),
+               NSForegroundColorAttributeName : UIColor(.chalkboard, alpha: 0.5),
                NSFontAttributeName : UIFont(26, .xLight),
                ]
             let name = activity.name!

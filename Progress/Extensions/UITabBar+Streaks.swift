@@ -13,7 +13,7 @@ extension UITabBar {
       unselectedItemTintColor = UIColor(.white, alpha: 0.5)
       tintColor = .white
       isTranslucent = false
-      backgroundImage = UIImage.with(color: .outerSpace)
+      backgroundImage = UIImage.with(color: .chalkboard)
       
       let gradientLayer = CAGradientLayer()
       gradientLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 2)
