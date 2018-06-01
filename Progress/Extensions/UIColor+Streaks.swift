@@ -19,7 +19,7 @@ enum StreaksColor: String {
       case .lipstick: return "FB1563"
       case .darkGray: return "515151"
       case .lightGray: return "727272"
-      case .chalkboard: return "162A46"
+      case .chalkboard: return "152235"
       case .shadowSpace: return "030D15"
       case .white: return "FFFFFF"
       case .pink: return "FF30EE"

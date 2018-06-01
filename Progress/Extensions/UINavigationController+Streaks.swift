@@ -114,7 +114,7 @@ fileprivate class LightNavigationBar: NavigationBar {
       shadowColor = UIColor(.shadowSpace)
       shadowOffset = CGSize(width: 0, height: 2.5)
       shadowRadius = 20
-      shadowOpacity = 0.15
+      shadowOpacity = 0.14
    }
    
    required init?(coder aDecoder: NSCoder) {
