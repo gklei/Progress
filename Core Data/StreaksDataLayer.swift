@@ -68,7 +68,6 @@ class StreaksDataLayer {
       return persistentContainer.viewContext
    }
    
-   fileprivate(set) var fetchedData: [Marker] = []
    fileprivate(set) var fetchedActivities: [Activity] = []
    
    init() {
@@ -154,5 +153,10 @@ class StreaksDataLayer {
       request.returnsObjectsAsFaults = false
       let markers = try! context.fetch(request) as! [Marker]
       return markers.last
+   }
+   
+   func markerWithText(before date: Date, in activity: Activity) -> Marker? {
+      guard let m = marker(before: date, in: activity) else { return nil }
+      return m.descriptionText!.trimmed.isEmpty ? markerWithText(before: m.date! as Date, in: activity) : m
    }
 }

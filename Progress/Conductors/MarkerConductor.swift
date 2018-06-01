@@ -88,7 +88,7 @@ class MarkerConductor: Conductor, Bindable {
          print("Cancel")
       }
       alert.addAction(image: #imageLiteral(resourceName: "copy"), title: "Copy from previous", color: UIColor(.outerSpace), style: .default) { action in
-         guard let lastMarker = self.dataLayer.marker(before: self.date, in: self.activity) else { return }
+         guard let lastMarker = self.dataLayer.markerWithText(before: self.date, in: self.activity) else { return }
          self[.activityDetails] = lastMarker.descriptionText
          if let marker = self.marker {
             marker.descriptionText = lastMarker.descriptionText
