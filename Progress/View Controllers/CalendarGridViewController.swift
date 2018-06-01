@@ -22,6 +22,9 @@ class CalendarGridViewController : UIViewController {
    weak var dataSource: CalendarGridViewControllerDataSource?
    
    fileprivate var _headerVC: CalendarWeekdayHeaderViewController!
+   fileprivate let _headerFadeInOffset: CGFloat = 40
+   fileprivate let _headerFadeInPoints: CGFloat = 30
+   
    fileprivate var _cv: UICollectionView!
    fileprivate let _spacingFraction: CGFloat = 0.015
    
@@ -32,6 +35,7 @@ class CalendarGridViewController : UIViewController {
    init(dataSource: CalendarGridViewControllerDataSource) {
       self.dataSource = dataSource
       super.init(nibName: nil, bundle: nil)
+      _headerVC = CalendarWeekdayHeaderViewController(calendar: dataSource.calendar)
    }
    
    override func loadView() {
@@ -59,6 +63,24 @@ class CalendarGridViewController : UIViewController {
       self.view = view
    }
    
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      
+      addChildViewController(_headerVC)
+      let headerView = _headerVC.view!
+      headerView.translatesAutoresizingMaskIntoConstraints = false
+      view.insertSubview(headerView, at: 0)
+      
+      NSLayoutConstraint.activate([
+         headerView.topAnchor.constraint(equalTo: view.topAnchor),
+         headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+         headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+         headerView.heightAnchor.constraint(equalToConstant: 60),
+      ])
+      
+      _updateHeaderViewAlpha(scrollViewOffset: 0)
+   }
+   
    func reload() {
       _cv.reloadData()
    }
@@ -80,6 +102,15 @@ class CalendarGridViewController : UIViewController {
                (cell as? CalendarGridCell)?.dayNumberLabel.alpha = 0
             })
          }
+      }
+   }
+   
+   fileprivate func _updateHeaderViewAlpha(scrollViewOffset: CGFloat) {
+      if scrollViewOffset < -_headerFadeInOffset {
+         let progress = ((scrollViewOffset * -1) - _headerFadeInOffset) / _headerFadeInPoints
+         _headerVC.view.alpha = min(progress, 1)
+      } else {
+         _headerVC.view.alpha = 0
       }
    }
 }
@@ -147,6 +178,10 @@ extension CalendarGridViewController: UICollectionViewDelegateFlowLayout {
    
    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
       return collectionView.bounds.width * _spacingFraction
+   }
+   
+   func scrollViewDidScroll(_ scrollView: UIScrollView) {
+      _updateHeaderViewAlpha(scrollViewOffset: scrollView.contentOffset.y)
    }
 }
 
