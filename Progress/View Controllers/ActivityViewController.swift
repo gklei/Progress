@@ -70,20 +70,20 @@ class ActivityViewController: UIViewController {
 }
 
 protocol ActivityViewControllerDelegate: class {
-   func dateSelected(_ date: Date, in: ActivityViewController.ViewModel, at: IndexPath)
-   func dateLongPressed(_ date: Date, in: ActivityViewController.ViewModel, at: IndexPath)
+   func dateDoubleTapped(_ date: Date, in: ActivityViewController.ViewModel, at: IndexPath)
+   func dateTapped(_ date: Date, in: ActivityViewController.ViewModel, at: IndexPath)
    func activityViewControllerDidShake()
 }
 
 extension ActivityViewController {
    class ViewModel {
       weak var delegate: ActivityViewControllerDelegate?
-      func dateSelected(_ date: Date, at indexPath: IndexPath) {
-         delegate?.dateSelected(date, in: self, at: indexPath)
+      func dateDoubleTapped(_ date: Date, at indexPath: IndexPath) {
+         delegate?.dateDoubleTapped(date, in: self, at: indexPath)
       }
       
-      func dateLongPressed(_ date: Date, at indexPath: IndexPath) {
-         delegate?.dateLongPressed(date, in: self, at: indexPath)
+      func dateTapped(_ date: Date, at indexPath: IndexPath) {
+         delegate?.dateTapped(date, in: self, at: indexPath)
       }
       
       func shake() {
@@ -114,12 +114,12 @@ extension ActivityViewController: CalendarGridViewControllerDataSource {
 }
 
 extension ActivityViewController: CalendarGridViewModelDelegate {
-   func dateSelected(_ date: Date, in viewModel: CalendarGridViewController.ViewModel, at indexPath: IndexPath) {
-      self.viewModel.dateSelected(date, at: indexPath)
+   func dateDoubleTapped(_ date: Date, in viewModel: CalendarGridViewController.ViewModel, at indexPath: IndexPath) {
+      self.viewModel.dateDoubleTapped(date, at: indexPath)
    }
    
-   func dateLongPressed(_ date: Date, in: CalendarGridViewController.ViewModel, at indexPath: IndexPath) {
-      self.viewModel.dateLongPressed(date, at: indexPath)
+   func dateTapped(_ date: Date, in: CalendarGridViewController.ViewModel, at indexPath: IndexPath) {
+      self.viewModel.dateTapped(date, at: indexPath)
    }
 }
 

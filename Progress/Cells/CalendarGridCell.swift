@@ -10,7 +10,7 @@ import UIKit
 
 protocol CalendarGridCellDelegate: class {
    func cellDoubleTapped(cell: CalendarGridCell)
-   func cellLongPressed(cell: CalendarGridCell)
+   func cellTapped(cell: CalendarGridCell)
 }
 
 class CalendarGridCell: UICollectionViewCell {
@@ -47,7 +47,7 @@ class CalendarGridCell: UICollectionViewCell {
    }()
    
    var _doubleTapRecognizer: UITapGestureRecognizer!
-   var _longPressRecognizer: UILongPressGestureRecognizer!
+   var _singleTapRecognizer: UITapGestureRecognizer!
    
    weak var delegate: CalendarGridCellDelegate?
    
@@ -72,22 +72,24 @@ class CalendarGridCell: UICollectionViewCell {
       _doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(CalendarGridCell._doubleTapped))
       _doubleTapRecognizer.numberOfTapsRequired = 2
       
-      _longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(CalendarGridCell._longPressed))
+      _singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(CalendarGridCell._singleTapped))
       contentView.addGestureRecognizer(_doubleTapRecognizer)
-      contentView.addGestureRecognizer(_longPressRecognizer)
+      contentView.addGestureRecognizer(_singleTapRecognizer)
+      
+      _singleTapRecognizer.require(toFail: _doubleTapRecognizer)
    }
    
    override func prepareForReuse() {
       removeGestureRecognizer(_doubleTapRecognizer)
-      removeGestureRecognizer(_longPressRecognizer)
+      removeGestureRecognizer(_singleTapRecognizer)
    }
    
    @objc private func _doubleTapped() {
       delegate?.cellDoubleTapped(cell: self)
    }
    
-   @objc private func _longPressed() {
-      delegate?.cellLongPressed(cell: self)
+   @objc private func _singleTapped() {
+      delegate?.cellTapped(cell: self)
    }
    
    required init?(coder aDecoder: NSCoder) { fatalError() }

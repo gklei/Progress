@@ -146,12 +146,12 @@ extension CalendarGridViewController: UICollectionViewDataSource {
 extension CalendarGridViewController: CalendarGridCellDelegate {
    func cellDoubleTapped(cell: CalendarGridCell) {
       guard let indexPath = _cv.indexPath(for: cell) else { return }
-      viewModel.dateSelected(_date(for: indexPath), at: indexPath)
+      viewModel.dateDoubleTapped(_date(for: indexPath), at: indexPath)
    }
    
-   func cellLongPressed(cell: CalendarGridCell) {
+   func cellTapped(cell: CalendarGridCell) {
       guard let indexPath = _cv.indexPath(for: cell) else { return }
-      viewModel.dateLongPressed(_date(for: indexPath), at: indexPath)
+      viewModel.dateTapped(_date(for: indexPath), at: indexPath)
    }
 }
 
@@ -186,20 +186,20 @@ extension CalendarGridViewController: UICollectionViewDelegateFlowLayout {
 }
 
 protocol CalendarGridViewModelDelegate: class {
-   func dateSelected(_ date: Date, in: CalendarGridViewController.ViewModel, at indexPath: IndexPath)
-   func dateLongPressed(_ date: Date, in: CalendarGridViewController.ViewModel, at indexPath: IndexPath)
+   func dateDoubleTapped(_ date: Date, in: CalendarGridViewController.ViewModel, at indexPath: IndexPath)
+   func dateTapped(_ date: Date, in: CalendarGridViewController.ViewModel, at indexPath: IndexPath)
 }
 
 extension CalendarGridViewController {
    class ViewModel {
       weak var delegate: CalendarGridViewModelDelegate?
       
-      func dateSelected(_ date: Date, at indexPath: IndexPath) {
-         delegate?.dateSelected(date, in: self, at: indexPath)
+      func dateDoubleTapped(_ date: Date, at indexPath: IndexPath) {
+         delegate?.dateDoubleTapped(date, in: self, at: indexPath)
       }
       
-      func dateLongPressed(_ date: Date, at indexPath: IndexPath) {
-         delegate?.dateLongPressed(date, in: self, at: indexPath)
+      func dateTapped(_ date: Date, at indexPath: IndexPath) {
+         delegate?.dateTapped(date, in: self, at: indexPath)
       }
    }
 }

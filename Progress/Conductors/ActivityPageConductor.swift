@@ -80,7 +80,7 @@ class ActivityPageConductor: Conductor {
 }
 
 extension ActivityPageConductor: ActivityViewControllerDelegate {
-   func dateSelected(_ date: Date, in: ActivityViewController.ViewModel, at indexPath: IndexPath) {
+   func dateDoubleTapped(_ date: Date, in: ActivityViewController.ViewModel, at indexPath: IndexPath) {
       if let marker = focusedActivity.marker(for: date), !marker.descriptionText!.trimmed.isEmpty {
          let alert = UIAlertController(style: .alert, title: "Are you sure you want to remove this marker?", message: "The markers data will permanently be lost.")
          alert.addAction(title: "Cancel", color: UIColor(.markerBlue), style: .default)
@@ -101,7 +101,7 @@ extension ActivityPageConductor: ActivityViewControllerDelegate {
       focusedConductor.reload()
    }
    
-   func dateLongPressed(_ date: Date, in: ActivityViewController.ViewModel, at: IndexPath) {
+   func dateTapped(_ date: Date, in: ActivityViewController.ViewModel, at: IndexPath) {
       guard detailsConductor?.context == nil else { return }
       feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
       feedbackGenerator?.prepare()

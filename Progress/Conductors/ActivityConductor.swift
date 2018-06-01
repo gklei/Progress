@@ -95,7 +95,7 @@ class ActivityConductor: Conductor {
 }
 
 extension ActivityConductor: ActivityViewControllerDelegate {
-   func dateSelected(_ date: Date, in: ActivityViewController.ViewModel, at indexPath: IndexPath) {
+   func dateDoubleTapped(_ date: Date, in: ActivityViewController.ViewModel, at indexPath: IndexPath) {
       feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
       feedbackGenerator?.prepare()
       feedbackGenerator?.impactOccurred()
@@ -104,7 +104,7 @@ extension ActivityConductor: ActivityViewControllerDelegate {
       _activityVC.reload()
    }
    
-   func dateLongPressed(_ date: Date, in: ActivityViewController.ViewModel, at: IndexPath) {
+   func dateTapped(_ date: Date, in: ActivityViewController.ViewModel, at: IndexPath) {
       guard detailsConductor?.context == nil else { return }
       feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
       feedbackGenerator?.prepare()
