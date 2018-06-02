@@ -108,7 +108,7 @@ class CalendarGridCell: UICollectionViewCell {
          contentView.layer.borderWidth = marker == nil ? 0 : 2
          contentView.layer.cornerRadius = 6
          dayNumberLabel.text = ""
-         _label.textColor = marker == nil ? UIColor(.white) : UIColor(.shadowSpace, alpha: 0.2)
+         _label.textColor = marker == nil ? UIColor(.white) : marker!.color.labelTextColor
          _label.isHidden = false
       } else {
          contentView.layer.borderWidth = 0

@@ -34,6 +34,13 @@ enum StreaksColor: String {
       case .tileGray: return "EBEBEB"
       }
    }
+   
+   var labelTextColor: UIColor {
+      switch self {
+      case .markerYellow, .markerGreen: return UIColor(.shadowSpace, alpha: 0.2)
+      default: return .white
+      }
+   }
 }
 
 extension UIColor {
@@ -59,5 +66,12 @@ extension UIColor {
       
       let alpha = alpha ?? CGFloat(a) / 255
       self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: alpha)
+   }
+   
+   var isLight: Bool {
+      let components = cgColor.components!
+      let brightness = (((components[0] * 299.0) as CGFloat) + ((components[1] * 587.0) as CGFloat) + ((components[2] * 114.0)) as CGFloat) / (1000.0 as CGFloat)
+      
+      return brightness >= 0.7
    }
 }
