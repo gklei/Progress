@@ -46,7 +46,7 @@ class ActivityListConductor: TabConductor {
    @objc private func _addActivity() {
       let activity = dataLayer.createNewActivity()
       _updateActivityListViewController()
-      _showActivityPages(focusedActivity: activity)
+      _showActivityPages(focusedActivity: activity, editTitleOnShow: true)
    }
    
    fileprivate func _show(activity: Activity, isNew: Bool) {
@@ -61,9 +61,9 @@ class ActivityListConductor: TabConductor {
       show(conductor: activityConductor)
    }
    
-   fileprivate func _showActivityPages(focusedActivity activity: Activity) {
+   fileprivate func _showActivityPages(focusedActivity activity: Activity, editTitleOnShow: Bool) {
       let activities = dataLayer.fetchedActivities
-      let conductor = ActivityPageConductor(dataLayer: dataLayer, activities: activities, focusedActivity: activity)
+      let conductor = ActivityPageConductor(dataLayer: dataLayer, activities: activities, focusedActivity: activity, editTitleOnShow: editTitleOnShow)
       conductor.delegate = self
       conductor.activiesConductorDelegate = self
       conductor.willDismissBlock = {
@@ -92,7 +92,7 @@ class ActivityListConductor: TabConductor {
 extension ActivityListConductor: ActivityListViewModelDelegate {
    func activitySelected(_ activity: Activity, in viewModel: ActivityListViewController.ViewModel) {
       guard !_editing else { return }
-      _showActivityPages(focusedActivity: activity)
+      _showActivityPages(focusedActivity: activity, editTitleOnShow: false)
    }
    
    func activitySwipedLeft(_ activity: Activity, in viewModel: ActivityListViewController.ViewModel) {

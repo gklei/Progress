@@ -30,6 +30,7 @@ class ActivityPageConductor: Conductor {
    let dataLayer: StreaksDataLayer
    let activities: [Activity]
    var activityConductors: [ActivityConductor]
+   let editTitleOnShow: Bool
    
    fileprivate(set) var focusedActivity: Activity
    var focusedConductor: ActivityConductor {
@@ -48,10 +49,11 @@ class ActivityPageConductor: Conductor {
    
    override var rootViewController: UIViewController? { return _activityPageVC }
    
-   init(dataLayer: StreaksDataLayer, activities: [Activity], focusedActivity: Activity) {
+   init(dataLayer: StreaksDataLayer, activities: [Activity], focusedActivity: Activity, editTitleOnShow: Bool) {
       self.dataLayer = dataLayer
       self.activities = activities
       self.focusedActivity = focusedActivity
+      self.editTitleOnShow = editTitleOnShow
       activityConductors = activities.map { ActivityConductor(dataLayer: dataLayer, activity: $0) }
       super.init()
       
@@ -76,6 +78,12 @@ class ActivityPageConductor: Conductor {
    
    func reload() {
       _updateTitleView()
+   }
+   
+   override func conductorDidShow(in context: UINavigationController) {
+      if editTitleOnShow {
+         focusedConductor.editTitle()
+      }
    }
 }
 
