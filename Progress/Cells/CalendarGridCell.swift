@@ -32,7 +32,7 @@ class CalendarGridCell: UICollectionViewCell {
       return cell
    }
    
-   fileprivate lazy var _label: UILabel = {
+   fileprivate lazy var _monthLabel: UILabel = {
       let label = UILabel()
       label.font = UIFont(14, .medium)
       label.textColor = UIColor(.white)
@@ -54,11 +54,11 @@ class CalendarGridCell: UICollectionViewCell {
    override init(frame: CGRect) {
       super.init(frame: frame)
       
-      _label.translatesAutoresizingMaskIntoConstraints = false
-      contentView.addSubview(_label)
+      _monthLabel.translatesAutoresizingMaskIntoConstraints = false
+      contentView.addSubview(_monthLabel)
       NSLayoutConstraint.activate([
-         _label.centerXAnchor.constraint(equalTo: centerXAnchor),
-         _label.centerYAnchor.constraint(equalTo: centerYAnchor)
+         _monthLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+         _monthLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
       ])
       
       dayNumberLabel.alpha = 0
@@ -67,7 +67,7 @@ class CalendarGridCell: UICollectionViewCell {
       NSLayoutConstraint.activate([
          dayNumberLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
          dayNumberLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
-         ])
+      ])
       
       _doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(CalendarGridCell._doubleTapped))
       _doubleTapRecognizer.numberOfTapsRequired = 2
@@ -95,26 +95,88 @@ class CalendarGridCell: UICollectionViewCell {
    required init?(coder aDecoder: NSCoder) { fatalError() }
    
    func configure(with date: Date, marker: Marker?) {
-      let components = Calendar.current.dateComponents([.month, .day], from: date)
-      _label.text = CalendarGridCell.monthNameDateFormatter.string(from: date).uppercased()
-      switch marker {
-      case .some(let m): contentView.backgroundColor = UIColor(m.color)
-      case .none: contentView.backgroundColor = UIColor(.tileGray)
+      let vm = ViewModel(marker: marker, date: date)
+      
+      contentView.backgroundColor = vm.cellBackgroundColor
+      contentView.layer.borderColor = vm.cellBorderColor.cgColor
+      contentView.layer.cornerRadius = vm.cellCornerRadius
+      contentView.layer.borderWidth = vm.cellBorderWidth
+      
+      _monthLabel.isHidden = vm.isMonthLabelHidden
+      _monthLabel.textColor = vm.monthLabelTextColor
+      _monthLabel.text = vm.monthLabelText
+      dayNumberLabel.text = vm.dayNumberLabelText
+   }
+}
+
+extension CalendarGridCell {
+   final class ViewModel {
+      let marker: Marker?
+      let date: Date
+      let components: DateComponents
+      init(marker: Marker?, date: Date) {
+         self.marker = marker
+         self.date = date
+         components = Calendar.current.dateComponents([.month, .day], from: date)
       }
       
-      if components.day == 1 {
-         contentView.backgroundColor = marker == nil ? UIColor(.chalkboard, alpha: 0.15) : UIColor(marker!.color)
-         contentView.layer.borderColor = marker == nil ? UIColor(.chalkboard, alpha: 0.2).cgColor : UIColor(.shadowSpace, alpha: 0.1).cgColor
-         contentView.layer.borderWidth = marker == nil ? 0 : 2
-         contentView.layer.cornerRadius = 6
-         dayNumberLabel.text = ""
-         _label.textColor = marker == nil ? UIColor(.white) : marker!.color.labelTextColor
-         _label.isHidden = false
-      } else {
-         contentView.layer.borderWidth = 0
-         contentView.layer.cornerRadius = 0
-         dayNumberLabel.text = "\(components.day!)"
-         _label.isHidden = true
+      var monthLabelTextColor: UIColor {
+         guard let m = marker else { return .white }
+         return m.color.labelTextColor
+      }
+      
+      var isMonthLabelHidden: Bool {
+         switch components.day! {
+         case 1: return false
+         default: return true
+         }
+      }
+      
+      var monthLabelText: String {
+         return CalendarGridCell.monthNameDateFormatter.string(from: date).uppercased()
+      }
+      
+      var dayNumberLabelText: String {
+         switch components.day! {
+         case 1: return ""
+         default: return "\(components.day!)"
+         }
+      }
+      
+      var cellCornerRadius: CGFloat {
+         switch components.day! {
+         case 1: return 6
+         default: return 0
+         }
+      }
+      
+      var cellBorderWidth: CGFloat {
+         switch components.day! {
+         case 1: return marker == nil ? 0 : 2
+         default: return 0
+         }
+      }
+      
+      var cellBorderColor: UIColor {
+         switch marker {
+         case .some: return UIColor(.shadowSpace, alpha: 0.1)
+         case .none: return UIColor(.chalkboard, alpha: 0.2)
+         }
+      }
+      
+      var cellBackgroundColor: UIColor {
+         switch components.day! {
+         case 1:
+            switch marker {
+            case .some(let m): return UIColor(m.color)
+            case .none: return UIColor(.chalkboard, alpha: 0.15)
+            }
+         default:
+            switch marker {
+            case .some(let m): return UIColor(m.color)
+            case .none: return UIColor(.tileGray)
+            }
+         }
       }
    }
 }
