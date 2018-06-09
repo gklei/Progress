@@ -26,9 +26,9 @@ class CalendarGridCell: UICollectionViewCell {
       cv.register(self, forCellWithReuseIdentifier: reuseID)
    }
    
-   static func dequeueCell(with collectionView: UICollectionView, at indexPath: IndexPath, date: Date, marker: Marker?) -> CalendarGridCell {
+   static func dequeue(with collectionView: UICollectionView, at indexPath: IndexPath, date: Date, marker: Marker?, streakIndex: Int?) -> CalendarGridCell {
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID, for: indexPath) as! CalendarGridCell
-      cell.configure(with: date, marker: marker)
+      cell.configure(with: date, marker: marker, streakIndex: streakIndex)
       return cell
    }
    
@@ -42,7 +42,15 @@ class CalendarGridCell: UICollectionViewCell {
    fileprivate(set) lazy var dayNumberLabel: UILabel = {
       let label = UILabel()
       label.font = UIFont(14, .medium)
-      label.textColor = UIColor(.shadowSpace, alpha: 0.25)
+      label.textColor = UIColor(.outerSpace, alpha: 0.25)
+      return label
+   }()
+   
+   fileprivate lazy var _streakNumberLabel: UILabel = {
+      let label = UILabel()
+      label.font = UIFont(10, .light)
+      label.textColor = UIColor(.outerSpace, alpha: 0.25)
+      label.alpha = 0
       return label
    }()
    
@@ -67,6 +75,13 @@ class CalendarGridCell: UICollectionViewCell {
       NSLayoutConstraint.activate([
          dayNumberLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
          dayNumberLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+      ])
+      
+      _streakNumberLabel.translatesAutoresizingMaskIntoConstraints = false
+      contentView.addSubview(_streakNumberLabel)
+      NSLayoutConstraint.activate([
+         _streakNumberLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4),
+         _streakNumberLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4),
       ])
       
       _doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(CalendarGridCell._doubleTapped))
@@ -94,10 +109,10 @@ class CalendarGridCell: UICollectionViewCell {
    
    required init?(coder aDecoder: NSCoder) { fatalError() }
    
-   func configure(with date: Date, marker: Marker?) {
+   func configure(with date: Date, marker: Marker?, streakIndex: Int?) {
       let vm = ViewModel(marker: marker, date: date)
       
-      contentView.backgroundColor = vm.cellBackgroundColor
+      contentView.backgroundColor = vm.cellBackgroundColor(streakIndex: streakIndex)
       contentView.layer.borderColor = vm.cellBorderColor.cgColor
       contentView.layer.cornerRadius = vm.cellCornerRadius
       contentView.layer.borderWidth = vm.cellBorderWidth
@@ -106,6 +121,12 @@ class CalendarGridCell: UICollectionViewCell {
       _monthLabel.textColor = vm.monthLabelTextColor
       _monthLabel.text = vm.monthLabelText
       dayNumberLabel.text = vm.dayNumberLabelText
+      
+      if let streak = streakIndex {
+         _streakNumberLabel.text = "\(streak)"
+      } else {
+         _streakNumberLabel.text = nil
+      }
    }
 }
 
@@ -159,24 +180,38 @@ extension CalendarGridCell {
       
       var cellBorderColor: UIColor {
          switch marker {
-         case .some: return UIColor(.shadowSpace, alpha: 0.1)
+         case .some: return UIColor(.outerSpace, alpha: 0.1)
          case .none: return UIColor(.chalkboard, alpha: 0.2)
          }
       }
       
-      var cellBackgroundColor: UIColor {
+      func cellBackgroundColor(streakIndex: Int?) -> UIColor {
          switch components.day! {
          case 1:
             switch marker {
-            case .some(let m): return UIColor(m.color)
+            case .some(let m): return _streakColor(for: m, index: streakIndex)
             case .none: return UIColor(.chalkboard, alpha: 0.15)
             }
          default:
             switch marker {
-            case .some(let m): return UIColor(m.color)
+            case .some(let m): return _streakColor(for: m, index: streakIndex)
             case .none: return UIColor(.tileGray)
             }
          }
+      }
+      
+      private func _streakColor(for marker: Marker, index: Int?) -> UIColor {
+         guard let index = index else { return UIColor(marker.color) }
+         let minSaturation: CGFloat = 0.25
+         let maxSaturation: CGFloat = 3.25
+         let step: CGFloat = 0.25
+         let saturation = max(minSaturation, min(maxSaturation, step * CGFloat(index + 1)))
+         let color = UIColor(marker.color)
+         let hbsa = color.hsbaComponents
+         return UIColor(hue: hbsa.hue,
+                        saturation: saturation,
+                        brightness: hbsa.brightness,
+                        alpha: hbsa.alpha)
       }
    }
 }

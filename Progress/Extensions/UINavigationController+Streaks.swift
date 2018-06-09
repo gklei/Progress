@@ -111,7 +111,7 @@ fileprivate class DarkNavigationBar: NavigationBar {
 fileprivate class LightNavigationBar: NavigationBar {
    init(frame: CGRect) {
       super.init(style: .light, frame: frame)
-      shadowColor = UIColor(.shadowSpace)
+      shadowColor = UIColor(.outerSpace)
       shadowOffset = CGSize(width: 0, height: 2.5)
       shadowRadius = 20
       shadowOpacity = 0.14

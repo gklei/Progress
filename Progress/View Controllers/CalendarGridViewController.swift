@@ -130,9 +130,29 @@ extension CalendarGridViewController: UICollectionViewDataSource {
    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
       let date = _date(for: indexPath)
       let marker = dataSource?.marker(at: date)
-      let cell = CalendarGridCell.dequeueCell(with: collectionView, at: indexPath, date: date, marker: marker)
+      let idx = _streakIndex(at: indexPath)
+      let cell = CalendarGridCell.dequeue(with: collectionView, at: indexPath, date: date, marker: marker, streakIndex: idx)
       cell.delegate = self
       return cell
+   }
+   
+   // Given the nature of this method being called in the order of the cells rendered, it only needs to count
+   // the markers that are sequentially before the index path passed in
+   private func _streakIndex(at indexPath: IndexPath) -> Int? {
+      var totalBefore: Int? = nil
+      var idx = indexPath.row
+      while idx >= 0, dataSource?.marker(at: _date(for: _ip(idx))) != nil {
+         switch totalBefore {
+         case .none: totalBefore = 0
+         case .some(let val): totalBefore = val + 1
+         }
+         idx -= 1
+      }
+      return totalBefore
+   }
+   
+   private func _ip(_ index: Int) -> IndexPath {
+      return IndexPath(row: index, section: 0)
    }
    
    fileprivate func _date(for indexPath: IndexPath) -> Date {

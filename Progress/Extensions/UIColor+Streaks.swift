@@ -9,7 +9,7 @@
 import UIKit
 
 enum StreaksColor: String {
-   case mint, spearmint, lime, lipstick, darkGray, lightGray, chalkboard, white, pink, markerRed, markerOrange, markerYellow, markerGreen, markerBlue, markerIndigo, markerViolet, markerGray, shadowSpace, tileGray
+   case mint, spearmint, lime, lipstick, darkGray, lightGray, chalkboard, white, pink, markerRed, markerOrange, markerYellow, markerGreen, markerBlue, markerIndigo, markerViolet, markerGray, outerSpace, tileGray
    
    var hex: String {
       switch self {
@@ -20,7 +20,7 @@ enum StreaksColor: String {
       case .darkGray: return "515151"
       case .lightGray: return "727272"
       case .chalkboard: return "152235"
-      case .shadowSpace: return "030D15"
+      case .outerSpace: return "030D15"
       case .white: return "FFFFFF"
       case .pink: return "FF30EE"
       case .markerRed: return "F57A7A"
@@ -37,7 +37,7 @@ enum StreaksColor: String {
    
    var labelTextColor: UIColor {
       switch self {
-      case .markerYellow, .markerGreen: return UIColor(.shadowSpace, alpha: 0.2)
+      case .markerYellow, .markerGreen: return UIColor(.outerSpace, alpha: 0.2)
       default: return .white
       }
    }
