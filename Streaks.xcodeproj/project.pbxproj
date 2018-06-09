@@ -10,6 +10,14 @@
 		C82FB8D30BF1175A43B0ED33 /* Pods_Streaks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23925E1A4FDB813A95299327 /* Pods_Streaks.framework */; };
 		CE09067F1FE75B9B00A388C2 /* CalendarGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE09067E1FE75B9B00A388C2 /* CalendarGridViewController.swift */; };
 		CE0E83D820CB3F3A00B2D2BA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0E83D720CB3F3A00B2D2BA /* CloudKit.framework */; };
+		CE0E83E620CBA12800B2D2BA /* UITableView + ViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E83DB20CBA12800B2D2BA /* UITableView + ViewAnimator.swift */; };
+		CE0E83E720CBA12800B2D2BA /* UICollectionView + ViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E83DC20CBA12800B2D2BA /* UICollectionView + ViewAnimator.swift */; };
+		CE0E83E820CBA12800B2D2BA /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E83DE20CBA12800B2D2BA /* Utilities.swift */; };
+		CE0E83E920CBA12800B2D2BA /* ViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E83DF20CBA12800B2D2BA /* ViewAnimator.swift */; };
+		CE0E83EA20CBA12800B2D2BA /* ViewAnimatorConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E83E020CBA12800B2D2BA /* ViewAnimatorConfig.swift */; };
+		CE0E83EB20CBA12800B2D2BA /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E83E220CBA12800B2D2BA /* Animation.swift */; };
+		CE0E83EC20CBA12800B2D2BA /* AnimationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E83E420CBA12800B2D2BA /* AnimationType.swift */; };
+		CE0E83ED20CBA12800B2D2BA /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E83E520CBA12800B2D2BA /* Direction.swift */; };
 		CE145A501FE3812200286BE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE145A4F1FE3812200286BE1 /* AppDelegate.swift */; };
 		CE145A571FE3812200286BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE145A561FE3812200286BE1 /* Assets.xcassets */; };
 		CE145A5A1FE3812200286BE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE145A581FE3812200286BE1 /* LaunchScreen.storyboard */; };
@@ -98,6 +106,14 @@
 		CE09067E1FE75B9B00A388C2 /* CalendarGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridViewController.swift; sourceTree = "<group>"; };
 		CE0E83D620CB3F3500B2D2BA /* Streaks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Streaks.entitlements; sourceTree = "<group>"; };
 		CE0E83D720CB3F3A00B2D2BA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		CE0E83DB20CBA12800B2D2BA /* UITableView + ViewAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView + ViewAnimator.swift"; sourceTree = "<group>"; };
+		CE0E83DC20CBA12800B2D2BA /* UICollectionView + ViewAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView + ViewAnimator.swift"; sourceTree = "<group>"; };
+		CE0E83DE20CBA12800B2D2BA /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		CE0E83DF20CBA12800B2D2BA /* ViewAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAnimator.swift; sourceTree = "<group>"; };
+		CE0E83E020CBA12800B2D2BA /* ViewAnimatorConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAnimatorConfig.swift; sourceTree = "<group>"; };
+		CE0E83E220CBA12800B2D2BA /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		CE0E83E420CBA12800B2D2BA /* AnimationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationType.swift; sourceTree = "<group>"; };
+		CE0E83E520CBA12800B2D2BA /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		CE145A4C1FE3812200286BE1 /* Streaks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streaks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE145A4F1FE3812200286BE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE145A561FE3812200286BE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -204,9 +220,57 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE0E83D920CBA11800B2D2BA /* View Animator */ = {
+			isa = PBXGroup;
+			children = (
+				CE0E83DA20CBA12800B2D2BA /* Extensions */,
+				CE0E83E320CBA12800B2D2BA /* Models */,
+				CE0E83E120CBA12800B2D2BA /* Protocols */,
+				CE0E83DD20CBA12800B2D2BA /* Utilities */,
+				CE0E83DF20CBA12800B2D2BA /* ViewAnimator.swift */,
+				CE0E83E020CBA12800B2D2BA /* ViewAnimatorConfig.swift */,
+			);
+			path = "View Animator";
+			sourceTree = "<group>";
+		};
+		CE0E83DA20CBA12800B2D2BA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE0E83DB20CBA12800B2D2BA /* UITableView + ViewAnimator.swift */,
+				CE0E83DC20CBA12800B2D2BA /* UICollectionView + ViewAnimator.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CE0E83DD20CBA12800B2D2BA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CE0E83DE20CBA12800B2D2BA /* Utilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CE0E83E120CBA12800B2D2BA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CE0E83E220CBA12800B2D2BA /* Animation.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CE0E83E320CBA12800B2D2BA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE0E83E420CBA12800B2D2BA /* AnimationType.swift */,
+				CE0E83E520CBA12800B2D2BA /* Direction.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		CE145A431FE3812200286BE1 = {
 			isa = PBXGroup;
 			children = (
+				CE0E83D920CBA11800B2D2BA /* View Animator */,
 				CE0E83D620CB3F3500B2D2BA /* Streaks.entitlements */,
 				CEDA59BA20B0F34E00D3EFE7 /* Operations */,
 				CEA1F27820B00A6800CB378C /* Alerts and Pickers */,
@@ -630,12 +694,15 @@
 				CEA1F2E720B00A9000CB378C /* UISegmentedControl+Extensions.swift in Sources */,
 				CEA1F2FB20B00A9000CB378C /* GradientSlider.swift in Sources */,
 				CEBFDF5D1FE38B7800DC8AA8 /* UIView+Streaks.swift in Sources */,
+				CE0E83EB20CBA12800B2D2BA /* Animation.swift in Sources */,
 				CEBFDF621FE38B7800DC8AA8 /* UITabBar+Streaks.swift in Sources */,
 				CE8CA0EF1FF1979C0040C3AF /* CalendarGridFooter.swift in Sources */,
 				CEDA59B920B0E15400D3EFE7 /* StreaksSettingsViewController.swift in Sources */,
 				CEBFDF6D1FE3904A00DC8AA8 /* StatsViewController.swift in Sources */,
 				CEA1F2EA20B00A9000CB378C /* UIView+Extensions.swift in Sources */,
 				CEA1F2F620B00A9000CB378C /* UITextField+Extensions.swift in Sources */,
+				CE0E83E720CBA12800B2D2BA /* UICollectionView + ViewAnimator.swift in Sources */,
+				CE0E83E820CBA12800B2D2BA /* Utilities.swift in Sources */,
 				CEA1F2FD20B00A9000CB378C /* Button.swift in Sources */,
 				CEC8AD5620AF956C002B7947 /* ActivityListViewController.swift in Sources */,
 				CEA1F2D120B00A9000CB378C /* OneTextFieldViewController.swift in Sources */,
@@ -660,15 +727,19 @@
 				CEA1F2F220B00A9000CB378C /* UIAlertController+Extensions.swift in Sources */,
 				CEA1F2E920B00A9000CB378C /* UIViewController+Extensions.swift in Sources */,
 				CEA1F2EC20B00A9000CB378C /* String+Extensions.swift in Sources */,
+				CE0E83ED20CBA12800B2D2BA /* Direction.swift in Sources */,
 				CEA1F2F420B00A9000CB378C /* Common+Extensions.swift in Sources */,
 				CEA1F2EF20B00A9000CB378C /* UIImage+Extensions.swift in Sources */,
 				CEA1F2E620B00A9000CB378C /* Array+Extensions.swift in Sources */,
+				CE0E83E920CBA12800B2D2BA /* ViewAnimator.swift in Sources */,
 				CEA1F2DE20B00A9000CB378C /* ColorPickerViewController.swift in Sources */,
 				CE145A501FE3812200286BE1 /* AppDelegate.swift in Sources */,
+				CE0E83EA20CBA12800B2D2BA /* ViewAnimatorConfig.swift in Sources */,
 				CEBFDF641FE38B7800DC8AA8 /* UIBarButtonItem+Streaks.swift in Sources */,
 				CEA1F2F720B00A9000CB378C /* AttributedTextBlock.swift in Sources */,
 				CEBFDF7A1FE39A4000DC8AA8 /* ElementConfigs.swift in Sources */,
 				CE8CA0ED1FF197810040C3AF /* CalendarGridCell.swift in Sources */,
+				CE0E83E620CBA12800B2D2BA /* UITableView + ViewAnimator.swift in Sources */,
 				CEBFDF631FE38B7800DC8AA8 /* UINavigationController+Streaks.swift in Sources */,
 				CEA1F2F920B00A9000CB378C /* Label.swift in Sources */,
 				CEA1F2F320B00A9000CB378C /* Optional+Extensions.swift in Sources */,
@@ -677,6 +748,7 @@
 				CEA1F2D020B00A9000CB378C /* TwoTextFieldsViewController.swift in Sources */,
 				CEA1F2F120B00A9000CB378C /* UIApplication+Extensions.swift in Sources */,
 				CEA1F2DF20B00A9000CB378C /* DatePickerViewController.swift in Sources */,
+				CE0E83EC20CBA12800B2D2BA /* AnimationType.swift in Sources */,
 				CEBFDF611FE38B7800DC8AA8 /* UIImage+Streaks.swift in Sources */,
 				CEBFDF601FE38B7800DC8AA8 /* UIColor+Streaks.swift in Sources */,
 				CEA1F2F020B00A9000CB378C /* UISearchBar+Extensions.swift in Sources */,

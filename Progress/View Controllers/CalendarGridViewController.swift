@@ -31,6 +31,8 @@ class CalendarGridViewController : UIViewController {
    fileprivate var _propertyAnimatorIn: UIViewPropertyAnimator?
    fileprivate var _propertyAnimatorOut: UIViewPropertyAnimator?
    
+   var collectionView: UICollectionView { return _cv }
+   
    required init?(coder aDecoder: NSCoder) { fatalError() }
    init(dataSource: CalendarGridViewControllerDataSource) {
       self.dataSource = dataSource

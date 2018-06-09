@@ -85,6 +85,18 @@ class ActivityConductor: Conductor {
       _queue.addOperation(renameOp)
    }
    
+   func hideCalendar() {
+      _activityVC.view.alpha = 0
+   }
+   
+   func showCalendar() {
+      _activityVC.view.alpha = 1
+   }
+   
+   func animateCalendar() {
+      _activityVC.animateCalendar()
+   }
+   
    func animateDays() {
       _activityVC.animateDays(duration: 3)
    }

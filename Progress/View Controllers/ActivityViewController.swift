@@ -67,6 +67,16 @@ class ActivityViewController: UIViewController {
    func animateDays(duration: TimeInterval) {
       _calendarGrid.animateDays(duration: duration)
    }
+   
+   func animateCalendar() {
+      let fromAnimation = AnimationType.from(direction: .top, offset: 30.0)
+      let zoomAnimation = AnimationType.zoom(scale: 0.2)
+      let cells = _calendarGrid.collectionView.orderedVisibleCells
+      let sevenDayGroups = cells.chunk(size: 7)
+      sevenDayGroups.forEach {
+         UIView.animate(views: $0, animations: [fromAnimation, zoomAnimation], duration: 0.3)
+      }
+   }
 }
 
 protocol ActivityViewControllerDelegate: class {
