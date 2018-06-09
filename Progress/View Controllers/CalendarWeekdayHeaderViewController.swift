@@ -53,12 +53,13 @@ class CalendarWeekdayHeaderViewController: UIViewController {
    }
    
    fileprivate var _cv: UICollectionView!
-   fileprivate let _spacingFraction: CGFloat = 0.032
+   fileprivate var _spacingFraction: CGFloat = 0.032
    let calendar: Calendar
    
    required init?(coder aDecoder: NSCoder) { fatalError() }
-   init(calendar: Calendar) {
+   init(calendar: Calendar, spacingFraction: CGFloat) {
       self.calendar = calendar
+      _spacingFraction = spacingFraction
       super.init(nibName: nil, bundle: nil)
    }
    

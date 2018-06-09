@@ -35,7 +35,7 @@ class CalendarGridViewController : UIViewController {
    init(dataSource: CalendarGridViewControllerDataSource) {
       self.dataSource = dataSource
       super.init(nibName: nil, bundle: nil)
-      _headerVC = CalendarWeekdayHeaderViewController(calendar: dataSource.calendar)
+      _headerVC = CalendarWeekdayHeaderViewController(calendar: dataSource.calendar, spacingFraction: _spacingFraction)
    }
    
    override func loadView() {
