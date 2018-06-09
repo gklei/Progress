@@ -41,7 +41,7 @@ class CalendarGridCell: UICollectionViewCell {
    
    fileprivate(set) lazy var dayNumberLabel: UILabel = {
       let label = UILabel()
-      label.font = UIFont(14, .medium)
+      label.font = UIFont(12, .light)
       label.textColor = UIColor(.outerSpace, alpha: 0.25)
       return label
    }()

@@ -17,6 +17,8 @@ class StreaksSettingsViewController: ElementalViewController {
    override func generateElements() -> [Elemental]? {
       return Element.form([
          .verticalSpace(26),
+         .text(configuration: TextConfiguration(size: 62, weight: .light, alignment: .center),
+               content: "⚙️"),
       ])
    }
 }
