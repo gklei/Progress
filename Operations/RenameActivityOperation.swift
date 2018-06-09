@@ -52,7 +52,11 @@ class RenameActivityOperation: BaseOperation {
          }
       }
       alert.addOneTextField(configuration: config)
-      alert.addAction(title: "OK", style: .cancel) { action in
+      alert.addAction(title: "Cancel", color: UIColor(.markerBlue), style: .cancel) { action in
+         self.result = .cancelled
+         self.finish()
+      }
+      alert.addAction(title: "OK", style: .default) { action in
          guard let text = newName, !text.isEmpty else {
             self.result = .cancelled
             self.finish()

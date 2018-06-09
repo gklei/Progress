@@ -112,9 +112,7 @@ extension ActivityListConductor: ActivityListViewModelDelegate {
       
       let renameOp = RenameActivityOperation(dataLayer: dataLayer,
                                              activity: activity,
-                                             style: .alert,
-                                             alertTitle: "Rename Activity",
-                                             textFieldBorderWidth: 1)
+                                             style: .actionSheet)
       renameOp.completionBlock = {
          self._editing = false
          DispatchQueue.main.async { self._updateActivityListViewController() }
