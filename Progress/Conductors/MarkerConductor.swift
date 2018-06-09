@@ -82,6 +82,10 @@ class MarkerConductor: Conductor, Bindable {
       }
    }
    
+   override func conductorDidShow(in context: UINavigationController) {
+      _detailsVC.startEditing()
+   }
+   
    @objc func _morePressed() {
       let alert = UIAlertController(style: .actionSheet, title: nil)
       alert.addAction(title: "Cancel", color: UIColor(.markerBlue), style: .cancel) { action in

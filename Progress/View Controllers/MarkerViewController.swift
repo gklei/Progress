@@ -20,6 +20,8 @@ class MarkerViewController: ElementalViewController {
       }
    }
    
+   fileprivate var _textViewElement: TextViewInputElement?
+   
    override func viewDidLoad() {
       super.viewDidLoad()
       view.backgroundColor = .white
@@ -27,11 +29,18 @@ class MarkerViewController: ElementalViewController {
    
    override func generateElements() -> [Elemental]? {
       guard let viewModel = viewModel else { return nil }
+      _textViewElement = TextViewInputElement(
+         configuration: MarkerInputConfiguration(),
+         content: TextInputElementContent(name: "", placeholder: "What did you do?"),
+         bindings: [viewModel.viewData.targetBinding(key: BindableElementKey.text, targetKey: .activityDetails)]
+      )
       return Element.form([
          .verticalSpace(26),
-         .textViewInput(configuration: MarkerInputConfiguration(),
-                        content: TextInputElementContent(name: "", placeholder: "What did you do?"),
-                        bindings: [viewModel.viewData.targetBinding(key: BindableElementKey.text, targetKey: .activityDetails)]),
+         _textViewElement!,
       ])
+   }
+   
+   func startEditing() {
+      _textViewElement?.startEditing()
    }
 }
