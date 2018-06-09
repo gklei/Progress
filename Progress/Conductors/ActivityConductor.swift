@@ -86,15 +86,17 @@ class ActivityConductor: Conductor {
    }
    
    func hideCalendar() {
-      _activityVC.view.alpha = 0
+      _activityVC.hideCalendar()
+      _activityVC.showBobRossQuote(duration: 0.15)
    }
    
    func showCalendar() {
-      _activityVC.view.alpha = 1
+      _activityVC.showCalendar()
    }
    
    func animateCalendar() {
-      _activityVC.animateCalendar()
+      _activityVC.animateCalendar(duration: 0.4, delay: 1)
+      _activityVC.hideBobRossQuote(duration: 0.3, delay: 1)
    }
    
    func animateDays() {

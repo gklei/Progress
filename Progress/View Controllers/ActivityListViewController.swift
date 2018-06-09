@@ -154,7 +154,7 @@ extension ActivityListViewController {
       
       private func _activity(at indexPath: IndexPath) -> Activity? {
          guard activities.count > indexPath.row else { return nil }
-         return activities[indexPath.row]
+         return activities[max(0, indexPath.row)]
       }
    }
 }

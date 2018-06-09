@@ -16,6 +16,14 @@ class ActivityViewController: UIViewController {
    fileprivate var _calendarGrid: CalendarGridViewController!
    weak var dataSource: ActivityViewControllerDataSource?
    var viewModel = ViewModel()
+   fileprivate let _bobRossQuoteLabel: UILabel = {
+      let label = UILabel()
+      label.numberOfLines = 0
+      label.font = UIFont(28, .light)
+      label.textColor = UIColor(.outerSpace, alpha: 0.5)
+      label.textAlignment = .center
+      return label
+   }()
    
    var daysBack: TimeInterval = 90 {
       didSet {
@@ -34,6 +42,15 @@ class ActivityViewController: UIViewController {
       _calendarGrid = CalendarGridViewController(dataSource: self)
       _calendarGrid.viewModel.delegate = self
       addChildViewController(_calendarGrid)
+      
+      _bobRossQuoteLabel.translatesAutoresizingMaskIntoConstraints = false
+      view.addSubview(_bobRossQuoteLabel)
+      NSLayoutConstraint.activate([
+         _bobRossQuoteLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+         _bobRossQuoteLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 24),
+         _bobRossQuoteLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+         _bobRossQuoteLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -24)
+      ])
       
       _calendarGrid.view.translatesAutoresizingMaskIntoConstraints = false
       view.addSubview(_calendarGrid.view)
@@ -68,14 +85,42 @@ class ActivityViewController: UIViewController {
       _calendarGrid.animateDays(duration: duration)
    }
    
-   func animateCalendar() {
+   func animateCalendar(duration: TimeInterval, delay: TimeInterval) {
       let fromAnimation = AnimationType.from(direction: .top, offset: 30.0)
       let zoomAnimation = AnimationType.zoom(scale: 0.2)
       let cells = _calendarGrid.collectionView.orderedVisibleCells
-      let sevenDayGroups = cells.chunk(size: 7)
-      sevenDayGroups.forEach {
-         UIView.animate(views: $0, animations: [fromAnimation, zoomAnimation], duration: 0.3)
+      
+      _calendarGrid.collectionView.isScrollEnabled = false
+      UIView.animate(views: cells,
+                     animations: [fromAnimation, zoomAnimation],
+                     delay: delay,
+                     animationInterval: 0,
+                     duration: duration) {
+                        self._calendarGrid.collectionView.isScrollEnabled = true
       }
+   }
+   
+   func showBobRossQuote(duration: TimeInterval) {
+      _bobRossQuoteLabel.text = BobRossQuoteGenerator().random()
+      UIView.animate(withDuration: duration) {
+         self._bobRossQuoteLabel.alpha = 1
+      }
+   }
+   
+   func hideBobRossQuote(duration: TimeInterval, delay: TimeInterval) {
+      DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+         UIView.animate(withDuration: duration) {
+            self._bobRossQuoteLabel.alpha = 0
+         }
+      }
+   }
+   
+   func showCalendar() {
+      _calendarGrid.view.alpha = 1
+   }
+   
+   func hideCalendar() {
+      _calendarGrid.view.alpha = 0
    }
 }
 

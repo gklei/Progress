@@ -18,6 +18,7 @@
 		CE0E83EB20CBA12800B2D2BA /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E83E220CBA12800B2D2BA /* Animation.swift */; };
 		CE0E83EC20CBA12800B2D2BA /* AnimationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E83E420CBA12800B2D2BA /* AnimationType.swift */; };
 		CE0E83ED20CBA12800B2D2BA /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E83E520CBA12800B2D2BA /* Direction.swift */; };
+		CE0E83EF20CBA95700B2D2BA /* BobRoss.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E83EE20CBA95700B2D2BA /* BobRoss.swift */; };
 		CE145A501FE3812200286BE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE145A4F1FE3812200286BE1 /* AppDelegate.swift */; };
 		CE145A571FE3812200286BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE145A561FE3812200286BE1 /* Assets.xcassets */; };
 		CE145A5A1FE3812200286BE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE145A581FE3812200286BE1 /* LaunchScreen.storyboard */; };
@@ -114,6 +115,7 @@
 		CE0E83E220CBA12800B2D2BA /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		CE0E83E420CBA12800B2D2BA /* AnimationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationType.swift; sourceTree = "<group>"; };
 		CE0E83E520CBA12800B2D2BA /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		CE0E83EE20CBA95700B2D2BA /* BobRoss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BobRoss.swift; sourceTree = "<group>"; };
 		CE145A4C1FE3812200286BE1 /* Streaks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Streaks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE145A4F1FE3812200286BE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE145A561FE3812200286BE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -449,6 +451,7 @@
 				CEBFDF401FE38AAE00DC8AA8 /* Gotham-BookItalic.otf */,
 				CEBFDF411FE38AAE00DC8AA8 /* Gotham-BlackItalic.otf */,
 				CEBFDF421FE38AAE00DC8AA8 /* Gotham-MediumItalic.otf */,
+				CE0E83EE20CBA95700B2D2BA /* BobRoss.swift */,
 			);
 			name = Resources;
 			path = Progress/Resources;
@@ -757,6 +760,7 @@
 				CEBFDF6B1FE38F7E00DC8AA8 /* ActivityViewController.swift in Sources */,
 				CEDA59B320B0DA9E00D3EFE7 /* ColorGridViewController.swift in Sources */,
 				CEBFDF731FE399CE00DC8AA8 /* StatsConductor.swift in Sources */,
+				CE0E83EF20CBA95700B2D2BA /* BobRoss.swift in Sources */,
 				CE23B06620AEB9D30071C5DC /* MarkerConductor.swift in Sources */,
 				CEBFDF681FE38E8700DC8AA8 /* MainConductor.swift in Sources */,
 				CE8CA0F11FF20D8F0040C3AF /* CalendarWeekdayHeaderViewController.swift in Sources */,
