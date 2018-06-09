@@ -202,9 +202,9 @@ extension CalendarGridCell {
       
       private func _streakColor(for marker: Marker, index: Int?) -> UIColor {
          guard let index = index else { return UIColor(marker.color) }
-         let minSaturation: CGFloat = 0.25
-         let maxSaturation: CGFloat = 3.25
-         let step: CGFloat = 0.25
+         let minSaturation: CGFloat = 0.2
+         let maxSaturation: CGFloat = 1.1
+         let step: CGFloat = 0.15
          let saturation = max(minSaturation, min(maxSaturation, step * CGFloat(index + 1)))
          let color = UIColor(marker.color)
          let hbsa = color.hsbaComponents
