@@ -133,7 +133,8 @@ extension CalendarGridViewController: UICollectionViewDataSource {
       let date = _date(for: indexPath)
       let marker = dataSource?.marker(at: date)
       let idx = _streakIndex(at: indexPath)
-      let cell = CalendarGridCell.dequeue(with: collectionView, at: indexPath, date: date, marker: marker, streakIndex: idx)
+      let isToday = date == dataSource?.endDate
+      let cell = CalendarGridCell.dequeue(with: collectionView, at: indexPath, date: date, marker: marker, streakIndex: idx, isToday: isToday)
       cell.delegate = self
       return cell
    }

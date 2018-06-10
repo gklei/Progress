@@ -26,9 +26,9 @@ class CalendarGridCell: UICollectionViewCell {
       cv.register(self, forCellWithReuseIdentifier: reuseID)
    }
    
-   static func dequeue(with collectionView: UICollectionView, at indexPath: IndexPath, date: Date, marker: Marker?, streakIndex: Int?) -> CalendarGridCell {
+   static func dequeue(with collectionView: UICollectionView, at indexPath: IndexPath, date: Date, marker: Marker?, streakIndex: Int?, isToday: Bool) -> CalendarGridCell {
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID, for: indexPath) as! CalendarGridCell
-      cell.configure(with: date, marker: marker, streakIndex: streakIndex)
+      cell.configure(with: date, marker: marker, streakIndex: streakIndex, isToday: isToday)
       return cell
    }
    
@@ -54,6 +54,13 @@ class CalendarGridCell: UICollectionViewCell {
       return label
    }()
    
+   fileprivate lazy var _todayImageView: UIImageView = {
+      let imageView = UIImageView(image: #imageLiteral(resourceName: "maximize_3"))
+      imageView.contentMode = .scaleAspectFill
+      imageView.clipsToBounds = true
+      return imageView
+   }()
+   
    var _doubleTapRecognizer: UITapGestureRecognizer!
    var _singleTapRecognizer: UITapGestureRecognizer!
    
@@ -61,6 +68,15 @@ class CalendarGridCell: UICollectionViewCell {
    
    override init(frame: CGRect) {
       super.init(frame: frame)
+      
+      _todayImageView.translatesAutoresizingMaskIntoConstraints = false
+      contentView.addSubview(_todayImageView)
+      NSLayoutConstraint.activate([
+         _todayImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+         _todayImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+         _todayImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+         _todayImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+      ])
       
       _monthLabel.translatesAutoresizingMaskIntoConstraints = false
       contentView.addSubview(_monthLabel)
@@ -109,18 +125,26 @@ class CalendarGridCell: UICollectionViewCell {
    
    required init?(coder aDecoder: NSCoder) { fatalError() }
    
-   func configure(with date: Date, marker: Marker?, streakIndex: Int?) {
+   func configure(with date: Date, marker: Marker?, streakIndex: Int?, isToday: Bool) {
       let vm = ViewModel(marker: marker, date: date)
-      
-      contentView.backgroundColor = vm.cellBackgroundColor(streakIndex: streakIndex)
-      contentView.layer.borderColor = vm.cellBorderColor.cgColor
-      contentView.layer.cornerRadius = vm.cellCornerRadius
-      contentView.layer.borderWidth = vm.cellBorderWidth
       
       _monthLabel.isHidden = vm.isMonthLabelHidden
       _monthLabel.textColor = vm.monthLabelTextColor
       _monthLabel.text = vm.monthLabelText
       dayNumberLabel.text = vm.dayNumberLabelText
+      
+//      if isToday {
+//         _todayImageView.alpha = 1
+//         _todayImageView.tintColor = vm.cellBackgroundColor(streakIndex: streakIndex)
+//         contentView.backgroundColor = .clear
+//         contentView.borderWidth = 0
+//      } else {
+         contentView.backgroundColor = vm.cellBackgroundColor(streakIndex: streakIndex)
+         contentView.layer.borderColor = vm.cellBorderColor.cgColor
+         contentView.layer.cornerRadius = vm.cellCornerRadius
+         contentView.layer.borderWidth = vm.cellBorderWidth
+         _todayImageView.alpha = 0
+//      }
       
       if let streak = streakIndex {
          _streakNumberLabel.text = "\(streak)"
