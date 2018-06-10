@@ -93,17 +93,6 @@ extension ActivityListViewController {
          var elems: [Elemental] = []
          for activity in activities {
             let label = UILabel()
-            let activityColor = StreaksColor(rawValue: activity.markerColorHex!)!
-            let hbsa = UIColor(activityColor).hsbaComponents
-            let saturatedColor: UIColor
-            switch activityColor {
-            case .markerGray: saturatedColor = UIColor(.chalkboard, alpha: 0.5)
-            default: saturatedColor = UIColor(hue: hbsa.hue,
-                                              saturation: 1,
-                                              brightness: hbsa.brightness,
-                                              alpha: hbsa.alpha)
-            }
-            
             let firstAttrs: [String : Any] = [
                NSForegroundColorAttributeName : UIColor(.chalkboard, alpha: 0.5),
                NSFontAttributeName : UIFont(26, .light),
@@ -111,7 +100,7 @@ extension ActivityListViewController {
             let secondAttrs: [String : Any] = [
                NSForegroundColorAttributeName : UIColor(.chalkboard, alpha: 0.5),
                NSFontAttributeName : UIFont(26, .xLight),
-               ]
+            ]
             let name = activity.name!
             let index = name.index(name.startIndex, offsetBy: 1)
             let firstPart = name.substring(to: index)
