@@ -13,9 +13,21 @@ protocol ActivityPageConductorDelegate: class {
    func activityPageConductor(_ conductor: ActivityPageConductor, didChangeFocusedConductor focusedConductor: ActivityConductor)
 }
 
+final class ActivityPageViewController: ElementalPageViewController {
+   override func prepareForTransition(from currentPage: UIViewController?, to nextPage: UIViewController?, direction: UIPageViewControllerNavigationDirection, animated: Bool) {
+      super.prepareForTransition(from: currentPage, to: nextPage, direction: direction, animated: animated)
+      guard let vc = nextPage as? ActivityViewController else { return }
+      
+      let delay: TimeInterval = 0.05
+      vc.hideCalendar()
+      vc.animateCalendar(duration: 0.3, delay: delay, leftToRight: direction == .forward)
+      DispatchQueue.main.asyncAfter(deadline: .now() + delay) { vc.showCalendar() }
+   }
+}
+
 class ActivityPageConductor: Conductor {
-   fileprivate lazy var _activityPageVC: ElementalPageViewController = {
-      let vc = ElementalPageViewController(viewControllers: self.activityConductors.flatMap { $0.rootViewController })
+   fileprivate lazy var _activityPageVC: ActivityPageViewController = {
+      let vc = ActivityPageViewController(viewControllers: self.activityConductors.flatMap { $0.rootViewController })
       vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "",
                                                             icon: #imageLiteral(resourceName: "chevron-left"),
                                                             tintColor: UIColor(.chalkboard),
@@ -78,10 +90,6 @@ class ActivityPageConductor: Conductor {
    
    func reload() {
       _updateTitleView()
-   }
-   
-   override func conductorWillShow(in context: UINavigationController) {
-      focusedConductor.animateCalendar(delay: 0.05)
    }
    
    override func conductorDidShow(in context: UINavigationController) {
