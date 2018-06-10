@@ -16,7 +16,7 @@ class AppRouter {
    
    init(window: UIWindow, dataLayer: StreaksDataLayer) {
       self.dataLayer = dataLayer
-      self.mainConductor = MainConductor(dataLayer: dataLayer)
+      mainConductor = MainConductor(dataLayer: dataLayer)
       window.rootViewController = rootNavigationController
       window.makeKeyAndVisible()
       
