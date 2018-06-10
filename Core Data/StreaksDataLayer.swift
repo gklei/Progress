@@ -81,15 +81,15 @@ class StreaksDataLayer {
       }
    }
    
-   func updateFetchedActivities() {
+   @discardableResult func updateFetchedActivities() -> [Activity] {
       let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Activity")
       request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
       request.returnsObjectsAsFaults = false
       fetchedActivities = try! context.fetch(request) as! [Activity]
+      return fetchedActivities
    }
    
    func createNewActivity() -> Activity {
-      updateFetchedActivities()
       let name = _newStreakName()
       let entity = NSEntityDescription.entity(forEntityName: "Activity", in: context)
       let newStreak = NSManagedObject(entity: entity!, insertInto: context)
@@ -97,8 +97,8 @@ class StreaksDataLayer {
       newStreak.setValue(name, forKey: "name")
       newStreak.setValue(Date(), forKey: "creationDate")
       newStreak.setValue(StreaksColor.markerYellow.rawValue, forKey: "markerColorHex")
-      save()
       
+      fetchedActivities.append(newStreak as! Activity)
       return newStreak as! Activity
    }
    
@@ -128,7 +128,6 @@ class StreaksDataLayer {
       } else {
          createMarker(at: date, for: activity)
       }
-      save()
       updateFetchedActivities()
    }
    

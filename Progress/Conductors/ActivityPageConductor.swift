@@ -110,6 +110,7 @@ extension ActivityPageConductor: ActivityViewControllerDelegate {
       feedbackGenerator?.prepare()
       feedbackGenerator?.impactOccurred()
       dataLayer.toggleActivity(at: date, for: activity)
+      dataLayer.save()
       focusedConductor.reload()
    }
    

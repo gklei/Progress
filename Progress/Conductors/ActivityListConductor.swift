@@ -45,6 +45,7 @@ class ActivityListConductor: TabConductor {
    
    @objc private func _addActivity() {
       let activity = dataLayer.createNewActivity()
+      dataLayer.save()
       _updateActivityListViewController()
       _showActivityPages(focusedActivity: activity, editTitleOnShow: true)
    }
@@ -76,8 +77,7 @@ class ActivityListConductor: TabConductor {
    }
    
    fileprivate func _updateActivityListViewController() {
-      dataLayer.updateFetchedActivities()
-      let activities = dataLayer.fetchedActivities
+      let activities = dataLayer.updateFetchedActivities()
       let vm = ActivityListViewController.ViewModel(model: activities)
       vm.delegate = self
       _activityListVC.viewModel = vm
