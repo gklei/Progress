@@ -272,21 +272,21 @@
 		CE145A431FE3812200286BE1 = {
 			isa = PBXGroup;
 			children = (
-				CE0E83D920CBA11800B2D2BA /* View Animator */,
-				CE0E83D620CB3F3500B2D2BA /* Streaks.entitlements */,
-				CEDA59BA20B0F34E00D3EFE7 /* Operations */,
 				CEA1F27820B00A6800CB378C /* Alerts and Pickers */,
-				CE23B05D20AE94DD0071C5DC /* Core Data */,
 				CE8CA0EB1FF197530040C3AF /* Cells */,
-				CEBFDF761FE39A0E00DC8AA8 /* Element Configs */,
 				CEBFDF661FE38E6A00DC8AA8 /* Conductors */,
-				CEBFDF691FE38F6000DC8AA8 /* View Controllers */,
+				CE23B05D20AE94DD0071C5DC /* Core Data */,
+				CEBFDF761FE39A0E00DC8AA8 /* Element Configs */,
 				CEBFDF4F1FE38B7800DC8AA8 /* Extensions */,
-				CEBFDF361FE38AAE00DC8AA8 /* Resources */,
-				CE145A4E1FE3812200286BE1 /* Progress */,
-				CE145A4D1FE3812200286BE1 /* Products */,
-				EB7AA54EC3DB057A478A53D5 /* Pods */,
 				0EA09E5486CA06A23EDB6F8A /* Frameworks */,
+				CEDA59BA20B0F34E00D3EFE7 /* Operations */,
+				EB7AA54EC3DB057A478A53D5 /* Pods */,
+				CE145A4D1FE3812200286BE1 /* Products */,
+				CE145A4E1FE3812200286BE1 /* Progress */,
+				CEBFDF361FE38AAE00DC8AA8 /* Resources */,
+				CE0E83D620CB3F3500B2D2BA /* Streaks.entitlements */,
+				CE0E83D920CBA11800B2D2BA /* View Animator */,
+				CEBFDF691FE38F6000DC8AA8 /* View Controllers */,
 			);
 			sourceTree = "<group>";
 		};
