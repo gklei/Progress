@@ -102,7 +102,7 @@ class ActivityPageConductor: Conductor {
 extension ActivityPageConductor: ActivityViewControllerDelegate {
    func dateDoubleTapped(_ date: Date, in: ActivityViewController.ViewModel, at indexPath: IndexPath) {
       if let marker = focusedActivity.marker(for: date), !marker.descriptionText!.trimmed.isEmpty {
-         let alert = UIAlertController(style: .alert, title: "Are you sure you want to remove this marker?", message: "The markers data will permanently be lost.")
+         let alert = UIAlertController(style: .alert, title: "Are you sure you want to remove this marker?", message: "The marker's data will permanently be lost.")
          alert.addAction(title: "Cancel", color: UIColor(.markerBlue), style: .default)
          alert.addAction(title: "Remove", color: UIColor(.lipstick), style: .destructive) { action in
             self._toggle(activity: self.focusedActivity, at: date)
