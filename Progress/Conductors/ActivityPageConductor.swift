@@ -81,12 +81,10 @@ class ActivityPageConductor: Conductor {
    }
    
    override func conductorWillShow(in context: UINavigationController) {
-      focusedConductor.hideCalendar()
+      focusedConductor.animateCalendar(delay: 0.05)
    }
    
    override func conductorDidShow(in context: UINavigationController) {
-      focusedConductor.animateCalendar()
-      focusedConductor.showCalendar()
       if editTitleOnShow {
          focusedConductor.editTitle()
       }

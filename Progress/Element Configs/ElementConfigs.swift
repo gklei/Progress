@@ -60,10 +60,10 @@ class MarkerInputConfiguration: TextInputConfiguration {
 }
 
 class LineConfiguration: LineElementConfiguration {
-   init() {
+   override init(height: CGFloat = 1, color: UIColor = UIColor(.chalkboard)) {
       super.init()
-      sizeConstraint.height = .constant(1)
+      sizeConstraint.height = .constant(height)
       isConfinedToMargins = false
-      color = UIColor(.chalkboard)
+      self.color = color
    }
 }

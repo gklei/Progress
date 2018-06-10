@@ -132,6 +132,11 @@ extension ActivityListViewController {
             view.addSubview(label)
             label.center = view.center
             
+            let borderView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 0.5))
+            borderView.backgroundColor = UIColor(.outerSpace, alpha: 0.1)
+            view.addSubview(borderView)
+            borderView.frame.origin.y = view.frame.height - borderView.frame.height
+            
             elems.append(CustomViewElement(view: view))
          }
          return elems

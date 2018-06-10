@@ -86,17 +86,19 @@ class ActivityViewController: UIViewController {
    }
    
    func animateCalendar(duration: TimeInterval, delay: TimeInterval) {
-      let fromAnimation = AnimationType.from(direction: .top, offset: 30.0)
-      let zoomAnimation = AnimationType.zoom(scale: 0.2)
-      let cells = _calendarGrid.collectionView.orderedVisibleCells
-      
-      _calendarGrid.collectionView.isScrollEnabled = false
-      UIView.animate(views: cells,
-                     animations: [fromAnimation, zoomAnimation],
-                     delay: delay,
-                     animationInterval: 0,
-                     duration: duration) {
-                        self._calendarGrid.collectionView.isScrollEnabled = true
+      DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+         let fromAnimation = AnimationType.from(direction: .top, offset: 30.0)
+         let zoomAnimation = AnimationType.zoom(scale: 0.2)
+         let cells = self._calendarGrid.collectionView.orderedVisibleCells
+         
+         self._calendarGrid.collectionView.isScrollEnabled = false
+         UIView.animate(views: cells,
+                        animations: [fromAnimation, zoomAnimation],
+                        delay: 0,
+                        animationInterval: 0,
+                        duration: duration) {
+                           self._calendarGrid.collectionView.isScrollEnabled = true
+         }
       }
    }
    

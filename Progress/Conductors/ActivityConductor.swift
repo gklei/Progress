@@ -87,16 +87,14 @@ class ActivityConductor: Conductor {
    
    func hideCalendar() {
       _activityVC.hideCalendar()
-      _activityVC.showBobRossQuote(duration: 0.15)
    }
    
    func showCalendar() {
       _activityVC.showCalendar()
    }
    
-   func animateCalendar() {
-      _activityVC.animateCalendar(duration: 0.4, delay: 1)
-      _activityVC.hideBobRossQuote(duration: 0.3, delay: 1)
+   func animateCalendar(delay: TimeInterval) {
+      _activityVC.animateCalendar(duration: 0.4, delay: delay)
    }
    
    func animateDays() {
