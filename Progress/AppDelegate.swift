@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
    var window: UIWindow? = UIWindow()
    var appRouter: AppRouter?
-   let dataLayer = StreaksDataLayer()
+   let dataLayer = ProgressDataLayer()
    
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
       appRouter = AppRouter(window: window!, dataLayer: dataLayer)

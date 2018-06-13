@@ -28,7 +28,7 @@ class ActivityConductor: Conductor {
       return vc
    }()
    
-   let dataLayer: StreaksDataLayer
+   let dataLayer: ProgressDataLayer
    let activity: Activity
    let isNew: Bool
    var feedbackGenerator: UIImpactFeedbackGenerator?
@@ -40,7 +40,7 @@ class ActivityConductor: Conductor {
    
    override var rootViewController: UIViewController? { return _activityVC }
    
-   init(dataLayer: StreaksDataLayer, activity: Activity, isNew: Bool = false) {
+   init(dataLayer: ProgressDataLayer, activity: Activity, isNew: Bool = false) {
       self.dataLayer = dataLayer
       self.activity = activity
       self.isNew = isNew

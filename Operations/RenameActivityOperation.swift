@@ -14,14 +14,14 @@ class RenameActivityOperation: BaseOperation {
       case renamed(String), cancelled
    }
    
-   let dataLayer: StreaksDataLayer
+   let dataLayer: ProgressDataLayer
    let activity: Activity
    let style: UIAlertControllerStyle
    let alertTitle: String?
    let textFieldBorderWidth: CGFloat
    fileprivate(set) var result: Result = .cancelled
    
-   init(dataLayer: StreaksDataLayer, activity: Activity, style: UIAlertControllerStyle, alertTitle: String? = nil, textFieldBorderWidth: CGFloat = 0) {
+   init(dataLayer: ProgressDataLayer, activity: Activity, style: UIAlertControllerStyle, alertTitle: String? = nil, textFieldBorderWidth: CGFloat = 0) {
       self.dataLayer = dataLayer
       self.activity = activity
       self.style = style

@@ -56,12 +56,12 @@ class MarkerConductor: Conductor, Bindable {
    
    override var rootViewController: UIViewController? { return _detailsVC }
    
-   let dataLayer: StreaksDataLayer
+   let dataLayer: ProgressDataLayer
    let activity: Activity
    let marker: Marker?
    let date: Date
    
-   init(dataLayer: StreaksDataLayer, activity: Activity, marker: Marker?, date: Date) {
+   init(dataLayer: ProgressDataLayer, activity: Activity, marker: Marker?, date: Date) {
       self.dataLayer = dataLayer
       self.activity = activity
       self.marker = marker

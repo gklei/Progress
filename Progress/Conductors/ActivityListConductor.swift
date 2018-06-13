@@ -34,10 +34,10 @@ class ActivityListConductor: TabConductor {
    fileprivate(set) var activityConductor: ActivityConductor?
    fileprivate(set) var _activityPageConductor: ActivityPageConductor?
    fileprivate var _editing = false
-   let dataLayer: StreaksDataLayer
+   let dataLayer: ProgressDataLayer
    weak var delegate: ActivityListConductorDelegate?
    
-   init(dataLayer: StreaksDataLayer) {
+   init(dataLayer: ProgressDataLayer) {
       self.dataLayer = dataLayer
       super.init()
       _updateActivityListViewController()

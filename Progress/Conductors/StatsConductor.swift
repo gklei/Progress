@@ -17,10 +17,10 @@ class StatsConductor: TabConductor {
       return vc
    }()
    
-   let dataLayer: StreaksDataLayer
+   let dataLayer: ProgressDataLayer
    override var rootViewController: UIViewController? { return _statsVC }
    
-   init(dataLayer: StreaksDataLayer) {
+   init(dataLayer: ProgressDataLayer) {
       self.dataLayer = dataLayer
       super.init()
    }

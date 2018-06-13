@@ -12,9 +12,9 @@ import Elemental
 class AppRouter {
    let rootNavigationController = UINavigationController(style: .dark)
    let mainConductor: MainConductor
-   let dataLayer: StreaksDataLayer
+   let dataLayer: ProgressDataLayer
    
-   init(window: UIWindow, dataLayer: StreaksDataLayer) {
+   init(window: UIWindow, dataLayer: ProgressDataLayer) {
       self.dataLayer = dataLayer
       mainConductor = MainConductor(dataLayer: dataLayer)
       window.rootViewController = rootNavigationController

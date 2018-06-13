@@ -19,9 +19,9 @@ class StreaksSettingsConductor: TabConductor {
    
    override var rootViewController: UIViewController? { return _settingsVC }
    
-   let dataLayer: StreaksDataLayer
+   let dataLayer: ProgressDataLayer
    
-   init(dataLayer: StreaksDataLayer) {
+   init(dataLayer: ProgressDataLayer) {
       self.dataLayer = dataLayer
       super.init()
    }

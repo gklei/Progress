@@ -46,13 +46,13 @@ class ActivitySettingsConductor: TabConductor, Bindable {
       return vc
    }()
    
-   let dataLayer: StreaksDataLayer
+   let dataLayer: ProgressDataLayer
    fileprivate(set) var activity: Activity
    weak var delegate: ActivitySettingsConductorDelegate?
    
    override var rootViewController: UIViewController? { return _settingsVC }
    
-   init(dataLayer: StreaksDataLayer, activity: Activity) {
+   init(dataLayer: ProgressDataLayer, activity: Activity) {
       self.dataLayer = dataLayer
       self.activity = activity
       super.init()

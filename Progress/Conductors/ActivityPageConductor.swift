@@ -39,7 +39,7 @@ class ActivityPageConductor: Conductor {
       return vc
    }()
    
-   let dataLayer: StreaksDataLayer
+   let dataLayer: ProgressDataLayer
    let activities: [Activity]
    var activityConductors: [ActivityConductor]
    let editTitleOnShow: Bool
@@ -61,7 +61,7 @@ class ActivityPageConductor: Conductor {
    
    override var rootViewController: UIViewController? { return _activityPageVC }
    
-   init(dataLayer: StreaksDataLayer, activities: [Activity], focusedActivity: Activity, editTitleOnShow: Bool) {
+   init(dataLayer: ProgressDataLayer, activities: [Activity], focusedActivity: Activity, editTitleOnShow: Bool) {
       self.dataLayer = dataLayer
       self.activities = activities
       self.focusedActivity = focusedActivity

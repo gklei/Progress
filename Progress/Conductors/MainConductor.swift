@@ -18,10 +18,10 @@ class MainConductor: Conductor {
    fileprivate var _activitySettingsConductor: ActivitySettingsConductor?
    
    override var rootViewController: UIViewController? { return _tabController }
-   let dataLayer: StreaksDataLayer
+   let dataLayer: ProgressDataLayer
    
    // MARK: - Init
-   init(dataLayer: StreaksDataLayer) {
+   init(dataLayer: ProgressDataLayer) {
       self.dataLayer = dataLayer
       _activityListConductor = ActivityListConductor(dataLayer: dataLayer)
       _statsConductor = StatsConductor(dataLayer: dataLayer)
