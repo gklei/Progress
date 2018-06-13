@@ -9,12 +9,12 @@
 import UIKit
 
 protocol ColorGridViewControllerDataSource: class {
-   var colors: [StreaksColor] { get }
-   var markerColor: StreaksColor { get }
+   var colors: [ProgressColor] { get }
+   var markerColor: ProgressColor { get }
 }
 
 protocol ColorGridViewControllerDelegate: class {
-   func colorSelected(_ color: StreaksColor, in viewController: ColorGridViewController)
+   func colorSelected(_ color: ProgressColor, in viewController: ColorGridViewController)
 }
 
 class ColorGridViewController: UIViewController {

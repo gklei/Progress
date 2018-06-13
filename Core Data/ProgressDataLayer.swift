@@ -30,8 +30,8 @@ extension Activity {
 }
 
 extension Marker {
-   var color: StreaksColor {
-      return StreaksColor(rawValue: activity!.markerColorHex!)!
+   var progressColor: ProgressColor {
+      return ProgressColor(rawValue: activity!.markerColorHex!)!
    }
 }
 
@@ -47,9 +47,6 @@ class ProgressDataLayer {
       let container = NSPersistentContainer(name: "Streaks")
       container.loadPersistentStores(completionHandler: { (storeDescription, error) in
          if let error = error as NSError? {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            
             /*
              Typical reasons for an error here include:
              * The parent directory does not exist, cannot be created, or disallows writing.
@@ -96,7 +93,7 @@ class ProgressDataLayer {
       
       newStreak.setValue(name, forKey: "name")
       newStreak.setValue(Date(), forKey: "creationDate")
-      newStreak.setValue(StreaksColor.markerYellow.rawValue, forKey: "markerColorHex")
+      newStreak.setValue(ProgressColor.markerYellow.rawValue, forKey: "markerColorHex")
       
       fetchedActivities.append(newStreak as! Activity)
       return newStreak as! Activity
@@ -132,7 +129,6 @@ class ProgressDataLayer {
    
    @discardableResult func createMarker(at date: Date, for activity: Activity, with description: String = "") -> Marker? {
       guard activity.marker(for: date) == nil else { return nil }
-      
       let entity = NSEntityDescription.entity(forEntityName: "Marker", in: context)
       let newMarker = NSManagedObject(entity: entity!, insertInto: context)
       

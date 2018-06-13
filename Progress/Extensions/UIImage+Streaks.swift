@@ -22,7 +22,7 @@ extension UIImage {
       return image
    }
    
-   static func with(color: StreaksColor) -> UIImage? {
+   static func with(color: ProgressColor) -> UIImage? {
       return with(color: UIColor(color))
    }
 }

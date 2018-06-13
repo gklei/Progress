@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum StreaksColor: String {
+enum ProgressColor: String {
    case mint, spearmint, lime, lipstick, darkGray, lightGray, chalkboard, white, pink, markerRed, markerOrange, markerYellow, markerGreen, markerBlue, markerIndigo, markerViolet, markerGray, outerSpace, tileGray
    
    var hex: String {
@@ -44,7 +44,7 @@ enum StreaksColor: String {
 }
 
 extension UIColor {
-   convenience init(_ color: StreaksColor, alpha: CGFloat? = 1) {
+   convenience init(_ color: ProgressColor, alpha: CGFloat? = 1) {
       self.init(hex: color.hex, alpha: alpha)
    }
    

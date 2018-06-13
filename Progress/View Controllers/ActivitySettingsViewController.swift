@@ -55,21 +55,21 @@ extension ActivitySettingsViewController {
 }
 
 extension ActivitySettingsViewController: ColorGridViewControllerDataSource {
-   var colors: [StreaksColor] {
+   var colors: [ProgressColor] {
       return [
          .markerYellow, .markerOrange, .markerIndigo, .markerBlue,
          .markerGreen, .markerRed, .markerViolet, .markerGray
       ]
    }
    
-   var markerColor: StreaksColor {
+   var markerColor: ProgressColor {
       guard let vm = viewModel else { fatalError() }
       return vm.viewData.forceCast(key: .markerColor)
    }
 }
 
 extension ActivitySettingsViewController: ColorGridViewControllerDelegate {
-   func colorSelected(_ color: StreaksColor, in viewController: ColorGridViewController) {
+   func colorSelected(_ color: ProgressColor, in viewController: ColorGridViewController) {
       viewModel?.viewData[.markerColor] = color
    }
 }

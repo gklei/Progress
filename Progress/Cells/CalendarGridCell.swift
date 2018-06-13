@@ -167,7 +167,7 @@ extension CalendarGridCell {
       
       var monthLabelTextColor: UIColor {
          guard let m = marker else { return .white }
-         return m.color.labelTextColor
+         return m.progressColor.labelTextColor
       }
       
       var isMonthLabelHidden: Bool {
@@ -225,12 +225,12 @@ extension CalendarGridCell {
       }
       
       private func _streakColor(for marker: Marker, index: Int?) -> UIColor {
-         guard let index = index else { return UIColor(marker.color) }
+         guard let index = index else { return UIColor(marker.progressColor) }
          let minSaturation: CGFloat = 0.2
          let maxSaturation: CGFloat = 1.1
          let step: CGFloat = 0.15
          let saturation = max(minSaturation, min(maxSaturation, step * CGFloat(index + 1)))
-         let color = UIColor(marker.color)
+         let color = UIColor(marker.progressColor)
          let hbsa = color.hsbaComponents
          return UIColor(hue: hbsa.hue,
                         saturation: saturation,

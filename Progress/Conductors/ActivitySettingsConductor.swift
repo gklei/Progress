@@ -23,7 +23,7 @@ class ActivitySettingsConductor: TabConductor, Bindable {
    func setOwn(value: inout Any?, for key: Key) throws {
       switch key {
       case .markerColor:
-         guard let color = value as? StreaksColor else { fatalError() }
+         guard let color = value as? ProgressColor else { fatalError() }
          activity.markerColorHex = color.rawValue
          dataLayer.save()
          _settingsVC.reloadColorPicker()
@@ -33,7 +33,7 @@ class ActivitySettingsConductor: TabConductor, Bindable {
    
    func value(for key: Key) -> Any? {
       switch key {
-      case .markerColor: return StreaksColor(rawValue: activity.markerColorHex!)
+      case .markerColor: return ProgressColor(rawValue: activity.markerColorHex!)
       }
    }
    
