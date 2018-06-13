@@ -134,14 +134,14 @@ class ProgressDataLayer {
       guard activity.marker(for: date) == nil else { return nil }
       
       let entity = NSEntityDescription.entity(forEntityName: "Marker", in: context)
-      let newActivity = NSManagedObject(entity: entity!, insertInto: context)
+      let newMarker = NSManagedObject(entity: entity!, insertInto: context)
       
-      newActivity.setValue(date, forKey: "date")
-      newActivity.setValue(date.timeIntervalSince1970, forKey: "epoch")
-      newActivity.setValue(TimeZone.autoupdatingCurrent.identifier, forKey: "timeZoneID")
-      newActivity.setValue(description, forKey: "descriptionText")
-      newActivity.setValue(activity, forKey: "activity")
-      return newActivity as? Marker
+      newMarker.setValue(date, forKey: "date")
+      newMarker.setValue(date.timeIntervalSince1970, forKey: "epoch")
+      newMarker.setValue(TimeZone.autoupdatingCurrent.identifier, forKey: "timeZoneID")
+      newMarker.setValue(description, forKey: "descriptionText")
+      newMarker.setValue(activity, forKey: "activity")
+      return newMarker as? Marker
    }
    
    func marker(before date: Date, in activity: Activity) -> Marker? {
