@@ -23,7 +23,7 @@
 		CE145A571FE3812200286BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE145A561FE3812200286BE1 /* Assets.xcassets */; };
 		CE145A5A1FE3812200286BE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE145A581FE3812200286BE1 /* LaunchScreen.storyboard */; };
 		CE145A621FE387BE00286BE1 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE145A611FE387BE00286BE1 /* AppRouter.swift */; };
-		CE23B06020AE95070071C5DC /* Streaks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE23B05E20AE95070071C5DC /* Streaks.xcdatamodeld */; };
+		CE1CA58F20D22B4700AFA53F /* Streaks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE23B05E20AE95070071C5DC /* Streaks.xcdatamodeld */; };
 		CE23B06220AE95910071C5DC /* ProgressDataLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23B06120AE95910071C5DC /* ProgressDataLayer.swift */; };
 		CE23B06420AEB33C0071C5DC /* MarkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23B06320AEB33C0071C5DC /* MarkerViewController.swift */; };
 		CE23B06620AEB9D30071C5DC /* MarkerConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23B06520AEB9D30071C5DC /* MarkerConductor.swift */; };
@@ -703,6 +703,7 @@
 				CEDA59B920B0E15400D3EFE7 /* StreaksSettingsViewController.swift in Sources */,
 				CEBFDF6D1FE3904A00DC8AA8 /* StatsViewController.swift in Sources */,
 				CEA1F2EA20B00A9000CB378C /* UIView+Extensions.swift in Sources */,
+				CE1CA58F20D22B4700AFA53F /* Streaks.xcdatamodeld in Sources */,
 				CEA1F2F620B00A9000CB378C /* UITextField+Extensions.swift in Sources */,
 				CE0E83E720CBA12800B2D2BA /* UICollectionView + ViewAnimator.swift in Sources */,
 				CE0E83E820CBA12800B2D2BA /* Utilities.swift in Sources */,
@@ -716,7 +717,6 @@
 				CEDA59BC20B0F35800D3EFE7 /* BaseOperation.swift in Sources */,
 				CEA1F2FC20B00A9000CB378C /* TextField.swift in Sources */,
 				CEBFDF5E1FE38B7800DC8AA8 /* String+Streaks.swift in Sources */,
-				CE23B06020AE95070071C5DC /* Streaks.xcdatamodeld in Sources */,
 				CEBFDF5F1FE38B7800DC8AA8 /* UIFont+Streaks.swift in Sources */,
 				CEBFDF5B1FE38B7800DC8AA8 /* UIViewController+Streaks.swift in Sources */,
 				CEDA59B720B0E14700D3EFE7 /* StreaksSettingsConductor.swift in Sources */,
