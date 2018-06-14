@@ -316,7 +316,8 @@
 				CE23B05E20AE95070071C5DC /* Streaks.xcdatamodeld */,
 				CE23B06120AE95910071C5DC /* ProgressDataLayer.swift */,
 			);
-			path = CoreData;
+			name = CoreData;
+			path = Progress/CoreData;
 			sourceTree = "<group>";
 		};
 		CE8CA0EB1FF197530040C3AF /* Cells */ = {
