@@ -44,7 +44,7 @@ class ActivityListConductor: TabConductor {
    }
    
    @objc private func _addActivity() {
-      let activity = dataLayer.createNewActivity()
+      let activity = dataLayer.createActivity()
       dataLayer.save()
       _updateActivityListViewController()
       _showActivityPages(focusedActivity: activity, editTitleOnShow: true)
@@ -101,6 +101,7 @@ extension ActivityListConductor: ActivityListViewModelDelegate {
       alert.addAction(title: "Cancel", color: UIColor(.markerBlue), style: .default)
       alert.addAction(title: "Delete", color: UIColor(.lipstick), style: .destructive) { action in
          self.dataLayer.delete(activity: activity)
+         self.dataLayer.save()
          self._updateActivityListViewController()
       }
       alert.show(animated: true, vibrate: true)

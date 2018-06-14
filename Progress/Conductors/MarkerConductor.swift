@@ -72,14 +72,12 @@ class MarkerConductor: Conductor, Bindable {
    
    override func conductorWillDismiss(from context: UINavigationController) {
       switch marker {
-      case .some(let a):
-         a.descriptionText = activityDetails
-         dataLayer.save()
+      case .some(let a): a.descriptionText = activityDetails
       case .none:
          guard !activityDetails.isEmpty else { return }
-         dataLayer.createMarker(at: date, for: activity, with: activityDetails)
-         dataLayer.save()
+         dataLayer.createMarker(on: date, for: activity, with: activityDetails)
       }
+      dataLayer.save()
    }
    
    override func conductorDidShow(in context: UINavigationController) {
@@ -88,16 +86,13 @@ class MarkerConductor: Conductor, Bindable {
    
    @objc func _morePressed() {
       let alert = UIAlertController(style: .actionSheet, title: nil)
-      alert.addAction(title: "Cancel", color: UIColor(.markerBlue), style: .cancel) { action in
-         print("Cancel")
-      }
+      alert.addAction(title: "Cancel", color: UIColor(.markerBlue), style: .cancel)
       alert.addAction(image: #imageLiteral(resourceName: "copy"), title: "Copy from previous", color: UIColor(.chalkboard), style: .default) { action in
          guard let lastMarker = self.dataLayer.markerWithText(before: self.date, in: self.activity) else { return }
          self[.activityDetails] = lastMarker.descriptionText
-         if let marker = self.marker {
-            marker.descriptionText = lastMarker.descriptionText
-         } else {
-            self.dataLayer.createMarker(at: self.date, for: self.activity, with: lastMarker.descriptionText!)
+         switch self.marker {
+         case .some(let m): m.descriptionText = lastMarker.descriptionText
+         case .none: self.dataLayer.createMarker(on: self.date, for: self.activity, with: lastMarker.descriptionText!)
          }
          self.dataLayer.save()
       }

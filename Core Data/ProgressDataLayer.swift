@@ -86,7 +86,7 @@ class ProgressDataLayer {
       return fetchedActivities
    }
    
-   func createNewActivity() -> Activity {
+   func createActivity() -> Activity {
       let name = _newStreakName()
       let entity = NSEntityDescription.entity(forEntityName: "Activity", in: context)
       let newStreak = NSManagedObject(entity: entity!, insertInto: context)
@@ -115,19 +115,17 @@ class ProgressDataLayer {
    
    func delete(activity: Activity) {
       context.delete(activity)
-      save()
    }
    
    func toggleActivity(at date: Date, for activity: Activity) {
       if let marker = activity.marker(for: date) {
          context.delete(marker)
       } else {
-         createMarker(at: date, for: activity)
+         createMarker(on: date, for: activity)
       }
-      updateFetchedActivities()
    }
    
-   @discardableResult func createMarker(at date: Date, for activity: Activity, with description: String = "") -> Marker? {
+   @discardableResult func createMarker(on date: Date, for activity: Activity, with description: String = "") -> Marker? {
       guard activity.marker(for: date) == nil else { return nil }
       let entity = NSEntityDescription.entity(forEntityName: "Marker", in: context)
       let newMarker = NSManagedObject(entity: entity!, insertInto: context)
