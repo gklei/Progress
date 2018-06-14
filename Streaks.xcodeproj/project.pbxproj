@@ -24,6 +24,7 @@
 		CE145A5A1FE3812200286BE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE145A581FE3812200286BE1 /* LaunchScreen.storyboard */; };
 		CE145A621FE387BE00286BE1 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE145A611FE387BE00286BE1 /* AppRouter.swift */; };
 		CE1CA58F20D22B4700AFA53F /* Streaks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE23B05E20AE95070071C5DC /* Streaks.xcdatamodeld */; };
+		CE1CA59120D231B000AFA53F /* ElementConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1CA59020D231B000AFA53F /* ElementConfigs.swift */; };
 		CE23B06220AE95910071C5DC /* ProgressDataLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23B06120AE95910071C5DC /* ProgressDataLayer.swift */; };
 		CE23B06420AEB33C0071C5DC /* MarkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23B06320AEB33C0071C5DC /* MarkerViewController.swift */; };
 		CE23B06620AEB9D30071C5DC /* MarkerConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23B06520AEB9D30071C5DC /* MarkerConductor.swift */; };
@@ -87,7 +88,6 @@
 		CEBFDF711FE399AF00DC8AA8 /* ActivityConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF701FE399AF00DC8AA8 /* ActivityConductor.swift */; };
 		CEBFDF731FE399CE00DC8AA8 /* StatsConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF721FE399CE00DC8AA8 /* StatsConductor.swift */; };
 		CEBFDF751FE399E300DC8AA8 /* ActivitySettingsConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF741FE399E300DC8AA8 /* ActivitySettingsConductor.swift */; };
-		CEBFDF7A1FE39A4000DC8AA8 /* ElementConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFDF791FE39A4000DC8AA8 /* ElementConfigs.swift */; };
 		CEC8AD5620AF956C002B7947 /* ActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC8AD5520AF956C002B7947 /* ActivityListViewController.swift */; };
 		CEC8AD5820AF9593002B7947 /* ActivityListConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC8AD5720AF9593002B7947 /* ActivityListConductor.swift */; };
 		CEDA59B320B0DA9E00D3EFE7 /* ColorGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA59B220B0DA9E00D3EFE7 /* ColorGridViewController.swift */; };
@@ -122,6 +122,7 @@
 		CE145A591FE3812200286BE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE145A5B1FE3812200286BE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE145A611FE387BE00286BE1 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		CE1CA59020D231B000AFA53F /* ElementConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementConfigs.swift; sourceTree = "<group>"; };
 		CE23B05F20AE95070071C5DC /* Streaks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Streaks.xcdatamodel; sourceTree = "<group>"; };
 		CE23B06120AE95910071C5DC /* ProgressDataLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDataLayer.swift; sourceTree = "<group>"; };
 		CE23B06320AEB33C0071C5DC /* MarkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerViewController.swift; sourceTree = "<group>"; };
@@ -181,13 +182,12 @@
 		CEBFDF591FE38B7800DC8AA8 /* UIBarButtonItem+Streaks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Streaks.swift"; sourceTree = "<group>"; };
 		CEBFDF5A1FE38B7800DC8AA8 /* UILabel+Streaks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Streaks.swift"; sourceTree = "<group>"; };
 		CEBFDF671FE38E8700DC8AA8 /* MainConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainConductor.swift; path = Progress/Conductors/MainConductor.swift; sourceTree = SOURCE_ROOT; };
-		CEBFDF6A1FE38F7E00DC8AA8 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityViewController.swift; path = "Progress/View Controllers/ActivityViewController.swift"; sourceTree = SOURCE_ROOT; };
-		CEBFDF6C1FE3904A00DC8AA8 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatsViewController.swift; path = "Progress/View Controllers/StatsViewController.swift"; sourceTree = SOURCE_ROOT; };
-		CEBFDF6E1FE3906700DC8AA8 /* ActivitySettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivitySettingsViewController.swift; path = "Progress/View Controllers/ActivitySettingsViewController.swift"; sourceTree = SOURCE_ROOT; };
+		CEBFDF6A1FE38F7E00DC8AA8 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityViewController.swift; path = Progress/ViewControllers/ActivityViewController.swift; sourceTree = SOURCE_ROOT; };
+		CEBFDF6C1FE3904A00DC8AA8 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatsViewController.swift; path = Progress/ViewControllers/StatsViewController.swift; sourceTree = SOURCE_ROOT; };
+		CEBFDF6E1FE3906700DC8AA8 /* ActivitySettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivitySettingsViewController.swift; path = Progress/ViewControllers/ActivitySettingsViewController.swift; sourceTree = SOURCE_ROOT; };
 		CEBFDF701FE399AF00DC8AA8 /* ActivityConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivityConductor.swift; path = Progress/Conductors/ActivityConductor.swift; sourceTree = SOURCE_ROOT; };
 		CEBFDF721FE399CE00DC8AA8 /* StatsConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatsConductor.swift; path = Progress/Conductors/StatsConductor.swift; sourceTree = SOURCE_ROOT; };
 		CEBFDF741FE399E300DC8AA8 /* ActivitySettingsConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivitySettingsConductor.swift; path = Progress/Conductors/ActivitySettingsConductor.swift; sourceTree = SOURCE_ROOT; };
-		CEBFDF791FE39A4000DC8AA8 /* ElementConfigs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ElementConfigs.swift; path = "Progress/Element Configs/ElementConfigs.swift"; sourceTree = SOURCE_ROOT; };
 		CEC8AD5520AF956C002B7947 /* ActivityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListViewController.swift; sourceTree = "<group>"; };
 		CEC8AD5720AF9593002B7947 /* ActivityListConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListConductor.swift; sourceTree = "<group>"; };
 		CEDA59B220B0DA9E00D3EFE7 /* ColorGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGridViewController.swift; sourceTree = "<group>"; };
@@ -277,7 +277,7 @@
 				CE8CA0EB1FF197530040C3AF /* Cells */,
 				CEBFDF661FE38E6A00DC8AA8 /* Conductors */,
 				CE23B05D20AE94DD0071C5DC /* CoreData */,
-				CEBFDF761FE39A0E00DC8AA8 /* Element Configs */,
+				CEBFDF761FE39A0E00DC8AA8 /* ElementConfigs */,
 				CEBFDF4F1FE38B7800DC8AA8 /* Extensions */,
 				0EA09E5486CA06A23EDB6F8A /* Frameworks */,
 				CEDA59BA20B0F34E00D3EFE7 /* Operations */,
@@ -287,7 +287,7 @@
 				CEBFDF361FE38AAE00DC8AA8 /* Resources */,
 				CE0E83D620CB3F3500B2D2BA /* Streaks.entitlements */,
 				CE0E83D920CBA11800B2D2BA /* ViewAnimator */,
-				CEBFDF691FE38F6000DC8AA8 /* View Controllers */,
+				CEBFDF691FE38F6000DC8AA8 /* ViewControllers */,
 			);
 			sourceTree = "<group>";
 		};
@@ -495,7 +495,7 @@
 			path = Progress/Conductors;
 			sourceTree = "<group>";
 		};
-		CEBFDF691FE38F6000DC8AA8 /* View Controllers */ = {
+		CEBFDF691FE38F6000DC8AA8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				CEBFDF6A1FE38F7E00DC8AA8 /* ActivityViewController.swift */,
@@ -508,17 +508,17 @@
 				CEDA59B220B0DA9E00D3EFE7 /* ColorGridViewController.swift */,
 				CEDA59B820B0E15400D3EFE7 /* StreaksSettingsViewController.swift */,
 			);
-			name = "View Controllers";
-			path = "Progress/View Controllers";
+			name = ViewControllers;
+			path = Progress/ViewControllers;
 			sourceTree = "<group>";
 		};
-		CEBFDF761FE39A0E00DC8AA8 /* Element Configs */ = {
+		CEBFDF761FE39A0E00DC8AA8 /* ElementConfigs */ = {
 			isa = PBXGroup;
 			children = (
-				CEBFDF791FE39A4000DC8AA8 /* ElementConfigs.swift */,
+				CE1CA59020D231B000AFA53F /* ElementConfigs.swift */,
 			);
-			name = "Element Configs";
-			path = "Progress/Element Configs";
+			name = ElementConfigs;
+			path = Progress/ElementConfigs;
 			sourceTree = "<group>";
 		};
 		CEDA59BA20B0F34E00D3EFE7 /* Operations */ = {
@@ -743,8 +743,8 @@
 				CE145A501FE3812200286BE1 /* AppDelegate.swift in Sources */,
 				CE0E83EA20CBA12800B2D2BA /* ViewAnimatorConfig.swift in Sources */,
 				CEBFDF641FE38B7800DC8AA8 /* UIBarButtonItem+Streaks.swift in Sources */,
+				CE1CA59120D231B000AFA53F /* ElementConfigs.swift in Sources */,
 				CEA1F2F720B00A9000CB378C /* AttributedTextBlock.swift in Sources */,
-				CEBFDF7A1FE39A4000DC8AA8 /* ElementConfigs.swift in Sources */,
 				CE8CA0ED1FF197810040C3AF /* CalendarGridCell.swift in Sources */,
 				CE0E83E620CBA12800B2D2BA /* UITableView + ViewAnimator.swift in Sources */,
 				CEBFDF631FE38B7800DC8AA8 /* UINavigationController+Streaks.swift in Sources */,
