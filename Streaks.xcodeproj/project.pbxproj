@@ -222,7 +222,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CE0E83D920CBA11800B2D2BA /* View Animator */ = {
+		CE0E83D920CBA11800B2D2BA /* ViewAnimator */ = {
 			isa = PBXGroup;
 			children = (
 				CE0E83DA20CBA12800B2D2BA /* Extensions */,
@@ -232,7 +232,8 @@
 				CE0E83DF20CBA12800B2D2BA /* ViewAnimator.swift */,
 				CE0E83E020CBA12800B2D2BA /* ViewAnimatorConfig.swift */,
 			);
-			path = "View Animator";
+			name = ViewAnimator;
+			path = Progress/ViewAnimator;
 			sourceTree = "<group>";
 		};
 		CE0E83DA20CBA12800B2D2BA /* Extensions */ = {
@@ -272,7 +273,7 @@
 		CE145A431FE3812200286BE1 = {
 			isa = PBXGroup;
 			children = (
-				CEA1F27820B00A6800CB378C /* Alerts and Pickers */,
+				CEA1F27820B00A6800CB378C /* AlertsAndPickers */,
 				CE8CA0EB1FF197530040C3AF /* Cells */,
 				CEBFDF661FE38E6A00DC8AA8 /* Conductors */,
 				CE23B05D20AE94DD0071C5DC /* CoreData */,
@@ -285,7 +286,7 @@
 				CE145A4E1FE3812200286BE1 /* Progress */,
 				CEBFDF361FE38AAE00DC8AA8 /* Resources */,
 				CE0E83D620CB3F3500B2D2BA /* Streaks.entitlements */,
-				CE0E83D920CBA11800B2D2BA /* View Animator */,
+				CE0E83D920CBA11800B2D2BA /* ViewAnimator */,
 				CEBFDF691FE38F6000DC8AA8 /* View Controllers */,
 			);
 			sourceTree = "<group>";
@@ -331,7 +332,7 @@
 			path = Progress/Cells;
 			sourceTree = "<group>";
 		};
-		CEA1F27820B00A6800CB378C /* Alerts and Pickers */ = {
+		CEA1F27820B00A6800CB378C /* AlertsAndPickers */ = {
 			isa = PBXGroup;
 			children = (
 				CEA1F2AD20B00A9000CB378C /* Extensions */,
@@ -339,7 +340,8 @@
 				CEA1F2BF20B00A9000CB378C /* Viewers */,
 				CEA1F2C320B00A9000CB378C /* Views */,
 			);
-			path = "Alerts and Pickers";
+			name = AlertsAndPickers;
+			path = Progress/AlertsAndPickers;
 			sourceTree = "<group>";
 		};
 		CEA1F27920B00A8F00CB378C /* Pickers */ = {
@@ -525,7 +527,8 @@
 				CEDA59BB20B0F35800D3EFE7 /* BaseOperation.swift */,
 				CEDA59BD20B0F37100D3EFE7 /* RenameActivityOperation.swift */,
 			);
-			path = Operations;
+			name = Operations;
+			path = Progress/Operations;
 			sourceTree = "<group>";
 		};
 		EB7AA54EC3DB057A478A53D5 /* Pods */ = {
