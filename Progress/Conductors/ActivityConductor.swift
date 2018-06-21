@@ -22,9 +22,7 @@ class ActivityConductor: Conductor {
                                                             target: self,
                                                             selector: #selector(Conductor.dismiss))
       vc.dataSource = self
-      let vm = ActivityViewController.ViewModel()
-      vm.delegate = self
-      vc.viewModel = vm
+      vc.viewModel.delegate = self
       return vc
    }()
    
