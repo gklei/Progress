@@ -237,5 +237,19 @@ extension CalendarGridCell {
                         brightness: hbsa.brightness,
                         alpha: hbsa.alpha)
       }
+      
+      private func _tileColor(day: Int) -> UIColor {
+         let minSaturation: CGFloat = 0
+         let maxSaturation: CGFloat = 0.1
+         let step: CGFloat = 0.01
+         let saturation = max(minSaturation, min(maxSaturation, step * CGFloat(day)))
+         let color = UIColor(.tileGray)
+         let hbsa = color.hsbaComponents
+         print(saturation, day)
+         return UIColor(hue: hbsa.hue,
+                        saturation: 0,
+                        brightness: hbsa.brightness,
+                        alpha: hbsa.alpha)
+      }
    }
 }
