@@ -90,11 +90,6 @@ class MarkerConductor: Conductor, Bindable {
       alert.addAction(image: #imageLiteral(resourceName: "copy"), title: "Copy from previous", color: UIColor(.chalkboard), style: .default) { action in
          guard let lastMarker = self.dataLayer.markerWithText(before: self.date, in: self.activity) else { return }
          self[.activityDetails] = lastMarker.descriptionText
-         switch self.marker {
-         case .some(let m): m.descriptionText = lastMarker.descriptionText
-         case .none: self.dataLayer.createMarker(on: self.date, for: self.activity, with: lastMarker.descriptionText!)
-         }
-         self.dataLayer.save()
       }
       alert.show(animated: true)
    }
