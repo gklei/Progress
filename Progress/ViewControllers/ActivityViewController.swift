@@ -151,13 +151,13 @@ extension ActivityViewController {
 
 extension ActivityViewController: CalendarGridViewControllerDataSource {
    var calendar: Calendar {
-      return .gregorian
+      return Calendar(identifier: .gregorian)
    }
    
    var startDate: Date {
       let timeIntervalSinceNow: TimeInterval = 60 * 60 * 24 * daysBack
       let daysAgo = calendar.startOfDay(for: Date(timeIntervalSinceNow: -timeIntervalSinceNow))
-      let date =  calendar.startOfDay(for: daysAgo.startOfWeek!)
+      let date =  calendar.startOfDay(for: daysAgo.startOfWeek(calendar: calendar)!)
       return date
    }
    
@@ -180,13 +180,8 @@ extension ActivityViewController: CalendarGridViewModelDelegate {
    }
 }
 
-extension Calendar {
-   static let gregorian = Calendar(identifier: .gregorian)
-}
-
 extension Date {
-   var startOfWeek: Date? {
-      let calendar = Calendar.gregorian
+   func startOfWeek(calendar: Calendar) -> Date? {
       let components = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)
       return calendar.date(from: components)
    }

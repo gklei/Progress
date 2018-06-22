@@ -31,6 +31,15 @@ class CalendarGridViewController : UIViewController {
    fileprivate var _propertyAnimatorIn: UIViewPropertyAnimator?
    fileprivate var _propertyAnimatorOut: UIViewPropertyAnimator?
    
+   fileprivate lazy var _refreshControl: UIRefreshControl = {
+      let control = UIRefreshControl()
+      control.tintColor = UIColor(.tileGray)
+      let selector = #selector(CalendarGridViewController._refreshControlChanged(control:))
+      control.addTarget(self, action: selector, for: .valueChanged)
+      control.layer.zPosition = -1
+      return control
+   }()
+   
    var collectionView: UICollectionView { return _cv }
    
    required init?(coder aDecoder: NSCoder) { fatalError() }
@@ -50,6 +59,7 @@ class CalendarGridViewController : UIViewController {
       _cv.showsVerticalScrollIndicator = false
       _cv.backgroundColor = .clear
       _cv.delaysContentTouches = false
+      _cv.refreshControl = _refreshControl
       CalendarGridCell.register(collectionView: _cv)
       
       _cv.translatesAutoresizingMaskIntoConstraints = false
@@ -80,6 +90,7 @@ class CalendarGridViewController : UIViewController {
          headerView.heightAnchor.constraint(equalToConstant: 60),
       ])
       
+      _refreshControl.bounds = _refreshControl.bounds.insetBy(dx: 0, dy: -40)
       _updateHeaderViewAlpha(scrollViewOffset: 0)
    }
    
@@ -111,9 +122,17 @@ class CalendarGridViewController : UIViewController {
       if scrollViewOffset < -_headerFadeInOffset {
          let progress = ((scrollViewOffset * -1) - _headerFadeInOffset) / _headerFadeInPoints
          _headerVC.view.alpha = min(progress, 1)
+         _refreshControl.alpha = min(progress, 1)
       } else {
          _headerVC.view.alpha = 0
+         _refreshControl.alpha = 0
       }
+   }
+   
+   @objc private func _refreshControlChanged(control: UIRefreshControl) {
+      guard control.isRefreshing else { return }
+      reload()
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) { control.endRefreshing() }
    }
 }
 
