@@ -13,8 +13,8 @@ class MainConductor: Conductor {
    fileprivate let _activityListConductor: ActivityListConductor
    fileprivate var _currentActivityConductor: ActivityConductor?
    fileprivate let _statsConductor: StatsConductor
-   
-   fileprivate var _streaksSettingsConductor: StreaksSettingsConductor
+   fileprivate let _activityComposerConductor: ActivityComposerConductor
+   fileprivate var _streaksSettingsConductor: GlobalSettingsConductor
    fileprivate var _activitySettingsConductor: ActivitySettingsConductor?
    
    override var rootViewController: UIViewController? { return _tabController }
@@ -25,7 +25,8 @@ class MainConductor: Conductor {
       self.dataLayer = dataLayer
       _activityListConductor = ActivityListConductor(dataLayer: dataLayer)
       _statsConductor = StatsConductor(dataLayer: dataLayer)
-      _streaksSettingsConductor = StreaksSettingsConductor(dataLayer: dataLayer)
+      _activityComposerConductor = ActivityComposerConductor(dataLayer: dataLayer)
+      _streaksSettingsConductor = GlobalSettingsConductor(dataLayer: dataLayer)
       
       super.init()
       _activityListConductor.delegate = self
