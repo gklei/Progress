@@ -20,7 +20,7 @@ class ActivityListConductor: TabConductor {
       vc.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "list"), selectedImage: #imageLiteral(resourceName: "list"))
       vc.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -10, right: 0)
       vc.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "",
-                                                             icon: #imageLiteral(resourceName: " plus"),
+                                                             icon: #imageLiteral(resourceName: "plus"),
                                                              tintColor: UIColor(.chalkboard),
                                                              target: self,
                                                              selector: #selector(ActivityListConductor._addActivity))
@@ -67,13 +67,21 @@ class ActivityListConductor: TabConductor {
       let conductor = ActivityPageConductor(dataLayer: dataLayer, activities: activities, focusedActivity: activity, editTitleOnShow: editTitleOnShow)
       conductor.delegate = self
       conductor.activiesConductorDelegate = self
+      
+      _updateBarButtonItem(image: #imageLiteral(resourceName: "grid"))
       conductor.willDismissBlock = {
+         self._updateBarButtonItem(image: #imageLiteral(resourceName: "list"))
          self.delegate?.activityConductorWillDismiss(conductor.focusedConductor, from: self)
       }
       
       delegate?.activityConductorWillShow(conductor.focusedConductor, from: self)
       _activityPageConductor = conductor
       show(conductor: _activityPageConductor)
+   }
+   
+   fileprivate func _updateBarButtonItem(image: UIImage) {
+      _activityListVC.tabBarItem = UITabBarItem(title: nil, image: image, selectedImage: image)
+      _activityListVC.tabBarItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -10, right: 0)
    }
    
    fileprivate func _updateActivityListViewController() {

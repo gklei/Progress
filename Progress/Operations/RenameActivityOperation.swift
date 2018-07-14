@@ -36,7 +36,7 @@ class RenameActivityOperation: BaseOperation {
          textField.becomeFirstResponder()
          textField.textColor = UIColor(.chalkboard)
          textField.placeholder = "Edit Activity Name"
-         textField.left(image: #imageLiteral(resourceName: " edit-3"), color: UIColor(.chalkboard))
+         textField.left(image: #imageLiteral(resourceName: "edit-3"), color: UIColor(.chalkboard))
          textField.leftViewPadding = 12
          textField.cornerRadius = 8
          textField.borderColor = UIColor(.chalkboard, alpha: 0.15)
