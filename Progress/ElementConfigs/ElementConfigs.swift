@@ -37,7 +37,6 @@ class TextInputConfiguration: TextInputElementConfiguration {
                  placeholderStyle: TextStyle(size: 14, weight: .medium, color: UIColor(.chalkboard, alpha: 0.4)),
                  inputStyle: TextStyle(size: 14, weight: .medium),
                  keyboardStyle: ElementalKeyboardStyle(type: keyboardType,
-//                                                       appearance: .dark,
                                                        autocapitalizationType: autocapitalizationType,
                                                        autocorrectionType: autocorrectionType,
                                                        isSecureTextEntry: secureEntry),
@@ -45,6 +44,16 @@ class TextInputConfiguration: TextInputElementConfiguration {
       isConfinedToMargins = false
       inputTintColor = UIColor(.chalkboard)
       self.isEnabled = isEnabled
+   }
+}
+
+class SwitchConfiguration: SwitchElementConfiguration {
+   init(offTintColor: UIColor, onTintColor: UIColor) {
+      super.init(nameStyle: TextStyle(size: 24, weight: .light),
+                 height: 80,
+                 offTintColor: UIColor(.chalkboard, alpha: 0.25),
+                 onTintColor: onTintColor)
+      sizeConstraint = ElementalSize(width: .intrinsic, height: .constant(48))
    }
 }
 

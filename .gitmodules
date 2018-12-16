@@ -1,0 +1,9 @@
+[submodule "Pods/Bindable"]
+	path = Pods/Bindable
+	url = git@github.com:Incipia/Bindable.git
+[submodule "Pods/Conduction"]
+	path = Pods/Conduction
+	url = git@github.com:Incipia/Conduction.git
+[submodule "Pods/Elemental"]
+	path = Pods/Elemental
+	url = git@github.com:Incipia/Elemental.git
